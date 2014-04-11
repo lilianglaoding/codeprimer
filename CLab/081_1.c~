@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+void output(long b, long i)
+{
+  printf(":;`);
+}
