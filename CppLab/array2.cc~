@@ -1,0 +1,13 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  int *pia = new int[10]();
+  for (int *p = pia; p != pia + 10; ++p)
+    cout << *p << " ";
+  cout << endl;
+  delete pia;
+  return 0;
+}

@@ -1,0 +1,8 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  throw runtime_error("Data must refer to the same ISBN!");
+}

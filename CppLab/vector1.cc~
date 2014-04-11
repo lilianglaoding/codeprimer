@@ -1,0 +1,3 @@
+//vector is a class template, it can hold int, 
+//char, string and other type element;
+

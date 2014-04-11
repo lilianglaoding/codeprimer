@@ -1,0 +1,13 @@
+class Folder
+{
+ public:
+  Folder();
+  Folder(const Folder &);
+  Folder & operator=(const Floder &);
+  ~Folder();
+  void addMsg(Message *);
+  void remMsg(Message *);
+
+ private:
+  set<Message *> msg;
+}

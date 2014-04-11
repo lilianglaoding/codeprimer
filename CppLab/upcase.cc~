@@ -1,0 +1,16 @@
+#include <string>
+#include <iostream>
+#include <stdlib>
+
+using namespace std;
+
+void UpperCase(char str[])
+{
+  for (size_t)
+}
+
+int main()
+{
+  
+  return 0;
+}

@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+  vector<int> ivec(1, 10);
+  vector<int>::iterator viter;
+  for (viter = ivec.begin(); viter != ivec.end(); ++viter)
+    cout << *viter << " ";
+  cout << endl;
+  return 0;
+}
