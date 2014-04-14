@@ -3,6 +3,10 @@
 #include <string>
 class Sales_item
 {
+  friend std::istream &opertor>>
+    (std::istream &, Sales_item &);
+  friend std::ostream &operator<<
+    (std::ostream &, Sales_item &);
  public:
   double avg_price() const;
   bool same_isbn(const Sales_item &rhs) const
@@ -14,7 +18,7 @@ class Sales_item
     do_display(os);
   }
 
-  //Sales_item(): units_sold(0), revenue(0.0) {}
+  Sales_item(): units_sold(0), revenue(0.0) {}
   explicit Sales_item(const std::string &book = ""):
   isbn(book), units_sold(0), revenue(0.0) { }
   explicit Sales_item(std::istream &is);
@@ -30,4 +34,5 @@ class Sales_item
        << "revenue: " << revenue << std::endl;
   }
 };
+Sales_item operator+(const Sales_item &, const Sales_item &);
 #endif
