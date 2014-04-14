@@ -1,4 +1,4 @@
-#include <iostream>
+n#include <iostream>
 #include "Sales_item.h"
 
 /*Sales_item::Sales_item(const std::string &book):
@@ -17,3 +17,5 @@ double Sales_item::avg_price() const
   else
     return 0;
 }
+
+//Sales_item operator+(const Sales_item &, const Sales_item &);
