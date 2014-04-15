@@ -1,13 +1,18 @@
 #ifndef SALESITEM_H
 #define SALESITEM_H
 #include <string>
+#include <iostream>
 class Sales_item
 {
-  friend std::istream &opertor>>
+  //  friend std::istream &operator>>
     (std::istream &, Sales_item &);
-  friend std::ostream &operator<<
+  //  friend std::ostream &operator<<
     (std::ostream &, Sales_item &);
+  //  friend Sales_item operator+(const Sales_item &, const Sales_item &);
  public:
+  friend std::istream &operator>>(std::istream &, Sales_item &);
+  friend std::ostream &operator<<(std::ostream &, Sales_item &);
+  friend Sales_item operator+(const Sales_item &, const Sales_item &);p
   double avg_price() const;
   bool same_isbn(const Sales_item &rhs) const
   {
