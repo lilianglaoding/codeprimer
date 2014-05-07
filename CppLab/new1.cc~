@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  double *pd = new double(3.3);
+  delete pd;
+  return 0;
+}

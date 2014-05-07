@@ -1,0 +1,3 @@
+  vector<int>::iterator viter;
+  for (viter = ivec.begin(); viter != ivec.end(); ++viter)
+    cout << *viter << " ";

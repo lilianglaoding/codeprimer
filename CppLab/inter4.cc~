@@ -1,0 +1,14 @@
+#include <iostream>
+#include <vector>
+#include <iterator>
+
+using namespace std;
+
+int main()
+{
+  istream_iterator<int> cin_it(cin);
+  istream_iterator<int> end_of_stream;
+  vector<int> vec(cin_it, end_of_stream);
+  
+  return 0;
+}

@@ -1,0 +1,9 @@
+#ifndef POINTER_H
+#define POINTER_H
+class HasPtr
+{
+ public:
+  HasPtr(int *p, int i): ptr(p), val(i) { }；
+					     void set_ptr_val(int val) const { *ptr = val; }
+}
+#endif

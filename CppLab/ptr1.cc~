@@ -1,0 +1,12 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  const int i = 1;
+  int j = 2;
+  const int *ptr = &i;
+  int *p = ptr;
+  return 0;
+}

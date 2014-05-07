@@ -1,0 +1,12 @@
+#include "print_iter.h"
+
+using namespace std;
+
+template <typename T>
+void print_iter(T vector_tmp)
+{
+  for (T::const_iterator iter = vector_tmp.begin();
+       iter != vector_tmp.end(); ++iter)
+    cout << *iter << " ";
+  cout << endl;
+}

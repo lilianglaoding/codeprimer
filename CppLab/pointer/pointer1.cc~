@@ -1,0 +1,10 @@
+#include <iostream>
+#include "pointer1.h"
+
+int main()
+{
+  int obj = 0;
+  HasPtr ptr1(&obj, 42);
+  std::cout << get_ptr_val() << set_ptr_val(43) << std::endl;
+  return 0;
+}

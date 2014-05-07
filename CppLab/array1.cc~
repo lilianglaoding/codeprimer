@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  const unsigned array_size = 3;
+  int ia[array_size] = {0, 1, 2};
+  
+}
