@@ -5,7 +5,7 @@
 typedef struct
 {
   int data[MAXSIZE];
-  size_t last;
+  int last;
 }SeqList;
 
 #endif
