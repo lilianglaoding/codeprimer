@@ -5,6 +5,7 @@
 
 #define FLAG 65535
 
+//notice: this program count from 1, not 0
 
 LinkList Creat_LinkList_front()
 {
@@ -67,10 +68,10 @@ int Length_LinkList(LinkList L)
   return length;
 }
 
-//get by location
+//get by location, count from 1
 LinkList Get_LinkList_Location(LinkList L, int loc)
 {
-  int i = 0;
+  int i = 1;
   LinkList ptemp = L;
 
   while (ptemp != NULL && i < loc)
@@ -95,6 +96,7 @@ LinkList Get_LinkList_Value(LinkList L, int x)
   return ptemp;
 }
 
+//insert after the loc
 int Insert_LinkList(LinkList L, int loc, int i)
 {
   LinkList ptr;
@@ -119,15 +121,15 @@ int Insert_LinkList(LinkList L, int loc, int i)
 }
 
 //delete by value
-int Delete_LinkList_Value(LinkList L, int x)
+int Delete_LinkList_Value(LinkList *L, int x)
 {
-  LinkList ptemp = L;
+  LinkList ptemp = *L;
   LinkList ptr = NULL;
   if (ptemp == NULL)
     return 0;
   if (ptemp->data == x)
   {
-    L = ptemp->next;
+    *L = ptemp->next;
     free(ptemp);
     return 1;
   }
@@ -147,17 +149,17 @@ int Delete_LinkList_Value(LinkList L, int x)
 }
 
 
-//delete by location
-int Delete_LinkList_location(LinkList L, int loc)
+//delete by location, count from 1
+int Delete_LinkList_Location(LinkList *L, int loc)
 {
-  LinkList ptemp = L;
+  LinkList ptemp = *L;
   LinkList ptr = NULL;
   int i = 0;
-  if (ptemp)
+  if (!ptemp)
     return 0;
   if (loc == 1)
-  {
-    L = L->next;
+  { 
+    *L = ptemp->next;
     free(ptemp);
     return 1;
   }
@@ -177,6 +179,18 @@ int Delete_LinkList_location(LinkList L, int loc)
     return 1;
   }
 }
+
+//can't delete head, deleting head will cause core dump
+/*int Delete_LinkList_Location(LinkList L, int loc)
+{
+  LinkList ptemp = NULL;
+  LinkList ptr = NULL;
+  ptemp = Get_LinkList_Location(L, loc - 1);
+  ptr = ptemp->next;
+  ptemp->next = ptr->next;
+  free(ptr);
+  return 1;
+  }*/
 
 void Output_LinkList(LinkList L)
 {
@@ -198,26 +212,29 @@ int main()
   //L2 = Creat_LinkList_rear();
   //Output_LinkList(L2);
   int ret = 0;
-  ret = Insert_LinkList(L1, 9, 11);
+  ret = Insert_LinkList(L1, 10, 11);
   Output_LinkList(L1);
   if (ret == 0)
     printf("insert fail\n");
   else
     printf("insert success\n");
-  ret = Delete_LinkList_Value(L1, 11);
+  ret = Delete_LinkList_Value(&L1, 1);
   Output_LinkList(L1);
   if (ret == 0)
     printf("delete fail\n");
   else
     printf("delete success\n");
-  ret = Delete_LinkList_location(L1, 8);
+  ret = Delete_LinkList_Location(&L1, 1);
   Output_LinkList(L1);
   if (ret == 0)
     printf("delete fail\n");
   else
     printf("delete success\n");
   ptr = Get_LinkList_Value(L1, 2);
-  printf("%d\n", ptr->data);
+  if (ptr)
+    printf("%d\n", ptr->data);
+  else
+    printf("didn't find the value\n");
   ptr = Get_LinkList_Location(L1, 3);
   printf("%d\n", ptr->data);
   return 0;
