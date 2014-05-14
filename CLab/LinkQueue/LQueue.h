@@ -7,4 +7,10 @@ typedef struct node
   struct node *next;
 } QNode;
 
+//we didn't define front and rear in QNode, because every node need not have a front and a rear
+typedef struct
+{
+  QNode *front, *rear;
+} LQueue;
+
 #endif
