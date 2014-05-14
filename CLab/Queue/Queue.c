@@ -34,13 +34,14 @@ int In_Queue(C_SeQueue *q, int x)
 
 int Out_Queue(C_SeQueue *q, int *x)
 {
-  if (Empty_Queue)
+  if (Empty_Queue(q))
   {
-    //printf("the Queue is empty\n");
+    //printf("the Queue is empty--------\n");
     return 0;
   }
   q->front = (q->front + 1) % MAXSIZE;
   *x = q->data[q->front];
+  //printf("%d\n", *x);
   --q->num;
   return 1;
 }
@@ -53,7 +54,7 @@ void Destroy_Queue(C_SeQueue *q)
 int main()
 {
   C_SeQueue *q;
-  int x = 0;
+  int x = 1;
   q = Init_Queue();
   int is_empty = 0;
   is_empty = Empty_Queue(q);
@@ -61,7 +62,7 @@ int main()
     printf("the queue is empty\n");
   else
     printf("the queue is not empty\n");
-  for (int i = 0; i < 256; ++i)
+  for (int i = 0; i < 10; ++i)
     In_Queue(q, i);
   is_empty = Empty_Queue(q);
   if (is_empty)
@@ -74,5 +75,6 @@ int main()
   printf("the out data is: %d\n", x);
   Out_Queue(q, &x);
   printf("the out data is: %d\n", x);
+  Destroy_Queue(q);
   return 0;
 }
