@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#include "string.h"
+
+int Str_Assign(HString *s1, char *s2)
+{
+  
+}
