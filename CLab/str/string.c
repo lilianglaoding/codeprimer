@@ -72,6 +72,29 @@ int Index_String_BF(char *s, char *t)
   return i;
 }
 
+int Index_String_BF1(char *s, char *t)
+{
+  int i = 0, j = 0;
+  while (s[i] != '\0' && t[j] != '\0')
+  {
+    if (s[i] == t[j])
+    {
+      ++i;
+      ++j;
+    }
+    else
+    {
+      j = 0;
+      i = i -j + 1;
+    }
+  }
+  //printf("i: %d, j: %d\n",i ,j);
+  if (t[j] == '\0')
+    return (i - j);
+  else
+    return StrLength(s);
+}
+
 int main()
 {
   char s1[MAXSIZE] = "helli", s2[MAXSIZE] = "hello";
@@ -85,7 +108,7 @@ int main()
   StrConcat(s1, s2);
   printf("s1: %s\n", s1);
   printf("s2: %s\n", s2);
-  int index = Index_String_BF(s4, s2);
+  int index = Index_String_BF1(s1, s2);
   if (index != StrLength(s4))
     printf("the index is: %d\n", index);
   else
