@@ -86,7 +86,6 @@ int main()
   printf("s1: %s\n", s1);
   printf("s2: %s\n", s2);
   int index = Index_String_BF(s4, s2);
-  
   if (index != StrLength(s4))
     printf("the index is: %d\n", index);
   else
