@@ -86,16 +86,17 @@ int main()
   printf("s1: %s\n", s1);
   printf("s2: %s\n", s2);
   int index = Index_String_BF(s4, s2);
-  printf("length: %d\n", StrLength(s4));
-  if (index != StrLength(s4) + 1)
+  
+  if (index != StrLength(s4))
     printf("the index is: %d\n", index);
   else
     printf("the sub string is not found\n");
-  if (cmp > 0)
+    /*if (cmp > 0)
     printf("string1 is bigger than string2\n");
   else if (cmp < 0)
     printf("string1 is smaller than string2\n");
   else
     printf("string1 is as big as string2\n");
+  */
   return 0;
 }
