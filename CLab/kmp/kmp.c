@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//kmp algorithm:
+// t1t
+
 int StrIndex_KMP(char *s, char *t, int pos, int next[])
 {
   int i = pos, j = 1;
@@ -21,5 +24,5 @@ int StrIndex_KMP(char *s, char *t, int pos, int next[])
 int main()
 {
   
-  return 0;
+  //return 0;
 }
