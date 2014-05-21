@@ -40,10 +40,11 @@ void GetNext(char t[], int next[])
 
 int main()
 {
-  char t[10] = "9abcaababc";
-  char *s = "9abcaababc";
+  char t[10] = "9abcaabab";
+  char *s = "9abcaabab";
+  printf("----");
   //s[0] = 9;
-  t[0] = 9;
+  //t[0] = 9;
   int next[9];
   GetNext(t, next);
   int index = StrIndex_KMP(s, t, 1, next);
