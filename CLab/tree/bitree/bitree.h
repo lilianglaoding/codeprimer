@@ -4,7 +4,7 @@
 typedef struct BiTNode
 {
   int data;
-  struct BNode *lchild, *rchild;
+  struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
 
 #endif
