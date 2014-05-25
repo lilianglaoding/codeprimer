@@ -1,0 +1,10 @@
+#ifndef BITREE_H
+#define BITREE_H
+
+typedef struct node
+{
+  int data;
+  struct node *lchild, *rchild;
+}
+
+#endif
