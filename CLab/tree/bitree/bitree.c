@@ -8,6 +8,7 @@ int Initiate(BiTree *bt)
   *bt = (BiTNode *)malloc(sizeof(BiTNode));
   if (*bt == NULL)
     return 0;
+  (*bt)->data = 65535;
   (*bt)->lchild = NULL;
   (*bt)->rchild = NULL;
   return 1;
@@ -30,8 +31,10 @@ BiTree InsertL(BiTree bt, int x, BiTree parent)
   if (parent == NULL)
     return NULL;
   BiTree p;
+  //after malloc, p->data = 0, lchild and rchild is NULL
   if((p = (BiTNode *)malloc(sizeof(BiTNode))) == NULL)
     return NULL;
+  p->data = x;
   if (parent->lchild == NULL)
     parent->lchild = p;
   else
@@ -66,7 +69,7 @@ BiTree DeleteL(BiTree bt, BiTree parent)
 void Visit(int x)
 {
   printf("%d\t", x);
-  //printf("\n");
+  printf("\n");
 }
 
 void PreOrder(BiTree bt)
@@ -96,10 +99,24 @@ void PostOrder(BiTree bt)
   Visit(bt->data);
 }
 
+void Is_Success(int flag)
+{
+  if (flag)
+    printf("operator success!\n");
+  else
+    printf("operator failuer!\n");
+}
+
 int main()
 {
   BiTree bt;
+  //BiTree pt;
   Initiate(&bt);
+  for (int i = 0; i < 10; ++i)
+  {
+    InsertL(bt, i, bt);
+  }
+  PreOrder(bt);
   Destroy(bt);
   return 0;
 }
