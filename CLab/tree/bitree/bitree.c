@@ -25,7 +25,7 @@ BiTree Create(int x, BiTree lbt, BiTree rbt)
   return p;
 }
 
-BiTree InsertL(Bitree bt, int x, BiTree parent)
+BiTree InsertL(BiTree bt, int x, BiTree parent)
 {
   if (parent == NULL)
     return NULL;
@@ -48,7 +48,7 @@ void Destroy(BiTree bt)
     return ;
   Destroy(bt->lchild);
   Destroy(bt->rchild);
-  Destroy(bt);
+  //Destroy(bt);
   free(bt);
 }
 
@@ -56,9 +56,10 @@ BiTree DeleteL(BiTree bt, BiTree parent)
 {
   if (parent == NULL || parent->lchild == NULL)
     return NULL;
+  BiTree p;
   p = parent->lchild;
   parent->lchild = NULL;
-  free(p);
+  Destroy(p);
   return bt;
 }
 
