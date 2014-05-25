@@ -100,5 +100,6 @@ int main()
 {
   BiTree bt;
   Initiate(&bt);
+  Destroy(bt);
   return 0;
 }
