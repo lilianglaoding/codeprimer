@@ -24,6 +24,30 @@ void D_InsertSort(int *arr, int n)
   return ;
 }
 
+void BinarySort(int *arr, int n)
+{
+  int i = 0, j = 0;
+  for (i = 1; i < n; ++i)
+  {
+    int low = 0, high = i - 1;
+    int key = arr[i];
+    if (arr[i - 1] > key)
+    {
+      while (low <= high)
+      {
+	int mid = (low + high) / 2;
+	if (key > arr[mid])
+	  low = mid + 1;
+	else
+	  high = mid - 1;
+      }
+      for (int j = i - 1; j >= high + 1; --j)
+	arr[j + 1] = arr[j];
+      arr[j + 1] = key;
+    }//end for
+  }
+}
+
 int main()
 {
   int array[MAXSIZE];
@@ -36,7 +60,8 @@ int main()
     printf("%d\t", array[i]);
   
   printf("\n");
-  D_InsertSort(array, MAXSIZE);
+  //D_InsertSort(array, MAXSIZE);
+  BinarySort(array, MAXSIZE);
   printf("----after sort------\n");
   for (int i = 0, count = 1; i < MAXSIZE; ++i, ++count)
   {
