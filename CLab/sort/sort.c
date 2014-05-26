@@ -43,7 +43,7 @@ void BinarySort(int *arr, int n)
       }
       for (int j = i - 1; j >= high + 1; --j)
 	arr[j + 1] = arr[j];
-      arr[j + 1] = key;
+      arr[high + 1] = key;
     }//end for
   }
 }
