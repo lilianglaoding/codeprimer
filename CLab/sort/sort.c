@@ -48,6 +48,28 @@ void BinarySort(int *arr, int n)
   }
 }
 
+void BubbleSort(int *arr, int n)
+{
+  int swap = 0;
+  for (int i = 0; i < n; ++i)
+  {
+    swap = 0;
+    for (int j = 1; j < n; ++j)
+    {
+      if (arr[j - 1] > arr[j])
+      {
+	int temp = arr[j - 1];
+	arr[j - 1] = arr[j];
+	arr[j] = temp;
+	swap = 1;
+	printf("swap\n");
+      }
+    }
+    if (swap == 0)
+      break;
+  }
+}
+
 int main()
 {
   int array[MAXSIZE];
@@ -61,8 +83,21 @@ int main()
   
   printf("\n");
   //D_InsertSort(array, MAXSIZE);
-  BinarySort(array, MAXSIZE);
+  BubbleSort(array, MAXSIZE);
+  //BubbleSort(array, MAXSIZE);
   printf("----after sort------\n");
+  for (int i = 0, count = 1; i < MAXSIZE; ++i, ++count)
+  {
+    printf("%d\t", array[i]);
+    if (count % 10 == 0)
+    {
+      //++count;
+      printf("\n");
+    }
+  }
+  BubbleSort(array, MAXSIZE);
+  printf("\n");
+  printf("------after another sort------\n");
   for (int i = 0, count = 1; i < MAXSIZE; ++i, ++count)
   {
     printf("%d\t", array[i]);
