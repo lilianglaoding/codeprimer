@@ -72,12 +72,42 @@ void Print_LinkList(LinkList head)
   }
 }
 
+void Delete_Repeat(LinkList head)
+{
+  LinkList p, q;
+  LinkList ptemp;
+  p = head->next;
+  if (p == NULL)
+    return ;
+  q = p;
+  while (p->next)
+  {
+    q = p;
+    while (q->next)
+    {
+      if (p->data == q->next->data)
+      {
+	  ptemp = q->next;
+	  q->next = ptemp->next;
+	  free(ptemp);
+      }
+      else
+	q = q->next;
+    }
+    p = p->next;
+    //q = p;
+  }
+}
+
 int main()
 {
   LinkList head;
   head = Init_LinkList();
-  for (int i = 0; i < 10; ++i)
+  for (int i = 0; i < 4; ++i)
+  {
     Insert_LinkList(head, i);
+    Insert_LinkList(head, i);
+  }
   printf("\n-----before reverse-----\n");
   Print_LinkList(head);
   Reverse_LinkList(head);
@@ -85,6 +115,11 @@ int main()
   Print_LinkList(head);
   Reverse_LinkList(head);
   printf("\n-----after anoter reverse-----\n");
+  Print_LinkList(head);
+  if (head->next == NULL)
+    printf("head->next == NULL\n");
+  Delete_Repeat(head);
+  printf("\n-----ater delete repeat-----\n");
   Print_LinkList(head);
   printf("\n");
   Destroy(head);
