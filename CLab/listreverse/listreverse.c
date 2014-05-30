@@ -48,6 +48,20 @@ void Reverse_LinkList(LinkList head)
   }
 }
 
+void Reverse_LinkList1(LinkList head)
+{
+  LinkList p, q;
+  p = head->next;
+  head->next = NULL;
+  while (p)
+  {
+    q = p;
+    p = p->next;
+    q->next = head->next;
+    head->next = q;
+  }
+}
+
 void Print_LinkList(LinkList head)
 {
   LinkList p = head->next;
@@ -68,6 +82,9 @@ int main()
   Print_LinkList(head);
   Reverse_LinkList(head);
   printf("\n-----after reverse-----\n");
+  Print_LinkList(head);
+  Reverse_LinkList(head);
+  printf("\n-----after anoter reverse-----\n");
   Print_LinkList(head);
   printf("\n");
   Destroy(head);
