@@ -80,27 +80,24 @@ void Delete_Repeat(LinkList head)
   if (p == NULL)
     return ;
 
-  while (p->next)
+  while (p)
   {
     q = p;
     while (q->next)
     {
-      printf("p->data:%d,q->data:%d\n", p->data, q->next->data);
+      //printf("p->data:%d,q->data:%d\n", p->data, q->next->data);
       if (p->data == q->next->data)
       {
-	printf("equal\n");
-        ptemp = q->next;
+	ptemp = q->next;
 	q->next = ptemp->next;
 	free(ptemp);
       }
       else
 	q = q->next;
     }
-    //printf("p->data:%d,q->data:%d\n", p->data, q->data);
-    printf("\n");
     p = p->next;
-    if (!p)
-      break;
+    //if (!p)
+    //break;
   }
 }
 
@@ -113,19 +110,18 @@ int main()
     Insert_LinkList(head, i);
     Insert_LinkList(head, i);
   }
-  printf("\n-----before reverse-----\n");
+  printf("\n----------before reverse----------\n");
   Print_LinkList(head);
   Reverse_LinkList(head);
   printf("\n-----after reverse-----\n");
   Print_LinkList(head);
   Reverse_LinkList1(head);
-  printf("\n-----after anoter reverse-----\n");
+  printf("\n--------after anoter reverse------\n");
   Print_LinkList(head);
   if (head->next == NULL)
     printf("head->next == NULL\n");
-  printf("\n");
   Delete_Repeat(head);
-  printf("\n-----ater delete repeat-----\n");
+  printf("\n--------ater delete repeat--------\n");
   Print_LinkList(head);
   printf("\n");
   Destroy_LinkList(head);
