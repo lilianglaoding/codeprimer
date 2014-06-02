@@ -124,15 +124,16 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
     if (p1->data < p2->data)
     {
       rear->next = p1;
-      rear = rear->next;
+      //rear = rear->next;
       p1 = p1->next;
     }
     else
     {
       rear->next = p2;
-      rear = rear->next;
+      //rear = rear->next;
       p2 = p2->next;
     }
+    rear = rear->next;
   }
   while (p1 != NULL)
   {
@@ -188,7 +189,6 @@ int main()
   Print_LinkList(head);
   printf("\n");
   Print_LinkList(head2);
-  printf("\n");
   head = Merge_LinkList(head, head2);
   printf("\n---------after merge--------------\n");
   Print_LinkList(head);
