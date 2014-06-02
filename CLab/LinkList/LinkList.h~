@@ -1,8 +1,0 @@
-#ifndef LINKLIST_H
-#define LINKLIST_H
-
-typedef struct LNode
-{
-  int data;
-  LNode *next;
-}LinkList;
