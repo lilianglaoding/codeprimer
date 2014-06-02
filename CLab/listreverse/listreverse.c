@@ -154,7 +154,7 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
   }
   //h->next = head1->next;
   head1->next = h;
-  //rear->next = NULL;
+  rear->next = NULL;
 
   return head1;
 }
