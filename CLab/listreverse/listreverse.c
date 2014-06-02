@@ -110,15 +110,13 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
   {
     rear = p1;
     p1 = p1->next;
-    printf("first:p1 < p2\n");
   }
   else
   {
     rear = p2;
     p2 = p2->next;
-    printf("first:p1 >= p2\n");
   }
-  //head1->next = NULL;
+
   h = rear;
 
   while (p1 != NULL && p2 != NULL)
@@ -128,14 +126,12 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
       rear->next = p1;
       rear = rear->next;
       p1 = p1->next;
-      printf("p1 < p2\n");
     }
     else
     {
       rear->next = p2;
       rear = rear->next;
       p2 = p2->next;
-      printf("p2 < p1\n");
     }
   }
   while (p1 != NULL)
@@ -143,16 +139,14 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
     rear->next = p1;
     rear = rear->next;
     p1 = p1->next;
-    printf("p1:last\n");
   }
   while (p2 != NULL)
   {
     rear->next = p2;
     rear = rear->next;
     p2 = p2->next;
-    printf("p2:last\n");
   }
-  //h->next = head1->next;
+
   head1->next = h;
   //the last node's next is NULL
   //rear->next = NULL;
