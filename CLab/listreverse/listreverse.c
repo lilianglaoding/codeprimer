@@ -121,6 +121,7 @@ int main()
   if (head->next == NULL)
     printf("head->next == NULL\n");
   Delete_Repeat(head);
+  Delete_Repeat(head);
   printf("\n--------ater delete repeat--------\n");
   Print_LinkList(head);
   printf("\n");
