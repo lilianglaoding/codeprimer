@@ -85,7 +85,6 @@ void Delete_Repeat(LinkList head)
     q = p;
     while (q->next)
     {
-      //printf("p->data:%d,q->data:%d\n", p->data, q->next->data);
       if (p->data == q->next->data)
       {
 	ptemp = q->next;
@@ -105,27 +104,58 @@ LinkList Merge_LinkList(LinkList head1, LinkList head2)
 {
   LinkList p1 = head1->next;
   LinkList p2 = head2->next;
-  LinkList ptemp, rear;
+  LinkList ptemp, rear, h;
   free(head2);
-  head1->next = NULL;
-  rear = head1;
-  while (p1!= NULL && p2 != NULL)
+  if (p1->data < p2->data)
+  {
+    rear = p1;
+    p1 = p1->next;
+    printf("first:p1 < p2\n");
+  }
+  else
+  {
+    rear = p2;
+    p2 = p2->next;
+    printf("first:p1 >= p2\n");
+  }
+  //head1->next = NULL;
+  h = rear;
+
+  while (p1 != NULL && p2 != NULL)
   {
     if (p1->data < p2->data)
     {
-      ptmep = p1;
-      p1->next = ptemp->next;
-      head1->next = ptemp;
-      ptemp->next = head1->next;
+      rear->next = p1;
+      rear = rear->next;
+      p1 = p1->next;
+      printf("p1 < p2\n");
     }
     else
     {
-      ptemp = p2;
-      p2->next = ptemp->next;
-      head1->next = ptemp;
-      ptemp->next = head1->next;
+      rear->next = p2;
+      rear = rear->next;
+      p2 = p2->next;
+      printf("p2 < p1\n");
     }
   }
+  while (p1 != NULL)
+  {
+    rear->next = p1;
+    rear = rear->next;
+    p1 = p1->next;
+    printf("p1:last\n");
+  }
+  while (p2 != NULL)
+  {
+    rear->next = p2;
+    rear = rear->next;
+    p2 = p2->next;
+    printf("p2:last\n");
+  }
+  //h->next = head1->next;
+  head1->next = h;
+  //rear->next = NULL;
+
   return head1;
 }
 
@@ -167,6 +197,7 @@ int main()
   head = Merge_LinkList(head, head2);
   printf("\n---------after merge--------------\n");
   Print_LinkList(head);
+  printf("\n");
   Destroy_LinkList(head);
 
   return 0;
