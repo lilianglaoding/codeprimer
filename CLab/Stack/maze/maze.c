@@ -12,21 +12,16 @@ int path(int maze[m][n], item move[8])
   int x, y, d;
   int i, j;     //current position
   datatype temp;
-  x = y = 1;
-  d = -1;
-  i = j = 1;
-  temp.x = x;
-  temp.y = y;
-  temp.d = d;
-  d++;
+  temp.x = 1;
+  temp.y = 1;
+  temp.d = -1;
   Push_Stack(s, temp);
   while (!Empty_Stack(s))
   {
     Pop_Stack(s, &temp);
     x = temp.x;
     y = temp.y;
-    d = temp.d;
-    d++;
+    d = temp.d + 1;
     while (d < 8)
     {
       i = x + move[d].x;
@@ -37,6 +32,8 @@ int path(int maze[m][n], item move[8])
 	temp.j = j;
 	temp.d = d;
 	Push_Stack(s, temp);
+	x = i;
+	y = j;
 	maze[i][j] = -1;
 	if (i == m && j == n)
 	  return 1;
