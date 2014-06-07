@@ -34,12 +34,16 @@ int expr(char *A)
       }
       else
       {
-	Pop_Stack(s1, &b);
-	Pop_Stack(s1, &a);
+	//Pop_Stack(s1, &b);
+	//Pop_Stack(s1, &a);
 	switch (ch)
 	{
 	case '+':
+	{
+	  Pop_Stack(s1, &b);
+	  Pop_Stack(s1, &a);
 	  c = a + b; break;
+	}
 	case '-':
 	  c = a - b; break;
 	case '*':
@@ -64,13 +68,14 @@ int expr(char *A)
 	      c = a / b; break;
 	    case '%':
 	      c = a % b; break;
-	      Push_Stack(s1, c);
-	      Pop_Stack(s1, &b);
-	      Pop_Stack(s1, &a);
 	    }
-	    Pop_Stack(s2, &ch);
+	    Push_Stack(s1, c);
+	    Pop_Stack(s1, &b);
+	    Pop_Stack(s1, &a);
 	  }
-	  Push_Stack(s1, c);
+	  Push_Stack(s1, &a);
+	  Push_Stack(s1, &b);
+	  Pop_Stack(s2, &ch);
 	}
     }
     else
