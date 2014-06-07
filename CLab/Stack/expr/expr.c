@@ -23,11 +23,13 @@ int expr(char *A)
       case '+': 
 	c = a + b; break;
       case '-':
-	c = a -b; break;
+	c = a - b; break;
       case '*':
 	c = a * b; break;
       case '/':
 	c = a / b; break;
+      case '%':
+	c = a % b; break;
       }
       Push_Stack(s, c);
     }
