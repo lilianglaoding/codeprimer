@@ -34,16 +34,12 @@ int expr(char *A)
       }
       else
       {
-	//Pop_Stack(s1, &b);
-	//Pop_Stack(s1, &a);
+	Pop_Stack(s1, &b);
+	Pop_Stack(s1, &a);
 	switch (ch)
 	{
 	case '+':
-	{
-	  Pop_Stack(s1, &b);
-	  Pop_Stack(s1, &a);
 	  c = a + b; break;
-	}
 	case '-':
 	  c = a - b; break;
 	case '*':
@@ -84,6 +80,23 @@ int expr(char *A)
     }
     ch = *A++;
   }
+  while (!Empty_Stack(s2))
+  {
+    Pop_Stack(s1, &b);
+    Pop_Stack(s1, &a);
+    switch (ch)
+    {
+    case '+':
+      c = a + b; break;
+    case '-':
+      c = a - b; break;
+    case '*':
+      c = a * b; break;
+    case '/':
+      c = a / b; break;
+    case '%':
+      c = a % b; break;
+  }
   Pop_Stack(s1, &result);
   return result;
 }
@@ -93,7 +106,14 @@ int expr(char *A)
 
 void infix_to_postfix(char *infix, char *postfix)
 {
-  
+  SeqStack *s;
+  s = Init_Stack();
+  char ch;
+  ch = *infix++;
+  while (ch != '#')
+  {
+    if (ch )
+  }
 }
 
 //postfix expression, the express is end with the char '#'
