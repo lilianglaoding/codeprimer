@@ -107,12 +107,33 @@ int expr(char *A)
 void infix_to_postfix(char *infix, char *postfix)
 {
   SeqStack *s;
-  s = Init_Stack();
+  s = Init_Stack();   //hold the operator character
+  Push_Stack(s, '(');
   char ch;
   ch = *infix++;
+  char temp;
   while (ch != '#')
   {
-    if (ch )
+    if (ch != '+' && ch != '-' && ch != '*' && ch != '/' && ch != '%' && ch != '^')
+    {
+      *posfix++ = ch;
+    }
+    else
+    {
+      if (ch > Top_Stack(s))
+      {
+	Push_Stack(s, ch);
+      }
+      else
+      {
+	while (ch <= Top_Stack(s))
+	{
+	  Pop_Stack(s, &temp);
+	  *postfix++ = temp;
+	}
+	Push_Stack(s, ch);
+      }
+    }
   }
 }
 
