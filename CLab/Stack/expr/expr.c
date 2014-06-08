@@ -3,6 +3,8 @@
 //algorithm
 //对象栈和算符栈，依次入栈，若要入栈的算符优先级比栈顶元素低则从对象栈出栈两个元素，从算符栈出栈一个算符计算结果，然后将结果入对象栈；
 
+//common algorithm is transfer the infix to postfix
+
 //operand     in Stack priority     out Stack priority
 // ^              3                          4
 // * / %          2                          2
@@ -129,12 +131,17 @@ void infix_to_postfix(char *infix, char *postfix)
 	while (ch <= Top_Stack(s))
 	{
 	  Pop_Stack(s, &temp);
-	  *postfix++ = temp;
+	  if (temp != '(')
+	  {
+	    *postfix++ = temp;
+	  }
 	}
 	Push_Stack(s, ch);
       }
     }
   }
+  while (Top_Stack(s) != '(')
+    Pop_Stack(s, *postfix++);
 }
 
 //postfix expression, the express is end with the char '#'
