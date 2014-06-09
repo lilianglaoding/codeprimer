@@ -7,7 +7,7 @@ typedef struct
   int pre;
 } SqType;
 
-SqType sq[num];
+//SqType sq[num];
 
 int front, rear;
 
