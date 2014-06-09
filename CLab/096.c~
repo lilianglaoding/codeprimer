@@ -1,9 +1,0 @@
-#include "head.h"
-
-void main()
-{
-  char str1[20], str[20], *p1, *p2;
-  int sum = 0;
-  printf("Please input the first string:\n");
-  scanf("%s", str1);
-}
