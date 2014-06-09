@@ -47,4 +47,13 @@ int maze(int maze[][], int move[8])
     } // end for
     ++front;
   } // end while
+  return 0;
+}
+
+void print_path(SqType sq[], int rear)
+{
+  SqType temp;
+  int pre = rear;
+  printf("%d,%d", sq[pre].x, sq[pre].y);
+  int pre = sq[pre].pre;
 }
