@@ -21,7 +21,7 @@ void saddle(int (*array)[5], int m, int n)
 	y = j;
       }
     }
-    /*
+
     int k;
     for (k = 0; k < row; ++k)
     {
@@ -29,8 +29,8 @@ void saddle(int (*array)[5], int m, int n)
 	break;
     }
     if (k == row)
-      printf("the saddle of row %d is %d\n",i, min);*/
-    for (j = 0; j < n; ++j)
+      printf("the saddle of row %d is %d\n",i, min);
+    /*for (j = 0; j < n; ++j)
       if (array[i][j] == min)
 	{
 	  int k = j;
@@ -39,7 +39,7 @@ void saddle(int (*array)[5], int m, int n)
 	    p++;
 	  if (p >= m)
 	    printf("the saddle of row %d is %d\n", i, min);
-	}
+	    }*/
   }
 }
 
