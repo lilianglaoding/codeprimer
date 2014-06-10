@@ -7,11 +7,12 @@ void saddle(int (*array)[5], int m, int n)
   int row = m;
   int col = n;
   int min;
+  int i, j;
   int x, y = 0;
-  for (int i = 0; i < row; ++i)
+  for (i = 0; i < row; ++i)
   {
     min = array[i][0];
-    for (int j = 0; j < col; ++j)
+    for (j = 0; j < col; ++j)
     {
       if (array[i][j] < min)
       {
@@ -20,7 +21,7 @@ void saddle(int (*array)[5], int m, int n)
 	y = j;
       }
     }
-    printf("min: %d\n", min);
+    /*
     int k;
     for (k = 0; k < row; ++k)
     {
@@ -28,7 +29,17 @@ void saddle(int (*array)[5], int m, int n)
 	break;
     }
     if (k == row)
-      printf("the saddle of row %d is %d\n",i, min);
+      printf("the saddle of row %d is %d\n",i, min);*/
+    for (j = 0; j < n; ++j)
+      if (array[i][j] == min)
+	{
+	  int k = j;
+	  int p = 0;
+	  while (p < m && array[p][j] <= min)
+	    p++;
+	  if (p >= m)
+	    printf("the saddle of row %d is %d\n", i, min);
+	}
   }
 }
 
