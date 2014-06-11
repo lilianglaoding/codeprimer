@@ -24,8 +24,8 @@ SPMatrix *TransM1(SPMatrix *A)
 	B->data[q].x = A->data[q].y;
 	B->data[q].y = A->data[q].x;
 	B->data[q].v = A->data[q].v;
+	++q;
       }
-      ++q;
     }
   }
   return B;
