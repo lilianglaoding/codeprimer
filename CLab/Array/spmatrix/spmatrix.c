@@ -30,3 +30,10 @@ SPMatrix *TransM1(SPMatrix *A)
   }
   return B;
 }
+
+SPMatrix *TransM2(SPMatrix *A)
+{
+  SPMatrix *B = (SPMatrix *)malloc(sizeof(SPNode));
+  if (B == NULL)
+    return ;
+}
