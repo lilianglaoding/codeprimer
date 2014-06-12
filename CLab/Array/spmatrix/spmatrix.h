@@ -5,7 +5,7 @@
 
 typedef struct
 {
-  int x, y;
+  int i, j;
   int v;
 } SPNode;
 

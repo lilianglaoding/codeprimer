@@ -10,20 +10,20 @@ SPMatrix *TransM1(SPMatrix *A)
   B->nu = A->mu;
   B->tu = A->tu;
   
-  if (B->tu <= 0)
+  if (B->tu <= 0 || B == NULL)
     return B;
 
   int p, q, col;
   q = 1;
   for (col = 1; col <= (A->nu); ++col)
   {
-    for (p = 1; p <= (A->mu); ++p)
+    for (p = 1; p <= (A->tu); ++p)
     {
-      if (A->data[q].x == col)
+      if (A->data[p].j == col)
       {
-	B->data[q].x = A->data[q].y;
-	B->data[q].y = A->data[q].x;
-	B->data[q].v = A->data[q].v;
+	B->data[q].i = A->data[p].j;
+	B->data[q].j = A->data[p].i;
+	B->data[q].v = A->data[p].v;
 	++q;
       }
     }
