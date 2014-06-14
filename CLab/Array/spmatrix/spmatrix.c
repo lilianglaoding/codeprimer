@@ -72,3 +72,27 @@ SPMatrix *TransM2(SPMatrix *A)
 
   return B;  
 }
+
+SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
+{
+  if (A == NULL || B == NULL)
+    return NULL;
+  
+  SPMatrix *C = (SPMatrix *)malloc(sizeof(SPNode));
+  if (C == NULL)
+    return NULL;
+
+  if (A->nu != B->mu)
+    return NULL;
+  
+  C->mu = A->mu;
+  C->nu = B->nu;
+
+  if (A->tu * B->tu == 0)
+  {
+    C->tu = 0;
+    return C;
+  }
+
+  
+}
