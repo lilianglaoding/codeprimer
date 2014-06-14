@@ -94,5 +94,7 @@ SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
     return C;
   }
 
+  int num[A->nu], loc[A->nu];
+
   
 }
