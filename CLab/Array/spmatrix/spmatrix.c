@@ -35,5 +35,40 @@ SPMatrix *TransM2(SPMatrix *A)
 {
   SPMatrix *B = (SPMatrix *)malloc(sizeof(SPNode));
   if (B == NULL)
-    return ;
+    return NULL;
+
+  B->mu = A->nu;
+  B->nu = A->mu;
+  B->tu = A->tu;
+
+  if (B->tu <= 0)
+    return NULL;
+
+  int num[A->nu];
+  int loc[A->nu];
+
+  int i, j, k;
+
+  for (i = 1; i <= A->nu; ++i)
+    num[i] = 0;
+
+  for (i = 1; i <= A->tu; ++i)
+    num[A->data[i].j]++;
+
+  loc[1] = 1;
+
+  for (i = 2; i <= A->nu; ++i)
+    loc[i] = loc[i - 1] + num[i - 1];
+
+  for (i = 1; i <= A->tu; ++i)
+  {
+    j = A->data[i].j;
+    k = loc[j];
+    B->data[k].i = A->data[i].j;
+    B->data[k].j = A->data[i].i;
+    B->data[k].v = A->data[i].v;
+    loc[j]++;
+  }
+
+  return B;  
 }
