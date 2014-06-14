@@ -94,7 +94,16 @@ SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
     return C;
   }
 
-  int num[A->nu], loc[A->nu];
+  int num[B->mu], loc[B->mu];
+  int i, j, k;
 
+  for (i = 1; i <= B->mu; ++i)
+    num[B->data[i].i]++;
+
+  loc[1] = 1;
+  
+  for (i = 1; i <= B->tu; ++i)
+    loc[i] = loc[i - 1] + num[i - 1];
+  
   
 }
