@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-#include "spmatrix.h"
-
-SPMatrix *TransM1(SPMatrix *A)
-{
-  
-}
