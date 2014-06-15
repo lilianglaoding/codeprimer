@@ -98,6 +98,9 @@ SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
   int i, j, k;
 
   for (i = 1; i <= B->mu; ++i)
+    num[i] = 0;
+  
+  for (i = 1; i <= B->tu; ++i)
     num[B->data[i].i]++;
 
   loc[1] = 1;
@@ -105,5 +108,23 @@ SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
   for (i = 2; i <= B->mu; ++i)
     loc[i] = loc[i - 1] + num[i - 1];
   
+  int temp[B->nu];
   
+  int q = 1;
+  
+  for (int row = 1; row <= A->mu; ++row)
+  {
+    for (j = 1; j <= B->nu; ++j)
+      temp[j] = 0;
+
+    while (q <= A->tu && A->data[q].i == row )
+    {
+      k = A->data[q].j;
+      for (j = 1; j <= tu; ++j)
+      {
+	if (B->data[j].i == k)
+	  temp[j] += A->data[q].v * B->data[j].v;
+      }
+    }
+  }
 }
