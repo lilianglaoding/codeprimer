@@ -110,21 +110,45 @@ SPMatrix *MulSMatrix(SPMatrix *A, SPMatrix *B)
   
   int temp[B->nu];
   
-  int q = 1;
+  int p = 1, q = 1, r = 0;
   
-  for (int row = 1; row <= A->mu; ++row)
+  for (i = 1; i <= A->mu; ++i)
   {
     for (j = 1; j <= B->nu; ++j)
       temp[j] = 0;
 
-    while (q <= A->tu && A->data[q].i == row )
+    while (p <= A->tu && A->data[p].i == i )
     {
-      k = A->data[q].j;
-      for (j = 1; j <= tu; ++j)
+      k = A->data[p].j;
+      /*for (q = 1; q <= tu; ++q)
       {
-	if (B->data[j].i == k)
-	  temp[j] += A->data[q].v * B->data[j].v;
+	if (B->data[q].i == k)
+	{
+	  j = B->data[q].j;
+	  temp[j] += A->data[p].v * B->data[q].v;
+	}
+	}*/
+      if (k < B->mu)   //find the row, more efficient
+	t = loc[k + 1];
+      else
+	t = B->tu + 1;
+      for (q = loc[k]; q < t; ++q)
+      {
+	j = B->data[q].j;
+	temp[j] += A->data[p].v * B->data[q].v;
       }
+      ++p;
     }
+    for (j = 1; j <= B->nu; ++j)
+      if (temp[j])
+      {
+	r++;
+	C->data[r] = temp[j];
+	C->data[r].i = i;
+	C->data[r].j = j;
+      }
   }
+  C->tu = r;
+
+  return C;
 }
