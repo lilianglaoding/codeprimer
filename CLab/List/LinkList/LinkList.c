@@ -7,7 +7,7 @@
 
 //notice: this program count from 1, not 0
 
-LinkList Creat_LinkList_front()
+LinkList Create_LinkList_front()
 {
   int x;
   LinkList p = NULL;
@@ -27,7 +27,7 @@ LinkList Creat_LinkList_front()
   return p;
 }
 
-LinkList Creat_LinkList_rear()
+LinkList Create_LinkList_rear()
 {
   int x;
   LinkList p = NULL;
