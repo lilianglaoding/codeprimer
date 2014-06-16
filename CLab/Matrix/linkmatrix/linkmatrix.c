@@ -67,12 +67,23 @@ MLink AddMlink(MLink Ha, MLink Hb)
   pa = ca;
   pb = cb;
   qa = pa;
-  qb = cb;
   //pa = ca->right;
   //pb = cb->right;
-  for (pa = ca->right, pb = cb->right; pa->right != Ha && pb->right != Hb; pa = pa->right, pb = pb->right)
+  for ( , pa->right != Ha && pb->right != Hb; pa = pa->right, pb = pb->right)
   {
-    
+    qa = pa;
+    pa = pa->right;
+    pb = pb->right;
+    if (pa->col == pa->col && pb->col != 0)
+    {
+      if (pa->v_next.v + pa->v_next.v != 0)
+	pa->v_next.v += pb->v_next.v;
+      else
+	{
+	qa->right = pa->right;
+	qa->down = pa->down;
+	free(pa);
+    }
   }
 }
 
