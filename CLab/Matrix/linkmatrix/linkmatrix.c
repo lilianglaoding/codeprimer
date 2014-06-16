@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "linkmatrix.h"
 
@@ -37,16 +38,29 @@ MLink CreateMlink()
     p->v_next.v = v;
     
     q = hs[i];
-    while (q->right !=q && q->right->col < j)
+    while (q->right != hs[i] && q->right->col < j)
       q = q->right;
     q->right = p->right;
     p->right = q;
 
     q = hs[j];
-    while (q->down != q && q->down->row < i)
+    while (q->down != hs[j] && q->down->row < i)
       q = q->down;
     q->down = p->down;
     p->down = q;
   }
   return H;
 }
+
+MLink AddMlink(MLink Ha, MLink Hb)
+{
+  if (Ha->row != Hb->row || Ha->col != Hb->col)
+    return NULL;
+  
+  MLink ca = Ha->v_next.next;
+  MLink cb = Hb->v_next.next;
+  
+  
+}
+
+
