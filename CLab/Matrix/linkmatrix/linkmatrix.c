@@ -29,6 +29,7 @@ MLink CreateMlink()
     hs[k - 1]->v_next.next = p;
   }
   hs[s]->v_next.next = H;
+
   for (k = 1; k <= t; ++k)
   {
     scanf("%d, %d, %d", &i, &j, &v);
@@ -36,13 +37,15 @@ MLink CreateMlink()
     p->row = i;
     p->col = j;
     p->v_next.v = v;
-    
+
+    //process the row pointer
     q = hs[i];
     while (q->right != hs[i] && q->right->col < j)
       q = q->right;
     q->right = p->right;
     p->right = q;
 
+    //process the col pointer
     q = hs[j];
     while (q->down != hs[j] && q->down->row < i)
       q = q->down;
@@ -60,7 +63,17 @@ MLink AddMlink(MLink Ha, MLink Hb)
   MLink ca = Ha->v_next.next;
   MLink cb = Hb->v_next.next;
   
-  
+  MLink pa, pb, qa, qb;
+  pa = ca;
+  pb = cb;
+  qa = pa;
+  qb = cb;
+  //pa = ca->right;
+  //pb = cb->right;
+  for (pa = ca->right, pb = cb->right; pa->right != Ha && pb->right != Hb; pa = pa->right, pb = pb->right)
+  {
+    
+  }
 }
 
 
