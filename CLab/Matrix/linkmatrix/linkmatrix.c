@@ -9,7 +9,7 @@ MLink CreateMlink()
     return NULL;
   MLink p, q;
   int m, n, t;
-  int i, j;
+  int i, j, k;
   int v;
   scanf("%d, %d, %d", m, n, t);
   H->row = m;
@@ -17,14 +17,36 @@ MLink CreateMlink()
   int s = m > n? m: n;
   MLink hs[s + 1];
   hs[0] = H;
-  for (i = 1; i <= s; ++i)
+  for (k = 1; k <= s; ++k)
   {
     p = (MNode *)malloc(sizeof(MNode));
     p->row = 0;
     p->col = 0;
     p->right = p;
     p->down = p;
-    hs[i] = p;
-    hs[i - 1]->v_next.next = p;
+    hs[k] = p;
+    hs[k - 1]->v_next.next = p;
   }
+  hs[s]->v_next.next = H;
+  for (k = 1; k <= t; ++k)
+  {
+    scanf("%d, %d, %d", &i, &j, &v);
+    p = (MNode *)malloc(sizeof(MNode));
+    p->row = i;
+    p->col = j;
+    p->v_next.v = v;
+    
+    q = hs[i];
+    while (q->right !=q && q->right->col < j)
+      q = q->right;
+    q->right = p->right;
+    p->right = q;
+
+    q = hs[j];
+    while (q->down != q && q->down->row < i)
+      q = q->down;
+    q->down = p->down;
+    p->down = q;
+  }
+  return H;
 }
