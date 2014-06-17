@@ -123,9 +123,9 @@ MLink AddMlink(MLink Ha, MLink Hb)
 	}
       }
     }
+    qa = pa;
     pa = pa->v_next.next;
     pb = pb->v_next.next;
   }
   return Ha;
 }
-
