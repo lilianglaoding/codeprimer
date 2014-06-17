@@ -71,25 +71,26 @@ MLink AddMlink(MLink Ha, MLink Hb)
   if (Ha->row != Hb->row || Ha->col != Hb->col)
     return NULL;
   
-  MLink pa = Ha->v_next.next;   //pa points to row 1 of a
-  MLink pb = Hb->v_next.next;   //pb points to row 1 of b
+  MLink ca = Ha->v_next.next;   //pa points to row 1 of a
+  MLink cb = Hb->v_next.next;   //pb points to row 1 of b
   
-  MLink pa, pb, qa, p;
-  MLink ca, cb;
+  MLink pa, pb;
+  MLink qa, p, q;
+  //qa = pa;
   //ca = pa;
   //cb = pb;
 
-  while (pb->col == 0)
+  while (ca->col == 0)
   {
-    ca = pa;           //points to head pointer
-    cb = pb;           //points to head pointer
-    qa = pa;           //points to the pre-node of pa
-    pa = pa->right;    //points to first node of row
-    pb = pb->right;    //points to first node of row
+    //ca = pa;           //points to head pointer
+    //cb = pb;           //points to head pointer
+    qa = ca;           //points to the pre-node of pa
+    pa = ca->right;    //points to first node of row
+    pb = cb->right;    //points to first node of row
     
-    for ( ; pb->right != cb; pb = pb->right)
+    while (pb->col != 0)
     {
-      if (pa->col < pb->col)
+      if (pa->col < pb->col && pa->col != 0)
       {
 	qa = pa;
 	pa = pa->right;
@@ -102,31 +103,39 @@ MLink AddMlink(MLink Ha, MLink Hb)
 	p->v_next.v = pb->v_next.v;
 	p->right = qa->right;
 	qa->right = p;
-	qa = FindColPtr(Ha, pb->col);
-	while (qa->down->row < pb->row && qa->down != qa)
-	  qa = qa->down;
-	p->down = qa->down;
-	qa->down = p;
+	pa = p;
+	q = FindColPtr(Ha, pb->col);
+	while (q->down->row < p->row && q->down->row != 0)
+	  q = q->down;
+	p->down = q->down;
+	q->down = p;
+	pb = pb->right;
       }
       else
       {
 	int x = pa->v_next.v + pb->v_next.v;
 	if (x != 0)
-	  pa->v_next.v += pb->v_next.v;
+	{
+	  pa->v_next.v = x;
+	  qa = pa;
+	}
 	else
 	{
 	  qa->right = pa->right;
-	  qa = FindColPtr(Ha, pb->row);
-	  while (qa->down->row < pb->row && qa->down != qa)
-	    qa = qa->down;
-	  qa->down = p->down;
-	  free(p);
+	  q = FindColPtr(Ha, pb->row);
+	  while (q->down->row < pb->row)
+	    q = q->down;
+	  q->down = pa->down;
+	  free(pa);
+	  pa = qa;
 	}
+	pa = pa->right;
+	pb = pb->right;
       }
-    }
+    }  // end for
     qa = pa;
-    pa = pa->v_next.next;
-    pb = pb->v_next.next;
-  }
+    ca = ca->v_next.next;  //next row
+    cb = cb->v_next.next;  //next row
+  } // end while
   return Ha;
 }
