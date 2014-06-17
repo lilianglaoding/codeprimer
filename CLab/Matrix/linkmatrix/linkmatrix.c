@@ -60,31 +60,15 @@ MLink AddMlink(MLink Ha, MLink Hb)
   if (Ha->row != Hb->row || Ha->col != Hb->col)
     return NULL;
   
-  MLink ca = Ha->v_next.next;
-  MLink cb = Hb->v_next.next;
+  MLink pa = Ha->v_next.next;   //pa points to row 1 of a
+  MLink pb = Hb->v_next.next;   //pb points to row 1 of b
   
   MLink pa, pb, qa, qb;
-  pa = ca;
-  pb = cb;
-  qa = pa;
-  //pa = ca->right;
-  //pb = cb->right;
-  for ( , pa->right != Ha && pb->right != Hb; pa = pa->right, pb = pb->right)
-  {
-    qa = pa;
-    pa = pa->right;
-    pb = pb->right;
-    if (pa->col == pa->col && pb->col != 0)
-    {
-      if (pa->v_next.v + pa->v_next.v != 0)
-	pa->v_next.v += pb->v_next.v;
-      else
-	{
-	qa->right = pa->right;
-	qa->down = pa->down;
-	free(pa);
-    }
-  }
+  ca = pa;
+  cb = pb;
+  pa = pa->right;
+  pb = pb->right;
+  while (pb->col != 0)
 }
 
 
