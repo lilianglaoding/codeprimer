@@ -75,14 +75,15 @@ MLink AddMlink(MLink Ha, MLink Hb)
   MLink pb = Hb->v_next.next;   //pb points to row 1 of b
   
   MLink pa, pb, qa, p;
-  ca = pa;
-  cb = pb;
+  MLink ca, cb;
+  //ca = pa;
+  //cb = pb;
 
-  while (pb->col != 0)
+  while (pb->col == 0)
   {
-    ca = pa;
-    cb = pb;
-    qa = pa;
+    ca = pa;           //points to head pointer
+    cb = pb;           //points to head pointer
+    qa = pa;           //points to the pre-node of pa
     pa = pa->right;    //points to first node of row
     pb = pb->right;    //points to first node of row
     
@@ -93,7 +94,7 @@ MLink AddMlink(MLink Ha, MLink Hb)
 	qa = pa;
 	pa = pa->right;
       }
-      else if (pa->col > pb->col)
+      else if (pa->col > pb->col || pa->col == 0)
       {
 	p = (MNode *)malloc(sizeof(MNode));
 	p->row = pb->row;
