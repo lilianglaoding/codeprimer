@@ -103,7 +103,7 @@ MLink AddMlink(MLink Ha, MLink Hb)
 	p->v_next.v = pb->v_next.v;
 	p->right = qa->right;
 	qa->right = p;
-	pa = p;
+	qa = p;
 	q = FindColPtr(Ha, pb->col);
 	while (q->down->row < p->row && q->down->row != 0)
 	  q = q->down;
