@@ -21,5 +21,10 @@ GList Head(GList ls)
 
 int Create(GList *ls, char *S)
 {
-  
+  if (StrEmpty(s))
+    *ls = NULL;
+  else
+  {
+    
+  }
 }
