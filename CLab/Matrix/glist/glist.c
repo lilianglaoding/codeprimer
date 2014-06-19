@@ -84,3 +84,50 @@ int server(char *str, char *hstr)
   }
   return 0;
 }
+
+int Merge(GList *ls1, GList *ls2, GList *ls)
+{
+  if (!(*ls = (GList)malloc(sizeof(GLNode))))
+    return 0;
+  *ls->tag = 1;
+  *ls->hp = ls1;
+  *ls->tp = ls2;
+  return 1;
+}
+
+int Depth(GList ls)
+{
+  int max, dep;
+  GList p;
+  if (!ls)
+    return 1;
+  if (ls->tag == 0)
+    return 0;
+  for (max = 0, p = ls; p; p = p->ptr.tp)
+  {
+    dep = Depth(p->ptr.hp);
+    if (dep > max)
+      max = dep;
+  }
+  return max + 1;
+}
+
+int CopyList(GList ls1, GList *ls2)
+{
+  if (!ls1)
+    *ls2 = NULL;
+  else
+  {
+    if (!(*ls2 = (GList)malloc(sizeof(GLNode))))
+      return 0;
+    (*ls2)->tag = ls1->tag;
+    if (ls1->tag == 0)
+      (*ls2)->data = ls1->data;
+    else
+    {
+      CopyList(&((*ls2)->ptr.hp), ls1->ptr.hp);
+      copyList(&((*ls2)->ptr.tp), ls1->ptr.tp);
+    }
+  }
+  return 1;
+}
