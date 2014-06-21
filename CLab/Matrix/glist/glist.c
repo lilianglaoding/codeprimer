@@ -131,3 +131,19 @@ int CopyList(GList ls1, GList *ls2)
   }
   return 1;
 }
+
+void DestroyList(GList ls)
+{
+  if (ls == NULL)
+    return ;
+  else
+  {
+    if (ls->tag == 1)
+    {
+      DestoryList(ls->ptr.hp);
+      DestoryList(ls->ptr.tp);
+    }
+    free(ls);
+  }
+  return ;
+}
