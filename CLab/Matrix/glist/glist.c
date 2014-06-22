@@ -132,6 +132,7 @@ int CopyList(GList ls1, GList *ls2)
   return 1;
 }
 
+//destroy the glist
 void DestroyList(GList ls)
 {
   if (ls == NULL)
