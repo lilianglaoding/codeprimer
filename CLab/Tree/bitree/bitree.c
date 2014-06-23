@@ -3,6 +3,8 @@
 
 #include "bitree.h"
 
+#define MAXSIZE 2048
+
 int Initiate(BiTree *bt)
 {
   *bt = (BiTNode *)malloc(sizeof(BiTNode));
@@ -109,7 +111,28 @@ void Is_Success(int flag)
 
 void levelvisit(BiTree bt)
 {
-  
+  if (bt == NULL)
+    return ;
+  BiTree Queue[MAXSIZE];
+  int front, rear;
+  front = -1;
+  rear = 0;
+  Queue[rear] = bt;
+  while (front != rear)
+  {
+    ++front;
+    visit(bt);
+    if (Queue[front]->lchild != NULL)
+    {
+      rear++;
+      Queue[rear] = Queue[front]->lchild;
+    }
+    if (Queue[front]->rchild != NULL)
+    {
+      rear++;
+      Queue[rear] = Queue[front]->rchild
+    }
+  }
 }
 
 int main()
