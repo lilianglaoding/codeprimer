@@ -107,6 +107,11 @@ void Is_Success(int flag)
     printf("operator failuer!\n");
 }
 
+void levelvisit(BiTree bt)
+{
+  
+}
+
 int main()
 {
   BiTree bt;
