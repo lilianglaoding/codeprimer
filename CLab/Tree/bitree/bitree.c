@@ -121,7 +121,7 @@ void levelvisit(BiTree bt)
   while (front != rear)
   {
     ++front;
-    visit(bt);
+    visit(Queue[front]->data);
     if (Queue[front]->lchild != NULL)
     {
       rear++;
