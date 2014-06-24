@@ -91,10 +91,45 @@ void NRPostVisit(BiTree bt)
     return ;
   BiTree p;
   stacktype stack[MAXSIZE];
-  int front;
+  int front, sign;
   front = 0;
+  p = bt;
   while (!(p == NULL && top == 0))
   {
-    
+    while (p != NULL)
+    {
+      if (top <= MAXSIZE - 1)
+      {
+	stack[top].link = p;
+	stack[top].flag = 1;
+	top++;
+	p = p->lchild;
+      }
+      else
+      {
+	printf("stack is full\n");
+	return ;
+      }
+    }
+    if (top <= 0)
+      return ;
+    else
+    {
+      top--;
+      p = stack[top].link;
+      sign = stack[top].flag;
+      if (sign == 1)
+      {
+	top++;
+	stack[top].link = p;
+	stack[top].flag = 2;
+	p = p->rchild;
+      }
+      else
+      {
+	visit(p->data);
+	p = NULL;
+      }
+    }
   }
 }
