@@ -133,3 +133,42 @@ void NRPostVisit(BiTree bt)
     }
   }
 }
+
+void NRPostVisit(BiTree bt)
+{
+  stacktype stack[MAXSIZE];
+  BiTree p;
+  int top, sign;
+  if (bt == NULL)
+    return ;
+  top = -1;
+  p = bt;
+  while (!(p == NULL) && top == -1)
+  {
+    if (p != NULL)
+    {
+      top++;
+      stack[top].link = p;
+      stack[top].flag = 1;
+      p = p->lchild;
+    }
+    else
+    {
+      p = stack[top].link;
+      sign = stack[top].flag;
+      top--;
+      if (sign == 1)
+      {
+	top++;
+	stack[top].link = p;
+	stack[top].flag = 2;
+	p = p->rchild;
+      }
+      else
+      {
+	visit(p->data);
+	p = NULL;
+      }
+    }
+  }
+}
