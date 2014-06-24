@@ -42,4 +42,40 @@ void NRPreOrder(BiTree bt)
   }
 }
 
+void NRInOrder(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  BiTree stack[MAXSIZE];
+  int front = 0;
+  p = bt;
+  
+  while (!(p == NULL && top == 0))
+  {
+    while (p != NULL)
+    {
+      if (top <= MAXSIZE - 1)
+      {
+	stack[top] = p;
+	top++;
+	p = p->lchild;
+      }
+      else
+      {
+	printf("stack is full\n");
+	return ;
+      }
+    }
+    if (top <= 0)
+      return ;
+    else
+    {
+      top--;
+      p = stack[top];
+      visit(p->data);
+      p = p->rchild;
+    }
+  }
+}
 
