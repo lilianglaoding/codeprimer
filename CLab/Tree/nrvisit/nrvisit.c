@@ -5,6 +5,12 @@
 
 #define MAXSIZE 2048
 
+typedef struct
+{
+  BiTree link;
+  int flag;
+} stacktype;
+
 void NRPreOrder(BiTree bt)
 {
   if (bt == NULL)
@@ -79,3 +85,16 @@ void NRInOrder(BiTree bt)
   }
 }
 
+void NRPostVisit(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  stacktype stack[MAXSIZE];
+  int front;
+  front = 0;
+  while (!(p == NULL && top == 0))
+  {
+    
+  }
+}
