@@ -242,8 +242,6 @@ void NRPostVisit(BiTree bt)
   p = bt;
   while (!(p == NULL && top == 0))
   {
-    //if (p == NULL)
-      //printf("aaaaa");
     while (p != NULL)
     {
       if (top <= MAXSIZE - 1)
