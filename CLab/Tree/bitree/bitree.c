@@ -374,11 +374,12 @@ int main()
   InOrder(bt);
   printf("\n=====================Rebuild tree===================\n");
 
-  BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
+  //BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
+  BiTree root;
   int preod[21] = {65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   int inod[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   ReBiTree(preod, inod, 21, &root);
-  InOrder(root);
+  //InOrder(root);
   printf("\n=======================End=========================\n");
   Destroy(bt);
   return 0;
