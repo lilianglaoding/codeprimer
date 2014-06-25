@@ -5,6 +5,12 @@
 
 #define MAXSIZE 2048
 
+typedef struct
+{
+  BiTree link;
+  int flag;
+} stacktype;
+
 int Initiate(BiTree *bt)
 {
   *bt = (BiTNode *)malloc(sizeof(BiTNode));
@@ -47,6 +53,24 @@ BiTree InsertL(BiTree bt, int x, BiTree parent)
   return bt;
 }
 
+BiTree InsertR(BiTree bt, int x, BiTree parent)
+{
+  if (parent == NULL)
+    return NULL;
+  BiTree p;
+  if ((p = (BiTree)malloc(sizeof(BiTNode))) == NULL)
+    return NULL;
+  p->data = x;
+  if (parent->rchild == NULL)
+    parent->rchild = p;
+  else
+  {
+    p->rchild = parent->rchild;
+    parent->rchild = p;
+  }
+  return bt;
+}
+
 void Destroy(BiTree bt)
 {
   if (bt == NULL)
@@ -70,8 +94,8 @@ BiTree DeleteL(BiTree bt, BiTree parent)
 
 void Visit(int x)
 {
-  printf("%d\t", x);
-  printf("\n");
+  printf("%d ", x);
+  //printf("\n");
 }
 
 void PreOrder(BiTree bt)
@@ -121,7 +145,7 @@ void levelvisit(BiTree bt)
   while (front != rear)
   {
     ++front;
-    visit(Queue[front]->data);
+    Visit(Queue[front]->data);
     if (Queue[front]->lchild != NULL)
     {
       rear++;
@@ -130,7 +154,170 @@ void levelvisit(BiTree bt)
     if (Queue[front]->rchild != NULL)
     {
       rear++;
-      Queue[rear] = Queue[front]->rchild
+      Queue[rear] = Queue[front]->rchild;
+    }
+  }
+}
+
+void NRPreOrder(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  BiTree stack[MAXSIZE];
+  p = bt;
+  int top;
+  top = 0;
+  while (!(p == NULL && top == 0))
+  {
+    while (p != NULL)
+    {
+      Visit(p->data);
+      if (top <= MAXSIZE - 1)
+      {
+	stack[top] = p;
+	top++;
+	p = p->lchild;
+      }
+      else
+      {
+	printf("stack is full\n");
+	return ;
+      }
+    }
+    if (top <= 0)
+      return ;
+    else
+    {
+      top--;
+      p = stack[top];
+      p = p->rchild;
+    }
+  }
+}
+
+void NRPreOrder1(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  BiTree stack[MAXSIZE];
+  p = bt;
+  int top;
+  top = 0;
+  while (!(p == NULL && top == 0))
+  {
+    if (p != NULL)
+    {
+      Visit(p->data);
+      if (top <= MAXSIZE - 1)
+      {
+	stack[top] = p;
+	top++;
+	p = p->lchild;
+      }
+      else
+      {
+	printf("stack is full\n");
+	return ;
+      }
+    }
+    else
+    {
+      top--;
+      p = stack[top];
+      p = p->rchild;
+    }
+  }
+}
+
+void NRPostVisit(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  stacktype stack[MAXSIZE];
+  int top, sign;
+  top = -1;
+  p = bt;
+  while (!(p == NULL && top == -1))
+  {
+    //printf("aaaaa");
+    while (p != NULL)
+    {
+      if (top <= MAXSIZE - 1)
+      {
+	//top++;
+	stack[top].link = p;
+	stack[top].flag = 1;
+	top++;
+	p = p->lchild;
+      }
+      else
+      {
+	printf("stack is full\n");
+	return ;
+      }
+    }
+    if (top <= 0)
+      return ;
+    else
+    {
+      top--;
+      p = stack[top].link;
+      sign = stack[top].flag;
+      if (sign == 1)
+      {
+	top++;
+	stack[top].link = p;
+	stack[top].flag = 2;
+	//top++;
+	p = p->rchild;
+      }
+      else
+      {
+	Visit(p->data);
+	p = NULL;
+      }
+    }
+  }
+}
+
+void NRPostVisit1(BiTree bt)
+{
+  stacktype stack[MAXSIZE];
+  BiTree p;
+  int top, sign;
+  if (bt == NULL)
+    return ;
+  top = -1;
+  p = bt;
+  while (!(p == NULL && top == -1))
+  {
+    if (p != NULL)
+    {
+      top++;
+      stack[top].link = p;
+      stack[top].flag = 1;
+      p = p->lchild;
+    }
+    else
+    {
+      p = stack[top].link;
+      sign = stack[top].flag;
+      top--;
+      if (sign == 1)
+      {
+	top++;
+	stack[top].link = p;
+	stack[top].flag = 2;
+	p = p->rchild;
+      }
+      else
+      {
+	Visit(p->data);
+	p = NULL;
+      }
     }
   }
 }
@@ -143,8 +330,21 @@ int main()
   for (int i = 0; i < 10; ++i)
   {
     InsertL(bt, i, bt);
+    InsertR(bt, i, bt);
   }
+  printf("\n=====================preorder======================\n");
   PreOrder(bt);
+  //printf("\n=====================levelorder====================\n");
+  //levelvisit(bt);
+  printf("\n=====================NRPreOrder====================\n");
+  NRPreOrder1(bt);
+  printf("\n=====================PostOrder=====================\n");
+  PostOrder(bt);
+  printf("\n=====================NRPostorder===================\n");
+  NRPostVisit(bt);
+  printf("\n=====================NRPostOrder1===================\n");
+  NRPostVisit1(bt);
+  printf("\n=======================End=========================\n");
   Destroy(bt);
   return 0;
 }
