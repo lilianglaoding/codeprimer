@@ -238,16 +238,16 @@ void NRPostVisit(BiTree bt)
   BiTree p;
   stacktype stack[MAXSIZE];
   int top, sign;
-  top = -1;
+  top = 0;
   p = bt;
-  while (!(p == NULL && top == -1))
+  while (!(p == NULL && top == 0))
   {
-    //printf("aaaaa");
+    //if (p == NULL)
+      //printf("aaaaa");
     while (p != NULL)
     {
       if (top <= MAXSIZE - 1)
       {
-	//top++;
 	stack[top].link = p;
 	stack[top].flag = 1;
 	top++;
@@ -259,6 +259,7 @@ void NRPostVisit(BiTree bt)
 	return ;
       }
     }
+
     if (top <= 0)
       return ;
     else
@@ -268,10 +269,9 @@ void NRPostVisit(BiTree bt)
       sign = stack[top].flag;
       if (sign == 1)
       {
-	top++;
 	stack[top].link = p;
 	stack[top].flag = 2;
-	//top++;
+	top++;
 	p = p->rchild;
       }
       else
