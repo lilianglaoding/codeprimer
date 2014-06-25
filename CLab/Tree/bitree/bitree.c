@@ -11,6 +11,8 @@ typedef struct
   int flag;
 } stacktype;
 
+void PreInOd(int *preod, int *inod, int i, int j, int k, int h, BiTree *t);
+
 int Initiate(BiTree *bt)
 {
   *bt = (BiTNode *)malloc(sizeof(BiTNode));
@@ -320,6 +322,32 @@ void NRPostVisit1(BiTree bt)
   }
 }
 
+void PreInOd(int preod[], int inod[], int i, int j, int k, int h, BiTree *t)
+{
+  *t = (BiTNode *)malloc(sizeof(BiTNode));
+  (*t)->data = preod[i];
+  int m = k;
+  while (inod[m] != preod[i])
+    ++m;
+  if (m == k)
+    (*t)->lchild = NULL;
+  else
+    PreInOd(preod, inod, i + 1, i + m - k, k, m - 1, &((*t)->lchild));
+  if (m == h)
+    (*t)->rchild = NULL;
+  else
+    PreInOd(preod, inod, i + m -k + 1, j, m + 1, h, &((*t)->rchild));
+}
+
+void ReBiTree(int preod[], int inod[], int n, BiTree *root)
+{
+  printf("aaa");
+  if (n <= 0)
+    *root = NULL;
+  else
+    PreInOd(preod, inod, 1, n, 1, n, root);
+}
+
 int main()
 {
   BiTree bt;
@@ -342,6 +370,15 @@ int main()
   NRPostVisit(bt);
   printf("\n=====================NRPostOrder1===================\n");
   NRPostVisit1(bt);
+  printf("\n=====================Inorder========================\n");
+  InOrder(bt);
+  printf("\n=====================Rebuild tree===================\n");
+
+  BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
+  int preod[21] = {65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+  int inod[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+  ReBiTree(preod, inod, 21, &root);
+  InOrder(root);
   printf("\n=======================End=========================\n");
   Destroy(bt);
   return 0;
