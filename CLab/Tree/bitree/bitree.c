@@ -358,19 +358,19 @@ int main()
   }
   printf("\n=====================preorder======================\n");
   PreOrder(bt);
-  //printf("\n=====================levelorder====================\n");
-  //levelvisit(bt);
+  printf("\n=====================levelorder====================\n");
+  levelvisit(bt);
   printf("\n=====================NRPreOrder====================\n");
   NRPreOrder1(bt);
   printf("\n=====================PostOrder=====================\n");
   PostOrder(bt);
   printf("\n=====================NRPostorder===================\n");
   NRPostVisit(bt);
-  printf("\n=====================NRPostOrder1===================\n");
+  printf("\n====================NRPostOrder1===================\n");
   NRPostVisit1(bt);
-  printf("\n=====================Inorder========================\n");
+  printf("\n====================Inorder========================\n");
   InOrder(bt);
-  printf("\n=====================Rebuild tree===================\n");
+  printf("\n====================Rebuild tree===================\n");
 
   //BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
   BiTree root;
