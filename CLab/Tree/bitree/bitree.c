@@ -79,7 +79,6 @@ void Destroy(BiTree bt)
     return ;
   Destroy(bt->lchild);
   Destroy(bt->rchild);
-  //Destroy(bt);
   free(bt);
 }
 
@@ -324,7 +323,7 @@ void NRPostVisit1(BiTree bt)
 
 void PreInOd(int preod[], int inod[], int i, int j, int k, int h, BiTree *t)
 {
-  *t = (BiTNode *)malloc(sizeof(BiTNode));
+  (*t) = (BiTNode *)malloc(sizeof(BiTNode));
   (*t)->data = preod[i];
   int m = k;
   while (inod[m] != preod[i])
@@ -341,11 +340,10 @@ void PreInOd(int preod[], int inod[], int i, int j, int k, int h, BiTree *t)
 
 void ReBiTree(int preod[], int inod[], int n, BiTree *root)
 {
-  printf("aaa");
   if (n <= 0)
     *root = NULL;
   else
-    PreInOd(preod, inod, 1, n, 1, n, root);
+    PreInOd(preod, inod, 0, n - 1, 0, n - 1, root);
 }
 
 int main()
@@ -379,8 +377,10 @@ int main()
   int preod[21] = {65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   int inod[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   ReBiTree(preod, inod, 21, &root);
-  //InOrder(root);
+  //PreInOd(preod, inod, 0, 20, 0, 20, &root);
+  InOrder(root);
   printf("\n=======================End=========================\n");
   Destroy(bt);
+  Destroy(root);
   return 0;
 }
