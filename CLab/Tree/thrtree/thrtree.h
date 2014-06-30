@@ -8,8 +8,8 @@ typedef struct BiThrNode
   datatype data;
   struct BiThrNode *lchild;
   struct BiThrNode *rchild;
-  unsigned ltag;
-  unsigned rtag;
+  unsigned ltag;              // 1---thread, 0---child
+  unsigned rtag;              // 1---thread, 0---child
 } BiThrNodeType, *BiThrTree;
 
 #endif
