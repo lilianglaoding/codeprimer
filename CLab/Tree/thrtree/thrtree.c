@@ -54,7 +54,7 @@ BiThrTree InPreNode(BiThrTree p)
 {
   BiThrTree pre;
   pre = p->lchild;
-  if (pre->ltag != 1)
+  if (p->ltag != 1)
   {
     while (pre->rtag != 1)
       pre = pre->rchild;
@@ -66,7 +66,7 @@ BiThrTree InPostNode(BiThrTree p)
 {
   BiThrTree post;
   post = p->rchild;
-  if (post->rtag != 1)
+  if (p->rtag != 1)
   {
     while (post->ltag != 1)
       post = post->lchild;
