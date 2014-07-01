@@ -77,4 +77,19 @@ BiThrTree InPostNode(BiThrTree p)
 BiThrTree IPrePostNode(BiThrTree head, BiThrTree p)
 {
   BiThrTree pre;
+  if (p->ltag == 0)
+    post = p->lchild;
+  else
+  {
+    post = p;
+    while (post->rtag != 1 && post->rchild != head)
+      post = post->rchild;
+    post = post->rchild;
+  }
+  return post;
+}
+
+BiThrTree IPostPreNode(BiThrTree head, BiThrTree p)
+{
+  
 }
