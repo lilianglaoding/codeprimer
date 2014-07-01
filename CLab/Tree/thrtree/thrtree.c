@@ -74,3 +74,7 @@ BiThrTree InPostNode(BiThrTree p)
   return post;
 }
 
+BiThrTree IPrePostNode(BiThrTree head, BiThrTree p)
+{
+  BiThrTree pre;
+}
