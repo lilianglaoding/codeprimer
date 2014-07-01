@@ -117,3 +117,19 @@ BiThrTree Search(BiThrTree head, datatype x)
   else
     return p;
 }
+
+void InsertThrRight(BiThrTree s, BiThrTree p)
+{
+  BiThrTree w;
+  p->rchild = s->rchild;
+  p->rtag = s->rtag;
+  p->lchild = s;
+  p->lchild = 1;
+  s->rchild = p;
+  s->rtag = 0;
+  if (p->rtag == 0)
+  {
+    w = InPostNode(p);
+    w->lchild = p;
+  }
+}
