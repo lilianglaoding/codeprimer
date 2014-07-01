@@ -76,7 +76,7 @@ BiThrTree InPostNode(BiThrTree p)
 
 BiThrTree IPrePostNode(BiThrTree head, BiThrTree p)
 {
-  BiThrTree pre;
+  BiThrTree post;
   if (p->ltag == 0)
     post = p->lchild;
   else
@@ -91,5 +91,29 @@ BiThrTree IPrePostNode(BiThrTree head, BiThrTree p)
 
 BiThrTree IPostPreNode(BiThrTree head, BiThrTree p)
 {
-  
+  BiThrTree pre;
+  if (p->rtag == 0)
+    pre = p->rchild;
+  else
+  {
+    pre = p;
+    while (pre->ltag != 0 && pre->lchild != head)
+      pre = pre->lchild;
+    pre = pre->lchild;
+  }
+  return pre;
+}
+
+BiThrTree Search(BiThrTree head, datatype x)
+{
+  BiThrTree p;
+  p = head->lchild;
+  while (p->ltag == 0 && p->lchild != head)
+    p = p->lchild;
+  while (p->rchild != head && p->data != x)
+    p = InPostNode(p);
+  if (p == head)
+    return NULL;
+  else
+    return p;
 }
