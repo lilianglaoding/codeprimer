@@ -346,6 +346,15 @@ void ReBiTree(int preod[], int inod[], int n, BiTree *root)
     PreInOd(preod, inod, 0, n - 1, 0, n - 1, root);
 }
 
+int CountLeaf1(BiTree bt)
+{
+  if (bt == NULL)
+    return 0;
+  if (bt->lchild == NULL && bt->rchild == NULL)
+    return 1;
+  return (CountLeaf1(bt->lchild) + CountLeaf1(bt->rchild));
+}
+
 int main()
 {
   BiTree bt;
