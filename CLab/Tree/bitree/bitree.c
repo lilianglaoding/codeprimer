@@ -479,6 +479,8 @@ int main()
     printf("%d", p->data);
   printf("\n====================Create Tree====================\n");
   BiTree T;
+  // you can input in this order:
+  // 4 2 1 0 0 3 0 0 6 5 0 0 7 0 0
   CreatePreBinTree(&T);
   printf("\n====================Inorder Visit==================\n");
   VisitInOrder(T);
