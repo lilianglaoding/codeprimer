@@ -414,6 +414,30 @@ BiTree Search2(BiTree bt, datatype x)
   return NULL;
 }
 
+void CreatePreBinTree(BiTree *T)
+{
+  datatype data;
+  scanf("%d", &data);
+  if (data == 0)
+    (*T) = NULL;
+  else
+  {
+    (*T) = (BiTNode *)malloc(sizeof(BiTNode));
+    (*T)->data = data;
+  CreatePreBinTree(&((*T)->lchild));
+  CreatePreBinTree((&(*T)->rchild));
+  }
+}
+
+void VisitInOrder(BiTree bt)
+{
+  if (!bt)
+    return ;
+  VisitInOrder(bt->lchild);
+  printf("%d ", bt->data);
+  VisitInOrder(bt->rchild);
+}
+
 int main()
 {
   BiTree bt;
@@ -453,6 +477,13 @@ int main()
     printf("data not found");
   else
     printf("%d", p->data);
+  printf("\n====================Create Tree====================\n");
+  BiTree T;
+  CreatePreBinTree(&T);
+  printf("\n====================Inorder Visit==================\n");
+  VisitInOrder(T);
+  printf("\n=======================InOrder=====================\n");
+  InOrder(T);
   printf("\n==================Operation End====================\n");
   Destroy(bt);
   Destroy(root);
