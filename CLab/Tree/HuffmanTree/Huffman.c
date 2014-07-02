@@ -11,7 +11,7 @@ void HuffmanTree(HNodeType HuffNode[])
 
   scanf("%d", &n);
 
-  for (i = 0; i < 2 * n; ++i)
+  for (i = 0; i < n * 2 - 1; ++i)
   {
     HuffNode[i].weight = 0;
     HuffNode[i].parent = -1;
@@ -20,9 +20,7 @@ void HuffmanTree(HNodeType HuffNode[])
   }
   
   for (i = 0; i < n; ++i)
-  {
-    HuffNode[i].weight;
-  }
-
+    scanf("%d", &HuffNode[i].weight);
+  
   
 }
