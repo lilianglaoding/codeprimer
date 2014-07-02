@@ -440,7 +440,6 @@ int main()
   InOrder(bt);
   printf("\n====================Rebuild tree===================\n");
 
-  //BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
   BiTree root;
   BiTree p;
   int preod[21] = {65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
