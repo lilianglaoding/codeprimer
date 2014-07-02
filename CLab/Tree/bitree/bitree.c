@@ -355,6 +355,24 @@ int CountLeaf1(BiTree bt)
   return (CountLeaf1(bt->lchild) + CountLeaf1(bt->rchild));
 }
 
+BiTree Search(BiTree bt, datatype x)
+{
+  BiTree p;
+  if (!bt)
+    return NULL;
+  if (bt->data == x)
+    return bt;
+  p = Search(bt->lchild, x);
+  if (p)
+    return p;
+  p = Search(bt->rchild, x);
+  if (p)
+    return p;
+  //return NULL;
+}
+
+
+
 int main()
 {
   BiTree bt;
@@ -388,6 +406,7 @@ int main()
   ReBiTree(preod, inod, 21, &root);
   //PreInOd(preod, inod, 0, 20, 0, 20, &root);
   InOrder(root);
+  Visit(Search(root, 9)->data);
   printf("\n=======================End=========================\n");
   Destroy(bt);
   Destroy(root);

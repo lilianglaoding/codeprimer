@@ -1,9 +1,11 @@
 #ifndef BITREE_H
 #define BITREE_H
 
+typedef int datatype;
+
 typedef struct BiTNode
 {
-  int data;
+  datatype data;
   struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
 
