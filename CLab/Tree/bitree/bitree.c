@@ -371,6 +371,7 @@ BiTree Search(BiTree bt, datatype x)
   return NULL;
 }
 
+//compare with Search2()
 BiTree Search1(BiTree bt, datatype x)
 {
   BiTree p;
@@ -390,6 +391,25 @@ BiTree Search1(BiTree bt, datatype x)
       if (p)
 	return p;
     }
+  }
+  return NULL;
+}
+
+BiTree Search2(BiTree bt, datatype x)
+{
+  BiTree p = NULL;
+  if (bt)
+  {
+    if (bt->data == x)
+      return bt;
+    if (bt->lchild != NULL)
+      p = Search1(bt->lchild, x);
+    if (p)
+      return p;
+    if (bt->rchild != NULL)
+      p = Search1(bt->rchild, x);
+    if (p)
+      return p;
   }
   return NULL;
 }
@@ -429,7 +449,7 @@ int main()
   //PreInOd(preod, inod, 0, 20, 0, 20, &root);
   InOrder(root);
   printf("\n====================Search data====================\n");
-  p = Search1(root, 5535);
+  p = Search1(root, 65535);
   if (p == NULL)
     printf("data not found");
   else
