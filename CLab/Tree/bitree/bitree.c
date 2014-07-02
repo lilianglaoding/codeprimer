@@ -365,13 +365,31 @@ BiTree Search(BiTree bt, datatype x)
   p = Search(bt->lchild, x);
   if (p)
     return p;
+  return NULL;
   p = Search(bt->rchild, x);
   if (p)
     return p;
-  //return NULL;
+  return NULL;
 }
 
-
+BiTree Search1(BiTree bt, datatype x)
+{
+  BiTree p;
+  if (bt)
+  {
+    if (bt->data == x)
+      return bt;
+    if (bt->lchild != NULL)
+      p = Search1(bt->lchild, x);
+    if (p)
+      return p;
+    if (bt->rchild != NULL)
+      p = Search1(bt->rchild, x);
+    if (p)
+      return p;
+  }
+  return NULL;
+}
 
 int main()
 {
@@ -401,13 +419,19 @@ int main()
 
   //BiTree root = (BiTNode *)malloc(sizeof(BiTNode));
   BiTree root;
+  BiTree p;
   int preod[21] = {65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   int inod[21] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 65535, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
   ReBiTree(preod, inod, 21, &root);
   //PreInOd(preod, inod, 0, 20, 0, 20, &root);
   InOrder(root);
-  Visit(Search(root, 9)->data);
-  printf("\n=======================End=========================\n");
+  printf("\n====================Search data====================\n");
+  p = Search1(root, 10);
+  if (p == NULL)
+    printf("data not found");
+  else
+    printf("%d", p->data);
+  printf("\n==================Operation End====================\n");
   Destroy(bt);
   Destroy(root);
   return 0;
