@@ -26,7 +26,7 @@ void HuffmanTree(HNodeType HuffNode[])
   {
     m1 = m2 = MAXVALUE;
     x1 = x2 = 0;
-    for (j = 0; j < n; ++j)
+    for (j = 0; j < n + i; ++j)
     {
       if (HuffNode[j].parent == -1 && HuffNode[j].weight < m1)
       {
