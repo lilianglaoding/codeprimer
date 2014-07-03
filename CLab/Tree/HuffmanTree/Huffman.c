@@ -48,3 +48,9 @@ void HuffmanTree(HNodeType HuffNode[])
     HuffNode[x2].parent = n + i;
   }
 }
+
+void HuffmanCode()
+{
+  HNodeType HuffNode[MAXNODE];
+  HCodeType HuffCode[MAXLEAF];
+}
