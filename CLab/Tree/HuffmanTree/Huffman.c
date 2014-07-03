@@ -31,6 +31,7 @@ void HuffmanTree(HNodeType HuffNode[])
       if (HuffNode[j].parent == -1 && HuffNode[j].weight < m1)
       {
 	m2 = m1;
+	x2 = x1;
 	m1 = HuffNode[j].weight;
 	x1 = j;
       }
@@ -46,5 +47,4 @@ void HuffmanTree(HNodeType HuffNode[])
     HuffNode[x1].parent = n + i;
     HuffNode[x2].parent = n + i;
   }
-  
 }
