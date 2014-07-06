@@ -53,6 +53,17 @@ void HuffmanCode()
 {
   HNodeType HuffNode[MAXNODE];
   HCodeType HuffCode[MAXLEAF], cd[MAXLEAF];
-  int i, j;
+  int i, j, n;
+  HNodeType p;
   HuffmanTree(HuffNode);
+  for (i = 0; i < n; ++i)
+  {
+    cd[i].start = n - 1;
+    p = HuffNode[i].parent;
+    for (p != -1)
+    {
+      
+    }
+  }
+  
 }
