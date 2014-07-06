@@ -80,8 +80,8 @@ void HuffmanCode()
   {
     for (j = HuffCode[i].start; j < MAXBIT - 1; j++)
     {
-      
+      printf("%d", HuffCode[i].bit[j]);
     }
-  }
-    
+    printf("\n");
+  } 
 }
