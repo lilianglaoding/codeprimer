@@ -53,4 +53,6 @@ void HuffmanCode()
 {
   HNodeType HuffNode[MAXNODE];
   HCodeType HuffCode[MAXLEAF], cd[MAXLEAF];
+  int i, j;
+  
 }
