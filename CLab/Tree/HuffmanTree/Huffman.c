@@ -52,5 +52,5 @@ void HuffmanTree(HNodeType HuffNode[])
 void HuffmanCode()
 {
   HNodeType HuffNode[MAXNODE];
-  HCodeType HuffCode[MAXLEAF];
+  HCodeType HuffCode[MAXLEAF], cd[MAXLEAF];
 }
