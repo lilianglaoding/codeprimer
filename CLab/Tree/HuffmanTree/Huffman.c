@@ -63,15 +63,16 @@ void HuffmanCode()
     j = MAXBIT - 1;
     for (p != -1)
     {
-      if (p.parent.lchild == i)
-	cd[i].bit[j] = 0;
+      if (p.lchild == i)
+	cd[i].bit[cd[i].start] = 0;
       else
-	cd[i].bit[j] = 1;
+	cd[i].bit[cd[i].start] = 1;
       cd[i].start--;
       j--;
       p = p.parent;
     }
-    for (j = cd[i].start; j < n; j++)
+    
+    for (j = cd[i].start++; j <= MAXBIT - 1; j++)
       HuffCode[i].bit[j] = cd[i].bit[j];
     HuffCode[i].start = cd[i].start;
   }
