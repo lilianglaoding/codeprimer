@@ -59,9 +59,9 @@ void HuffmanCode()
   for (i = 0; i < n; i++)
   {
     cd[i].start = MAXBIT - 1;
-    p = HuffNode[i];
+    p = HuffNode[i].parent;
     j = MAXBIT - 1;
-    for (p.parent != -1)
+    for (p != -1)
     {
       if (p.parent.lchild == i)
 	cd[i].bit[j] = 0;
