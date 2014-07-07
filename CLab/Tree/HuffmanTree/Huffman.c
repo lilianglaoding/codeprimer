@@ -53,7 +53,7 @@ void HuffmanCode()
 {
   HNodeType HuffNode[MAXNODE];
   HCodeType HuffCode[MAXLEAF], cd[MAXLEAF];
-  int i, j, n;
+  int i, j, n, c;   // n is the num of leaf
   HNodeType p;
   HuffmanTree(HuffNode);
   for (i = 0; i < n; i++)
@@ -61,28 +61,27 @@ void HuffmanCode()
     cd[i].start = MAXBIT - 1;
     p = HuffNode[i].parent;
     j = MAXBIT - 1;
+    c = i;
     for (p != -1)
     {
-      if (p.lchild == i)
+      if (p.lchild == c)
 	cd[i].bit[cd[i].start] = 0;
       else
 	cd[i].bit[cd[i].start] = 1;
       cd[i].start--;
-      j--;
+      c = p;
       p = p.parent;
     }
     
-    for (j = cd[i].start++; j <= MAXBIT - 1; j++)
+    for (j = cd[i].start + 1; j <= MAXBIT - 1; j++)
       HuffCode[i].bit[j] = cd[i].bit[j];
     HuffCode[i].start = cd[i].start;
   }
   
   for (i = 0; i < n; i++)
   {
-    for (j = HuffCode[i].start; j < MAXBIT - 1; j++)
-    {
+    for (j = HuffCode[i].start + 1; j < MAXBIT - 1; j++)
       printf("%d", HuffCode[i].bit[j]);
-    }
     printf("\n");
   } 
 }
