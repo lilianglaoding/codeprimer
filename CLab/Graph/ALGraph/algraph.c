@@ -24,5 +24,4 @@ void CreateALGraph(ALGraph *G)
     s->next = G->adjlist[i].firstedge;
     G->adjlist[i].next = s;
   }
-  
 }
