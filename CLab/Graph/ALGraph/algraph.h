@@ -3,7 +3,7 @@
 
 #define MAXVERTEXNUM 100
 
-typedef int VertexType;
+typedef char VertexType;
 typedef int EdgeType;
 
 typedef struct node
