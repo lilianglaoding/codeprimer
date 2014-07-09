@@ -8,7 +8,7 @@ typedef int EdgeType;
 
 typedef struct node
 {
-  VertexType adjvex;
+  int adjvex;
   struct node *next;
 } EdgeNode;
 
