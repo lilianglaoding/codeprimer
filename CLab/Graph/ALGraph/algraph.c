@@ -25,3 +25,12 @@ void CreateALGraph(ALGraph *G)
     G->adjlist[i].next = s;
   }
 }
+
+void DFS(Graph G, int v)
+{
+  visited[v] = 1;
+  VisitFunc(v);
+  for (w = FirstAdjVex(G, v); w; w = NextAdjVex(G, v, w))
+    if (!visited[w])
+      DFS(G, w);
+}
