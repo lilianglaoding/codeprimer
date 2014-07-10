@@ -6,6 +6,7 @@
 typedef char VertexType;
 typedef int EdgeType;
 typedef int InfoType;
+
 typedef struct ArcBox
 {
   int tailvex, headvex;
