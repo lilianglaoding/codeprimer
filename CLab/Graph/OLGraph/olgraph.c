@@ -20,8 +20,9 @@ void CreateOLGraph(OLGraph *G)
   for (k = 0; k < G->arcnum; k++)
   {
     printf("Please input the vertex(format is <vi,vj>):\n");
-    i = locate(G, vi);
-    j = locate(G, vj);
+    scanf("%c,%c", &v1,&v2);
+    i = locate(G, v1);
+    j = locate(G, v2);
     s = (ArcBox *)malloc(sizeof(ArcBox));
     s->tailvex = i;
     s->headvex = j;
