@@ -40,6 +40,25 @@ void DFS(Graph G, int v)
 
 void DFSTraverseAL(ALGraph *G)
 {
-  
+  int i;
+  for (i = 0; i < G->n; i++)
+    visited[i] = 0;
+  for (i = 0; i < G->e; i++)
+    if (!visited[i])
+      DFSAL(G, i);
+}
+
+void DFSAL(ALGraph *G, int i)
+{
+  ENode *p;
+  printf("visit vertex:V%c\n", G->adjlist[i].vertex);
+  visited[i] = 1;
+  p = G->adjlist[i].firstedge;
+  while (p)
+  {
+    if (!visited[p->adjvex])
+      DFSAL(G, p->adjvex);
+    p = p->next;
+  }
 }
 
