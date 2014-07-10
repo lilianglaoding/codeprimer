@@ -7,7 +7,7 @@ void CreateOLGraph(OLGraph *G)
 {
   int i, j, k;
   char v1, v2;
-  VexNode *s;
+  ArcBox *s;
   printf("Please input the vexnum and arcnum(format is (i,j)):\n");
   scanf("%d,%d", &(G->vexnum), &(G->arcnum));
   printf("Please input the vertex:\n");
@@ -17,8 +17,18 @@ void CreateOLGraph(OLGraph *G)
     xlist[i].firstin = NULL;
     xlist[i].firstout = NULL;
   }
-  printf("Please input the vertex(format is <vi,vj>):\n");
-  i = locate(G, vi);
-  j = locate(G, vj);
-  
+  for (k = 0; k < G->arcnum; k++)
+  {
+    printf("Please input the vertex(format is <vi,vj>):\n");
+    i = locate(G, vi);
+    j = locate(G, vj);
+    s = (ArcBox *)malloc(sizeof(ArcBox));
+    s->tailvex = i;
+    s->headvex = j;
+    s->info = 0;   //all is 0 temprary
+    s->hlink = G->xlist[j].firstin;
+    s->tlink = G->xlist[i].firstout;
+    G->xlist[i].firstin = s;
+    G->xlist[j].firstout = s;
+  }
 }
