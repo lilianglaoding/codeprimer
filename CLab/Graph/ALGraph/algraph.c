@@ -3,6 +3,9 @@
 
 #include "algraph.h"
 
+//visited[] is used to mark whether the vertex is visited of not
+int visited[MAXVERTEXNUM];
+
 void CreateALGraph(ALGraph *G)
 {
   int i, j, k;
