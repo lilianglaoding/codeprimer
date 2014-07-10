@@ -26,11 +26,17 @@ void CreateALGraph(ALGraph *G)
   }
 }
 
+/******************************************************************
 void DFS(Graph G, int v)
 {
+  //visited[] is used to mark whether the vertex is visited or not
   visited[v] = 1;
   VisitFunc(v);
   for (w = FirstAdjVex(G, v); w; w = NextAdjVex(G, v, w))
     if (!visited[w])
       DFS(G, w);
 }
+******************************************************************/
+
+
+
