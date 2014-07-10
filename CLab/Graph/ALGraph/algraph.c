@@ -38,5 +38,8 @@ void DFS(Graph G, int v)
 }
 ******************************************************************/
 
-
+void DFSTraverseAL(ALGraph *G)
+{
+  
+}
 
