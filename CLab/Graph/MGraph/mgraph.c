@@ -24,7 +24,7 @@ void CreateMGraph(MGraph *G)
     G->edges[i][j] = 1;
   }
 }
-
+/****************************************************************
 void BFSTtraverse(Graph G)
 {
   for (v = 0; v <G->n; v++)
@@ -43,3 +43,4 @@ void BFSTtraverse(Graph G)
 	In_Queue(Q, w);
   }
 }
+*****************************************************************/
