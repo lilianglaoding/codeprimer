@@ -3,6 +3,8 @@
 
 #include "mgraph.h"
 
+int visited[MAXVERTEXNUM];
+
 void CreateMGraph(MGraph *G)
 {
   int i, j, k, w;
@@ -25,5 +27,10 @@ void CreateMGraph(MGraph *G)
 
 void BFSTtraverse(Graph G)
 {
+  int i, j, k;
+  for (i = 0; i <G->n; i++)
+    visited[i] = 0;
+  
+  Queue Q;
   
 }
