@@ -22,3 +22,8 @@ void CreateMGraph(MGraph *G)
     G->edges[i][j] = 1;
   }
 }
+
+void BFSTtraverse(Graph G)
+{
+  
+}
