@@ -44,3 +44,13 @@ void BFSTtraverse(Graph G)
   }
 }
 *****************************************************************/
+
+void BFSTraverseM(MGraph *G)
+{
+  
+}
+
+void BFSM(MGraph *G, int k)
+{
+  
+}
