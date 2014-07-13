@@ -27,10 +27,19 @@ void CreateMGraph(MGraph *G)
 
 void BFSTtraverse(Graph G)
 {
-  int i, j, k;
-  for (i = 0; i <G->n; i++)
+  for (v = 0; v <G->n; v++)
     visited[i] = 0;
-  
-  Queue Q;
-  
+  C_SeQueue Q;
+  Q = InitQueue();
+  if (!visited[v])
+    In_Queue(Q, v);
+  while (!QueueEmpty(Q))
+  {
+    Out_Queue(Q, u);
+    visited[u] = 1;
+    visit(u);
+    for (w = FirstAdjvex(G, u); w; w = NextAdjVex(G, u, w))
+      if (!visited[w])
+	In_Queue(Q, w);
+  }
 }
