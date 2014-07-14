@@ -24,6 +24,12 @@ void CreateMGraph(MGraph *G)
     G->edges[i][j] = 1;
   }
 }
+
+void visit(datatype x)
+{
+  printf("%d ", x);
+}
+
 /****************************************************************
 void BFSTtraverse(Graph G)
 {
@@ -59,6 +65,19 @@ void BFSTraverseM(MGraph *G)
 
 void BFSM(MGraph *G, int k)
 {
-  
-  while ()
+  int i;
+  datatype x;
+  C_SeQueue Q;
+  Q = Init_Queue();
+  if (!visited[k])
+    In_Queue(Q, G->vexs[K]);
+  while (!Empty_Queue(Q))
+  {
+    Out_Queue(Q, *x);
+    visit(x);
+    if (!visited[i] && G->edges[k][i] == 1)
+    {
+      In_Queue(Q, G->vex[i]);
+    }
+  }
 }
