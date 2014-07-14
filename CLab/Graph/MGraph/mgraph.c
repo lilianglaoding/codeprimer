@@ -69,8 +69,7 @@ void BFSM(MGraph *G, int i)
   int v;
   C_SeQueue Q;
   Q = Init_Queue();
-  //if (!visited[i])
-    In_Queue(Q, i);
+  In_Queue(Q, i);
   while (!Empty_Queue(Q))
   {
     Out_Queue(Q, *k);
@@ -79,12 +78,9 @@ void BFSM(MGraph *G, int i)
       visit(G->vexs[k]);
       visited[k] = 1;
     }
-    //for (j = 0; j < G->n; j++)
+    if (j < G->n &&!visited[j] && G->edges[i][j] == 1)
     {
-      if (j < G->n &&!visited[j] && G->edges[i][j] == 1)
-      {
-	In_Queue(Q, j);
-      }
+      In_Queue(Q, j);
     }
     j++;
   }
