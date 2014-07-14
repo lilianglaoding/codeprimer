@@ -81,7 +81,7 @@ void BFSM(MGraph *G, int i)
 
     for (j = 0; j < G->n; j++)
     {
-      if (j < G->n && !visited[j] && G->edges[i][j] == 1)
+      if (!visited[j] && G->edges[i][j] == 1)
       {
 	In_Queue(Q, j);
       }
