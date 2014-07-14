@@ -65,8 +65,7 @@ void BFSTraverseM(MGraph *G)
 
 void BFSM(MGraph *G, int i)
 {
-  int j = 0, k;
-  int v;
+  int j = i + 1, k;
   C_SeQueue Q;
   Q = Init_Queue();
   In_Queue(Q, i);
@@ -78,7 +77,7 @@ void BFSM(MGraph *G, int i)
       visit(G->vexs[k]);
       visited[k] = 1;
     }
-    if (j < G->n &&!visited[j] && G->edges[i][j] == 1)
+    if (j < G->n && !visited[j] && G->edges[i][j] == 1)
     {
       In_Queue(Q, j);
     }
