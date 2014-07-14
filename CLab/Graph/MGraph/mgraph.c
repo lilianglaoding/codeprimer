@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "mgraph.h"
+#include "Queue.c"
 
 int visited[MAXVERTEXNUM];
 
@@ -77,11 +78,14 @@ void BFSM(MGraph *G, int i)
       visit(G->vexs[k]);
       visited[k] = 1;
     }
-    if (j < G->n && !visited[j] && G->edges[i][j] == 1)
+
+    for (j = 0; j < G->n; j++)
     {
-      In_Queue(Q, j);
+      if (j < G->n && !visited[j] && G->edges[i][j] == 1)
+      {
+	In_Queue(Q, j);
+      }
     }
-    j++;
   }
   Destroy_Queue(Q);
 }
