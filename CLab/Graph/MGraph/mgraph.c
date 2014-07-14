@@ -47,10 +47,18 @@ void BFSTtraverse(Graph G)
 
 void BFSTraverseM(MGraph *G)
 {
-  
+  int i, j;
+  for (i = 0; i < G->n; i++)
+    visited[i] = 0;
+  for (i = 0; i < G->n; i++)
+  {
+    if (!visited[i])
+      BFSM(G, i);
+  }
 }
 
 void BFSM(MGraph *G, int k)
 {
   
+  while ()
 }
