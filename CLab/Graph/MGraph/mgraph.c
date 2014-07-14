@@ -65,10 +65,10 @@ void BFSTraverseM(MGraph *G)
 
 void BFSM(MGraph *G, int i)
 {
-  int j = i + 1, k;
+  int j = i + 2, k;
   C_SeQueue Q;
   Q = Init_Queue();
-  In_Queue(Q, i);
+  In_Queue(Q, i + 1);
   while (!Empty_Queue(Q))
   {
     Out_Queue(Q, *k);
@@ -84,4 +84,12 @@ void BFSM(MGraph *G, int i)
     j++;
   }
   Destroy_Queue(Q);
+}
+
+int main()
+{
+  MGraph G;
+  CreateMGraph(&G);
+  BFSTraverseM(&G);
+  return 0;
 }
