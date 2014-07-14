@@ -80,4 +80,5 @@ void BFSM(MGraph *G, int k)
       In_Queue(Q, G->vex[i]);
     }
   }
+  Destroy_Queue(Q);
 }
