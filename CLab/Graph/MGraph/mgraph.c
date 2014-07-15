@@ -72,12 +72,9 @@ void BFSM(MGraph *G, int i)
   In_Queue(Q, i);
   while (!Empty_Queue(Q))
   {
-    Out_Queue(Q, *k);
-    if (!visited[k])
-    {
-      visit(G->vexs[k]);
-      visited[k] = 1;
-    }
+    Out_Queue(Q, *i);
+    visit(G->vexs[i]);
+    visited[i] = 1;
 
     for (j = 0; j < G->n; j++)
     {
