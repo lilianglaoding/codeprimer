@@ -66,7 +66,7 @@ void BFSTraverseM(MGraph *G)
 
 void BFSM(MGraph *G, int i)
 {
-  int j = i + 1, k;
+  int j, k;
   C_SeQueue Q;
   Q = Init_Queue();
   In_Queue(Q, i);
