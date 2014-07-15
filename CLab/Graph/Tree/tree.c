@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int visited[MAXVERTEXNUM]
+int visited[MAXVERTEXNUM];
 
 void DFSForest(Graph G, CSTree *T)
 {
