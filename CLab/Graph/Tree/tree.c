@@ -3,6 +3,20 @@
 
 int visited[MAXVERTEXNUM];
 
+typedef char datatype;
+
+typedef struct TreeNode
+{
+  datatype data;
+  struct TreeNode *lchild;
+  struct TreeNode *nextsibling;
+} CSNode, CSTree;
+
+datatype GetVex(Graph G,int v)
+{
+  return G.vexs[v];
+}
+
 void DFSForest(Graph G, CSTree *T)
 {
   int i, j;
