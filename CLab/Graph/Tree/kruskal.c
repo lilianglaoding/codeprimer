@@ -9,6 +9,9 @@ EdgeType edges[MAXEDGE];
 
 void kruskal(EdgeType edges[], int n)
 {
-  int i, j, k;
+  int i, j, vf1, vf2;
+  int farther[MAXEDGE];
+  for (i = 0; i < MAXEDGE; i++)
+    farther[i] = -1;
   
 }
