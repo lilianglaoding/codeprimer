@@ -9,4 +9,4 @@ typedef struct
   int cost;
 } EdgeType;
 
-EdgeType edges[MAXEDGE];
+//EdgeType edges[MAXEDGE];
