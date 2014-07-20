@@ -1,9 +1,16 @@
 #ifndef SHORTESTPATH_H
 #define SHORTESTPATH_H
 
-typedef struct path
+#define MAXVERTEXNUM 100
+
+typedef char VertexType;
+typedef int EdgeType;
+
+typedef struct
 {
-  
-}
+  VertexType vexs[MAXVERTEXNUM];
+  EdgeType[MAXVERTEXNUM][MAXVERTEXNUM];
+  int n, e;
+} MGraph;
 
 #endif
