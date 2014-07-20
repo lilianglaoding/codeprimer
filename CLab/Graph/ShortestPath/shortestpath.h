@@ -1,6 +1,9 @@
 #ifndef SHORTESTPATH_H
 #define SHORTESTPATH_H
 
-typedef struct 
+typedef struct path
+{
+  
+}
 
 #endif
