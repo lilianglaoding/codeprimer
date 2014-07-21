@@ -3,7 +3,8 @@
 
 #include "shortestpat.h"
 
-void ShortestPath_1(MGraph G, PathMatrix *P, ShortPathTable *D)
+void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
 {
+  int i, w;
   
 }
