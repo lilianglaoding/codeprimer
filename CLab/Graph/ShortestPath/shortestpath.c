@@ -5,6 +5,7 @@
 
 #define INFINITY 65535
 
+// Dijkstra algroithm
 void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
 {
   int i, w, v;
@@ -62,7 +63,8 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
   }
 }
 
-void ShortestPath_2(MGraph G, int v0, PathMatrix *P, ShortPath *D)
+// Floyd algorithm
+void ShortestPath_2(MGraph G, PathMatrix *P[], DistanceMatrix *D)
 {
   
 }
