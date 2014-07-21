@@ -23,6 +23,7 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
   
   D[v0] = 0;
   final[v0] = true;
+
   for (i = 1; i < G.n; i++)
   {
     min = INFINITY;
@@ -34,6 +35,29 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
 	  min = D[w];
 	}
     final[v] = true;
-    
+
+    for (w = 0; w < G.n; w++)
+      if (!final[w] && min + edges[v][w] < D[w])
+      {
+	D[w] = min + edges[v][w];
+	P[w] = v;
+      }
+  }
+
+  for (i = 1; i < G.n; i++)
+  {
+    if (P[i] == -2)
+      printf("max %d\n", i);
+    else
+    {
+      printf("%d %d", D[i], i);
+      pre = P[i];
+      while (pre > 0)
+      {
+	printf("<-%d", pre);
+	pre = P[pre];
+      }
+      printf("<-0\n");
+    }
   }
 }
