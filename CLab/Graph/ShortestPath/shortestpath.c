@@ -26,7 +26,14 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
   for (i = 1; i < G.n; i++)
   {
     min = INFINITY;
+    for (w = 0; w < G.n; w++)
+      if (!final[w])
+	if (D[w] < min)
+	{
+	  v = w;
+	  min = D[w];
+	}
+    final[v] = true;
     
   }
-  
 }
