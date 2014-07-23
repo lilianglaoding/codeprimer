@@ -67,6 +67,25 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
 void ShortestPath_2(MGraph G, PathMatrix *P[], DistanceMatrix *D)
 {
   int v, u, w;
-  
-  
+  for (v = 0; v < G.n; v++)
+    for (w = 0; w < G.n; w++)
+    {
+      D[v][w] = G.edges[v][w];
+      for (u = 0; u < G.n; u++)
+	P[v][w][u] = false;
+      if (D[v][w] < INFINITY)
+	P[v][w] = v;
+      else if (v != w)
+	P[v][w] = -2;
+      if (v == w)
+	P[v][w] = -1;
+    }
+  for (u = 0; u < G.n; u++)
+    for (v = 0; v < G.n; v++)
+      for (w = 0; w < G.n; w++)
+	if (D[v][u] + D[u][w] < D[v][w])
+	{
+	  D[v][w] = D[v][u] + D[u][w];
+	  P[v][w] = u;
+	}
 }
