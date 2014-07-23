@@ -66,6 +66,7 @@ void ShortestPath_1(MGraph G, int v0, PathMatrix *P, ShortPathTable *D)
 // Floyd algorithm
 void ShortestPath_2(MGraph G, PathMatrix *P[], DistanceMatrix *D)
 {
-  int i, j, k;
+  int v, u, w;
+  
   
 }
