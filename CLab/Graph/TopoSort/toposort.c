@@ -5,6 +5,10 @@
 
 void toposort(ALGraph *G)
 {
+  int m = G->n;
+  int n = 0;
+  int i, j, k;
+  EdgeNode *ptr;
   int top = -1;
   for (i = 0; i < G->n; i++)
   {
