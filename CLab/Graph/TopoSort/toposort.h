@@ -5,6 +5,7 @@ typedef struct vnode
 {
   int indegree;
   VertexType vertex;
-}
+  EdgeNode *firstedge;
+} VertexNode;
 
 #endif
