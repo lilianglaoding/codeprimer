@@ -5,5 +5,5 @@
 
 void toposort()
 {
-  
+  int i, j, k;
 }
