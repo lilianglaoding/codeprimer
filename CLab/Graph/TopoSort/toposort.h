@@ -1,11 +1,29 @@
-#ifndef TOPOSORT_H
-#define TOPOSORT_H
+#ifndef ALGRAPH_H
+#define ALGRAPH_H
+
+#define MAXVERTEXNUM 100
+
+typedef char VertexType;
+typedef int EdgeType;
+
+typedef struct node
+{
+  int adjvex;
+  struct node *next;
+} EdgeNode;
 
 typedef struct vnode
 {
-  int indegree;
   VertexType vertex;
   EdgeNode *firstedge;
 } VertexNode;
+
+typedef VertexNode AdjList[MAXVERTEXNUM];
+
+typedef struct
+{
+  AdjList adjlist;
+  int n, e;
+} ALGraph;
 
 #endif
