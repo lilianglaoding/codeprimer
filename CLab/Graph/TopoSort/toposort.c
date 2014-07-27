@@ -3,7 +3,7 @@
 
 #include "toposort.h"
 
-void toposort()
+void toposort(ALGraph *G)
 {
   int i, j, k;
 }
