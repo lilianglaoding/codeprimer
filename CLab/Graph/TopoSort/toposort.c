@@ -17,5 +17,27 @@ void toposort(ALGraph *G)
   while (top != -1)
   {
     j = top;
+    top = G->adjlist[top].indegree;
+    printf("%c", G->adjlist[i].vertex);
+    n++;
+    ptr = G->adjlist[i].firstedge;
+    while (ptr != NULL)
+    {
+      k = ptr->next;
+      G->adjlist[k].indegree--;
+      if (G->adjlist[k].indegree == 0)
+      {
+	G->adjlist[k].indegree = top;
+	top = k;
+      }
+      ptr = ptr->next;
+    }
   }
+  if (m < n)
+  {
+    printf("The network has a cycle");
+    return 0;
+  }
+  else
+    return 1;
 }
