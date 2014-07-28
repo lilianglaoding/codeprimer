@@ -1,16 +1,29 @@
-#ifndef SHORTESTPATH_H
-#define SHORTESTPATH_H
+#ifndef ALGRAPH_H
+#define ALGRAPH_H
 
 #define MAXVERTEXNUM 100
 
 typedef char VertexType;
 typedef int EdgeType;
 
+typedef struct node
+{
+  int adjvex;
+  struct node *next;
+} EdgeNode;
+
+typedef struct vnode
+{
+  VertexType vertex;
+  EdgeNode *firstedge;
+} VertexNode;
+
+typedef VertexNode AdjList[MAXVERTEXNUM];
+
 typedef struct
 {
-  VertexType vexs[MAXVERTEXNUM];
-  EdgeType edges[MAXVERTEXNUM][MAXVERTEXNUM];
+  AdjList adjlist;
   int n, e;
-} MGraph;
+} ALGraph;
 
 #endif
