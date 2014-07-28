@@ -5,8 +5,8 @@
 
 void toposort(ALGraph *G)
 {
-  int m = G->n;
-  int n = 0;
+  int n = G->n;
+  int m = 0;
   int i, j, k;
   EdgeNode *ptr;
   int top = -1;
@@ -22,9 +22,9 @@ void toposort(ALGraph *G)
   {
     j = top;
     top = G->adjlist[top].indegree;
-    printf("%c", G->adjlist[i].vertex);
-    n++;
-    ptr = G->adjlist[i].firstedge;
+    printf("%c", G->adjlist[j].vertex);
+    m++;
+    ptr = G->adjlist[j].firstedge;
     while (ptr != NULL)
     {
       k = ptr->next;
