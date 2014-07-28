@@ -3,7 +3,7 @@
 
 #include "toposort.h"
 
-void toposort(ALGraph *G)
+int toposort(ALGraph *G)
 {
   int n = G->n;
   int m = 0;
