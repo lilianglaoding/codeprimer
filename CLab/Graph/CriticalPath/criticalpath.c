@@ -43,6 +43,7 @@ int CriticalPath(ALGraph G)
     return 0;
   for (i = 0; i < G.n; i++)
     vl[i] = ve[l];
+
   while (!StackEmpty(T))
     for (j = Pop(T), p = G.adjlist[j].firstedge; p; p = p->next)
     {
@@ -51,6 +52,7 @@ int CriticalPath(ALGraph G)
       if (vl[k] - dut < vl[j])
 	vl[j] = vl[k] - dut;
     }
+
   for (j = 0; j < G.n; j++)
     for (p = G.adjlist[j].firstedge; p; p = p->next)
     {
