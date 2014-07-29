@@ -6,6 +6,7 @@
 int TopologicalOrder(ALGraph G, Stack T)
 {
   FindInDegree(G, indegree);
+  
 }
 
 
