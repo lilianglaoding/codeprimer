@@ -37,5 +37,6 @@ int TopologicalOrder(ALGraph G, Stack T)
 
 int CriticalPath(ALGraph G)
 {
+  InitStack(T);
   
 }
