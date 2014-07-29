@@ -60,7 +60,7 @@ int CriticalPath(ALGraph G)
       dut = *(p->info);
       e = ve[j];
       l = vl[k] - dut;
-      tag = (e == 1)?'*'';';
+      tag = (e == l)?'*'';';
       printf("%d, %d, %d, %d, %d, %c", j, k, dut, e, l, tag);
     }
   return 1;
