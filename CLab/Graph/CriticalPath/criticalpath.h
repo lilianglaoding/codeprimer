@@ -9,6 +9,7 @@ typedef int EdgeType;
 typedef struct node
 {
   int adjvex;
+  int info;
   struct node *next;
 } EdgeNode;
 
