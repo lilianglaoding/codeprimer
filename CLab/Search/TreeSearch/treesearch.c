@@ -55,5 +55,7 @@ int InsertNode(NodeType **t, KeyType kx)
 
 int DeleteNode(NodeType **t, KeyType kx)
 {
-  
+  NodeType *p = *t;
+  NodeType *q, *s, **f;
+  int flag = 0;
 }
