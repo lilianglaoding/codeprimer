@@ -52,3 +52,8 @@ int InsertNode(NodeType **t, KeyType kx)
   }
   return flag;
 }
+
+int DeleteNode(NodeType **t, KeyType kx)
+{
+  
+}
