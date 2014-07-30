@@ -21,8 +21,33 @@ int SearchData(NodeType *t, NodeType **p, NodeType **q, KeyType kx)
     }
     else
     {
-      flag = 0;
+      flag = 1;
       break;
+    }
+  }
+  return flag;
+}
+
+int InsertNode(NodeType **t, KeyType kx)
+{
+  NodeType *p, *q, *s;
+  p = NULL;
+  int flag = 0;
+  if (!SearchData(*t, &p, &q, kx))
+  {
+    s = (NodeType *)malloc(sizeof(Nodetype));
+    s->data.key = kx;
+    s->lchild = NULL;
+    s->rchild = NULL;
+    flag = 1;
+    if (!p)
+      *t = s;
+    else
+    {
+      if (kx < p->data.key)
+	p->lchild = s;
+      else
+	p->rchild = s;
     }
   }
   return flag;
