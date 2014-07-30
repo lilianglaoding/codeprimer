@@ -58,4 +58,28 @@ int DeleteNode(NodeType **t, KeyType kx)
   NodeType *p = *t;
   NodeType *q, *s, **f;
   int flag = 0;
+  //delete node q
+  if (SearchData(*t, &p, &q, kx))
+  {
+    flag = 1;
+    if (p == q)
+      f = t;
+    else
+    {
+      if (kx < p->data.key)
+	f = &(p->lchild);
+      else
+	f = &(p->rchild);
+    }
+    if (!q->lchild)
+      *f = q->lchild;
+    else if(!q->rchild)
+      *f = q->rchild;
+    else
+    {
+      p = q->rchild;
+      s = p;
+      
+    }
+  }
 }
