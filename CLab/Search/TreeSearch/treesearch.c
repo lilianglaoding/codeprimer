@@ -24,7 +24,7 @@ int SearchData(NodeType *t, NodeType **p, NodeType **q, KeyType kx)
       flag = 1;
       break;
     }
-  }
+n  }
   return flag;
 }
 
@@ -72,9 +72,9 @@ int DeleteNode(NodeType **t, KeyType kx)
 	f = &(p->rchild);
     }
     if (!q->lchild)
-      *f = q->lchild;
-    else if(!q->rchild)
       *f = q->rchild;
+    else if(!q->rchild)
+      *f = q->lchild;
     else
     {
       p = q->rchild;
