@@ -79,7 +79,14 @@ int DeleteNode(NodeType **t, KeyType kx)
     {
       p = q->rchild;
       s = p;
-      
+      while (p->lchild)
+      {
+	s = p;
+	p = p->lchild;
+      }
+      p->lchild = q->lchild;
+      *f = q->rchild;
     }
   }
+  return flag;
 }
