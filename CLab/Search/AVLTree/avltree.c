@@ -29,4 +29,5 @@ void LeftBalance(NodeType **p)
 {
   NodeType *q;
   int i, j, k;
+  int h;
 }
