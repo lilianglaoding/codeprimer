@@ -62,7 +62,7 @@ void LeftBalance(NodeType **p)
   }
 }
 
-int Insert_AVL(NodeType **t, datatype e, bool *taller)
+int InsertAVL(NodeType **t, datatype e, bool *taller)
 {
   if (!(*t))
   {
@@ -82,7 +82,45 @@ int Insert_AVL(NodeType **t, datatype e, bool *taller)
     }
     if (e.key < (*t)->data.key)
     {
-      
+      if (!InsertAVL(&((*t)->lchild), e, &taller))
+	return 0;
+      if (*taller)
+	switch ((*t)->bf)
+	{
+	case LH:
+	  LeftBalance(t);
+	  *taller = false;
+	  break;
+	case EH:
+	  (*t)->bf = LH;
+	  *taller = true;
+	  break;
+	case RH:
+	  (*t)->bf = EH;
+	  *taller = false;
+	  break;
+	}
+    }
+    else
+    {
+      if (!InsertAVL(&((*t)->rchild), e, &taller))
+	return 0;
+      if (*taller)
+	switch ((*t)->bf)
+	{
+	case LH:
+	  (*t)->bf = EH;
+	  *taller = false;
+	  break;
+	case EH:
+	  (*t)->bf = RH;
+	  *taller = true;
+	  break;
+	case RH:
+	  RightBalance(t);
+	  *taller = false;
+	  break;
+	}
     }
   }
   return 1;
