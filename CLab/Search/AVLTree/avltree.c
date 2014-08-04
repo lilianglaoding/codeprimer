@@ -34,7 +34,7 @@ void LeftBalance(NodeType **p)
   {
   case LH:
     (*p)->bf = lp->bf = EH;
-    L_Rotate(p);
+    R_Rotate(p);
     break;
   case EH:
     (*p)->bf = LH;
