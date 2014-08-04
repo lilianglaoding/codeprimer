@@ -3,9 +3,9 @@
 
 #include "avltree.h"
 
-#define LH -1
+#define LH 1
 #define EH 0
-#define RH 1
+#define RH -1
 
 void R_Rotate(NodeType **p)
 {
