@@ -27,6 +27,24 @@ void L_Rotate(NodeType **p)
 
 void LeftBalance(NodeType **p)
 {
-  NodeType *q;
-  
+  NodeType *lp;
+  NodeType *rd;
+  lp = (*p)->lchild;
+  switch ((*p)->bf)
+  {
+  case LH:
+    (*p)->bf = lp->bf = EH;
+    R_Rotate(p);
+    break;
+  case EH:
+    (*p)->bf = LH;
+    *paller = true;
+    break;
+  case RH:
+    rd = lp->rchild;
+    switch (rd->bf)
+    {
+      
+    }
+  }
 }
