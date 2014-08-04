@@ -38,7 +38,7 @@ void LeftBalance(NodeType **p)
     break;
   case EH:
     (*p)->bf = LH;
-    *paller = true;
+    *taller = true;
     break;
   case RH:
     rd = lp->rchild;
