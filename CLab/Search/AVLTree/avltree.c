@@ -80,7 +80,10 @@ int Insert_AVL(NodeType **t, datatype e, bool *taller)
       *taller = false;
       return 0;
     }
-    
+    if (e.key < (*t)->data.key)
+    {
+      
+    }
   }
   return 1;
 }
