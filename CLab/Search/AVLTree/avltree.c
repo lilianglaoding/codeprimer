@@ -62,3 +62,25 @@ void LeftBalance(NodeType **p)
   }
 }
 
+int Insert_AVL(NodeType **t, datatype e, bool *taller)
+{
+  if (!(*t))
+  {
+    (*t) = (NodeType *)malloc(sizeof(NodeType));
+    (*t)->data = e;
+    (*t)->lchild = NULL;
+    (*t)->rchild = NULL;
+    (*t)->bf = EH;
+    *taller = true;
+  }
+  else
+  {
+    if (e.key == (*t)->data.key)
+    {
+      *taller = false;
+      return 0;
+    }
+    
+  }
+  return 1;
+}
