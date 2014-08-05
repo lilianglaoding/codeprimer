@@ -6,7 +6,7 @@
 int Search(NodeType *p, KeyType kx)
 {
   int i;
-  for (i = 1; i <= p->keynum; i++)
+  for (i = 1; i < p->keynum; i++)
   {
     if (key[i] == kx)
       break;
