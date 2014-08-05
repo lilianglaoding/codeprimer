@@ -8,7 +8,7 @@ int Search(NodeType *p, KeyType kx)
   int i;
   for (i = 1; i <= p->keynum; i++)
   {
-    if (kx == key[i] || kx < key[i])
+    if (kx == key[i] || (kx > key[i] && kx < key[i + 1]))
       break;
   }
   if (kx == key[i])
