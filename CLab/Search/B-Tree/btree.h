@@ -1,5 +1,7 @@
 #define m 5
 
+typedef datatype int;
+
 typedef struct node
 {
   int keynum;
