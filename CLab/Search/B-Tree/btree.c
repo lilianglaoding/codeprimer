@@ -3,12 +3,23 @@
 
 #include "btree.h"
 
-Result SearchBTree(NodeType **t, KeyType kx)
+int Search(NodeType *p, KeyType kx)
+{
+  int i;
+  for (i = 1; i <= p->keynum; i++)
+  {
+    if (key[i] == kx)
+      break;
+  }
+  return i;
+}
+
+Result SearchBTree(NodeType *t, KeyType kx)
 {
   Result rs;
   NodeType *p = t;
   NodeType *q = NULL;
-  int i, found = 0;
+  int i = 1, found = 0;
   while (p && !found)
   {
     i = Search(p, kx);
@@ -19,6 +30,7 @@ Result SearchBTree(NodeType **t, KeyType kx)
       q = p;
       p = p->nptr[i];
     }
+    i++;
   }
   rs.tag = found;
   if (!found)
