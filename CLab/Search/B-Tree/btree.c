@@ -53,3 +53,9 @@ NodeType *NewRoot(NodeType *t, NodeType *stptr, KeyType kx, ElemType *xelem)
   stptr->parent = p;
   return p;
 }
+
+int InsertBTree(NodeType **t, ElemType *xelm)
+{
+  int s, finished = false;
+  
+}
