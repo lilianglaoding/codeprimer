@@ -59,3 +59,8 @@ int InsertBTree(NodeType **t, ElemType *xelm)
   int s, finished = false;
   
 }
+
+NodeType *split(NodeType *s, int s)
+{
+  
+}
