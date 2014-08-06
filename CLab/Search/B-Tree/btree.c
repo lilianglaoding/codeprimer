@@ -57,7 +57,25 @@ NodeType *NewRoot(NodeType *t, NodeType *stptr, KeyType kx, ElemType *xelem)
 int InsertBTree(NodeType **t, ElemType *xelm)
 {
   int s, finished = false;
-  
+  NodeType *stptr;
+  KeyType kx = xelem->key;
+  ElemType *elemptr = xelm;
+  Result rs;
+  rs = SearchBTree(*t, kx);
+  if (!rs.tag)
+  {
+    stptr = NULL;
+    while (rs.pt && !finished)
+    {
+      Insert(rs.pt, rs.i, kx, elemptr, stptr);
+      if (rs.pt->keynum < m)
+	finished = true;
+      else
+      {
+	
+      }
+    }
+  }
 }
 
 NodeType *split(NodeType *s, int s)
