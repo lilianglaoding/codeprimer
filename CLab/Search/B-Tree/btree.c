@@ -39,3 +39,17 @@ Result SearchBTree(NodeType *t, KeyType kx)
   return rs;
 }
 
+NodeType *NewRoot(NodeType *t, NodeType *stptr, KeyType kx, ElemType *xelem)
+{
+  NodeType *p;
+  p = (NodeType *)malloc(sizeof(NodeType));
+  p->keynum = 1;
+  p->key[1] = kx;
+  p->eptr[1] = xelem;
+  p->nptr[0] = t;
+  p->nptr[1] = stptr;
+  p->parent = NULL;
+  t->parent = p;
+  stptr->parent = p;
+  return p;
+}
