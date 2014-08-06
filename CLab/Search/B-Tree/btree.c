@@ -5,18 +5,13 @@
 
 int Search(NodeType *p, KeyType kx)
 {
-  int i;
-  for (i = 1; i <= p->keynum; i++)
-  {
-    if (kx == key[i] || (kx > key[i] && kx < key[i + 1]))
-      break;
-  }
+  int i = 1;
+  while (i <= p->keynum && kx > key[i])
+    i++;
   if (kx == key[i])
     return i;
-  else if (kx < key[i])
-    return i - 1;
   else
-    return i + 1;
+    return i - 1;
 }
 
 Result SearchBTree(NodeType *t, KeyType kx)
