@@ -10,14 +10,6 @@ typedef struct node
 
 typedef NodeType *OpenHash[M];
 
-int CreateHashTbl(OpenHash l_tbl, ElemType *eptr)
-{
-  int d, finished;
-  int i;
-  for (i = 0; i <= M; i++)
-  {
-    
-  }
-}
+typedef int ElemType;
 
 
