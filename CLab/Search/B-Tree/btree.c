@@ -38,3 +38,4 @@ Result SearchBTree(NodeType *t, KeyType kx)
   rs.i = i;
   return rs;
 }
+
