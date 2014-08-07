@@ -89,7 +89,23 @@ int InsertBTree(NodeType **t, ElemType *xelm)
   }
 }
 
-NodeType *split(NodeType *s, int s)
+NodeType *split(NodeType *p, int s)
 {
-  
+  int j;
+  NodeType *q;
+  q = (NodeType *)malloc(sizeof(NodeType));
+  q->keynum = m - s;
+  q->parent = p->parent;
+  q->nptr[0] = p->nptr[s];
+  for (j = s + 1; j <= m; j++)
+  {
+    q->key[j - s] = p->key[j];
+    q->eptr[j - s] = p->eptr[j];
+    q->nptr[j - s] = p->nptr[j];
+  }
+  p->keynum = s - 1;
+  if (q->nptr[0])
+    for (j = 0; j <= q->keynum; j++)
+      (q->nptr[j])->parent = q;
+  return q;
 }
