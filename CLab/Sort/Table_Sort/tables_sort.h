@@ -1,7 +1,5 @@
-typedef int datatype;
-
 typedef struct
 {
-  datatype data;
+  int data;
   int next;
 } NodeType;
