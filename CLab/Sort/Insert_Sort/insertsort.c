@@ -3,7 +3,7 @@
 
 typedef int datatype;
 
-void D-InsertSort(datatype R[], int n)
+void D_InsertSort(datatype R[], int n)
 {
   int i, j;
   for (i = 1; i < n; i++)
@@ -32,7 +32,7 @@ int main()
     array[i] = i;
   print(array, 10);
   printf("\n");
-  D-InsertSort(array, 10);
+  D_InsertSort(array, 10);
   for (i = 0; i < 10; i++)
     printf("%d ", array[i]);
   printf("\n");
