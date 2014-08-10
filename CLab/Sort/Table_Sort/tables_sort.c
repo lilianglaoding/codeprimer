@@ -13,11 +13,11 @@ void B_InsertSort(datatype R[], int n)
   {
     for (j = 0; j < i; j++)
     {
-      if (R[i] < R[j + 1])
+      if (R[i] < R[R[j].next])
       {
 	p = R[i].next;
-	R[j].next = R[i].next;
-	R[i].next = j;
+	R[j].next = i;
+	R[i].next = p;
       }
     }
   }
