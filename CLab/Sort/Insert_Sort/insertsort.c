@@ -24,10 +24,12 @@ void B_InsertSort(datatype R[], int n)
   int i, j;
   int low, high;
   int mid;
+  int temp;
   for (i = 1; i < n; i++)
   {
     low = 0;
     high = i - 1;
+    temp = R[i];
     while (low <= high)
     {
       mid = (low + high) / 2;
@@ -38,8 +40,7 @@ void B_InsertSort(datatype R[], int n)
     }
     for (j = i - 1; j >= high + 1; j--)
       R[j + 1] = R[j];
-    
-    R[high + 1] = R[i];
+    R[high + 1] = temp;
   }
 }
 
@@ -58,7 +59,8 @@ int main()
     array[9 - i] = i;
   print(array, 10);
   printf("\n");
-  D_InsertSort(array, 10);
+  //D_InsertSort(array, 10);
+  B_InsertSort(array, 10);
   print(array, 10);
   printf("\n");
   return 0;
