@@ -19,14 +19,14 @@ void Bubble_Sort(int R[], int n)
 	R[j] = temp;
       }
     }
-    if (swap = 0)
+    if (swap == 0)
       break;
   }
 }
 
 int main()
 {
-  int array[5] = {5, 4, 3, 2, 1};
+  int array[5] = {5, 4, 3, 2 ,1};
   Bubble_Sort(array, 5);
   for (int i = 0; i < 5; i++)
     printf("%d ", array[i]);
