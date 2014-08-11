@@ -1,0 +1,7 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void Partion(int R[], int low, int high)
+{
+  
+}
