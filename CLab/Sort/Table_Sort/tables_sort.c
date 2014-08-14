@@ -12,16 +12,11 @@ void B_InsertSort(NodeType R[], int n)
   R[1].next = 0;
   for (i = 2; i < n; i++)
   {
-    for (j = 0; R[j].next != 0; j = R[j].next)
-    {
-      q = R[j].next;
-      if (R[i].data < R[q].data)
-      {
-	p = R[i].next;
-	R[j].next = i;
-	R[i].next = p;
-      }
-    }
+    j = 0;
+    while (R[j].next != 0 && R[R[j].next].data < R[i].data)
+      j = R[j].next;
+    R[i].next = R[j].next;
+    R[j].next = i;
   }
 }
 
@@ -33,8 +28,8 @@ int main()
   for (i = 0; i < 9; i++)
     scanf("%d", &(array[i].data));
   B_InsertSort(array, 9);
-  for (i = 0; i != 0; i = array[i].next)
-    printf("%d", array[i].data);
+  for (i = 1; i != 0; i = array[i].next)
+    printf("%d ", array[i].data);
   printf("\n");
   return 0;
 }
