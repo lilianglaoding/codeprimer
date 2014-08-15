@@ -51,7 +51,7 @@ int main()
   for (i = 0; i != 1; i = array[i].next)
     {
     printf("%d ", array[i].next);
-    printf("%d ", array[i].data);
+    //printf("%d ", array[i].data);
     }
   //printf("aaaaarray[].next:%d\n", array[j].next);
   //printf("%d", array[array[7].next].data);
