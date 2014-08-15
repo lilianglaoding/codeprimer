@@ -41,23 +41,14 @@ int main()
   for (k = 2; k < 9; k++)
   {
     j = 0;
-    // printf("array[0].next:%d\n", array[j].next);
     while (array[array[j].next].data < array[k].data && array[j].next != 0)
       j = array[j].next;
     array[k].next = array[j].next;
     array[j].next = k;
   }
-  printf("\n------------------------------------------\n");
-  for (i = 0; i != 1; i = array[i].next)
-    {
-    printf("%d ", array[i].next);
-    //printf("%d ", array[i].data);
-    }
-  //printf("aaaaarray[].next:%d\n", array[j].next);
-  //printf("%d", array[array[7].next].data);
-
-  //for (i = 1; i != 0; i = array[i].next)
-  //printf("%d ", array[i].data);
+  //printf("\n------------------------------------------\n");
+  for (i = 0; array[i].next != 0; i = array[i].next)
+    printf("%d ", array[array[i].next].data);
   printf("\n");
   return 0;
 }
