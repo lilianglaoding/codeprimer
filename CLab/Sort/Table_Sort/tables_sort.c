@@ -29,9 +29,11 @@ int main()
   for (i = 0; i < 9; i++)
     //scanf("%d", &(array[i].data));
     array[i].data = 8 - i;
+  printf("---------------before sorted----------------\n");
   for (i = 0; i < 9; i++)
     printf("%d ", array[i].data);
   printf("\n");
+  printf("---------------after sorted-----------------\n");
   //B_InsertSort(array, 9);
   int k, j;
   array[0].next = 1;
@@ -39,19 +41,23 @@ int main()
   for (k = 2; k < 9; k++)
   {
     j = 0;
-    printf("array[0].next:%d\n", array[j].next);
+    // printf("array[0].next:%d\n", array[j].next);
     while (array[array[j].next].data < array[k].data && array[j].next != 0)
       j = array[j].next;
-    //printf("%d", j);
     array[k].next = array[j].next;
     array[j].next = k;
-    //printf("array[j].next:%d", k);
   }
-  printf("aaaaarray[].next:%d\n", array[j].next);
-  printf("%d", array[array[7].next].data);
+  printf("\n------------------------------------------\n");
+  for (i = 0; i != 1; i = array[i].next)
+    {
+    printf("%d ", array[i].next);
+    printf("%d ", array[i].data);
+    }
+  //printf("aaaaarray[].next:%d\n", array[j].next);
+  //printf("%d", array[array[7].next].data);
 
   //for (i = 1; i != 0; i = array[i].next)
-    //printf("%d ", array[i].data);
+  //printf("%d ", array[i].data);
   printf("\n");
   return 0;
 }
