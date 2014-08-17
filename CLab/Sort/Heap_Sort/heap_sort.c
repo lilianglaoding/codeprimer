@@ -27,8 +27,10 @@ void HeapAdjust(int R[], int s, int t)
 void HeapSort(int R[], int n)
 {
   int i;
+  // create table R[1]..R[n]
   for (i = n / 2; i > 0; i--)
     HeapAdjust(R, i, n);
+  // swap the top and the bottom
   for (i = n; i > 1; i--)
   {
     R[0] = R[1];
