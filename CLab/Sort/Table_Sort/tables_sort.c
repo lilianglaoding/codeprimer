@@ -3,7 +3,7 @@
 
 #include "tables_sort.h"
 
-/*void B_InsertSort(NodeType R[], int n)
+void B_InsertSort(NodeType R[], int n)
 {
   int i, j;
   int p;
@@ -15,11 +15,10 @@
     j = 0;
     while (R[R[j].next].data < R[i].data && R[j].next != 0)
       j = R[j].next;
-    printf("%d", j);
     R[i].next = R[j].next;
     R[j].next = i;
   }
-  }*/
+}
 
 int main()
 {
@@ -34,19 +33,7 @@ int main()
     printf("%d ", array[i].data);
   printf("\n");
   printf("---------------after sorted-----------------\n");
-  //B_InsertSort(array, 9);
-  int k, j;
-  array[0].next = 1;
-  array[1].next = 0;
-  for (k = 2; k < 9; k++)
-  {
-    j = 0;
-    while (array[array[j].next].data < array[k].data && array[j].next != 0)
-      j = array[j].next;
-    array[k].next = array[j].next;
-    array[j].next = k;
-  }
-  //printf("\n------------------------------------------\n");
+  B_InsertSort(array, 9);
   for (i = 0; array[i].next != 0; i = array[i].next)
     printf("%d ", array[array[i].next].data);
   printf("\n");
