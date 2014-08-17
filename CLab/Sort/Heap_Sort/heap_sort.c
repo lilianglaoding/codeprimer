@@ -3,6 +3,10 @@
 
 #include "heap_sort.h"
 
+// algorithm:
+// Create Heap and then sort
+// sort is adjust
+
 void HeapAdjust(int R[], int s, int t)
 {
   int rs = R[s];
@@ -18,4 +22,18 @@ void HeapAdjust(int R[], int s, int t)
     i = j;
   }
   R[i] = rs;
+}
+
+void HeapSort(int R[], int n)
+{
+  int i;
+  for (i = n / 2; i > 0; i--)
+    HeapAdjust(R, i, n);
+  for (i = n; i > 1; i--)
+  {
+    R[0] = R[1];
+    R[1] = R[i];
+    R[i] = R[0];
+    HeapAdjust(R, 1, i - 1);
+  }
 }
