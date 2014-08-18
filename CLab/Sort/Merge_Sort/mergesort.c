@@ -19,3 +19,8 @@ void Merge(int R[], int S[], int s, int m, int t)
   while (j <= t)
     S[k++] = R[j++];
 }
+
+void MergePass(int R[], int R1[], int len, int n)
+{
+  
+}
