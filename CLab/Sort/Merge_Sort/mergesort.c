@@ -21,7 +21,7 @@ void Merge(int R[], int S[], int s, int m, int t)
 }
 
 //////////////////////////////////////////////////////////////
-
+//merge the R[] to R1[]
 void MergePass(int R[], int R1[], int len, int n)
 {
   int i;
