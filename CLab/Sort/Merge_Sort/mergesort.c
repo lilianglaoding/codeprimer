@@ -22,5 +22,12 @@ void Merge(int R[], int S[], int s, int m, int t)
 
 void MergePass(int R[], int R1[], int len, int n)
 {
-  
+  int i;
+  for (i = 1; i + 2 * len - 1 <= n; i = i + 2 * len)
+    Merge(R, R1, i, i + len -1, i + 2 * len - 1);
+  if (i + len - 1 < n)
+    Merge(R, R1, i, i + len - 1; n);
+  else if (i <= n)
+    while (i <= n)
+      R1[i++] = R[i++];
 }
