@@ -20,6 +20,8 @@ void Merge(int R[], int S[], int s, int m, int t)
     S[k++] = R[j++];
 }
 
+//////////////////////////////////////////////////////////////
+
 void MergePass(int R[], int R1[], int len, int n)
 {
   int i;
@@ -31,3 +33,36 @@ void MergePass(int R[], int R1[], int len, int n)
     while (i <= n)
       R1[i++] = R[i++];
 }
+
+void MergeSort(int R[], int n)
+{
+  int len = 1;
+  while (len < n)
+  {
+    MergePass(R, R1, len);
+    len = len * 2;
+    MergePass(R1, R, len);
+  }
+}
+
+/////////////////////////////////////////////////////////////
+
+void Msort(int R[], int R1[], int s, int t)
+{
+  if (s == t)
+    R1[s] = R[s];
+  else
+  {
+    m = (s + t) / 2;
+    MSort(R, R1, s, m);
+    MSort(R, R1, m + 1, t);
+    Merge(R1, R, s, m, t);
+  }
+}
+
+void MergeSort(int R[], int n)
+{
+  MSort(R, R1, 1, n);
+}
+
+//////////////////////////////////////////////////////////
