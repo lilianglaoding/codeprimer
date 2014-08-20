@@ -25,7 +25,7 @@ void Distribute(NodeType R[], int i, Queue q)
   }
 }
 
-void collect(NodeType R[], int i, Queue q)
+void Collect(NodeType R[], int i, Queue q)
 {
   int j;
   int t;
@@ -44,3 +44,16 @@ void collect(NodeType R[], int i, Queue q)
   R[t].next = 0;
 }
 
+void RadixSort(NodeType R[], int n)
+{
+  Queue q;
+  int i;
+  for (i = 0; i < n; i++)
+    R[i].next = i + 1;
+  R[n].next = 0;
+  for (i = 0; i < KEY-NUM; i++)
+  {
+    Distribute(R, i, q);
+    Collect(R, i, q);
+  }
+}
