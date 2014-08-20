@@ -3,6 +3,11 @@
 
 #include "radixsort.h"
 
+int ord(int x)
+{
+  return x;
+}
+
 void Distribute(NodeType R[], int i, Queue q)
 {
   int j;
@@ -12,10 +17,15 @@ void Distribute(NodeType R[], int i, Queue q)
   for (p = R[0].next; p; p = R[p].next)
   {
     j = ord(R[p].keys[i]);
-    if (!q[i].f)
-      q[i].f = p;
+    if (!q[j].f)
+      q[j].f = p;
     else
       R[q[j].next] = p;
     q[j].e = p;
   }
+}
+
+void collect(NodeType R[], int i, Queue q)
+{
+  
 }
