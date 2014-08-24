@@ -5,14 +5,14 @@ void Merge(int R[], int R1[], int s, int m, int t)
 {
   int i = s, j = m + 1;
   int k = s;
-  while (i < m && j < t)
+  while (i <= m && j <= t)
     if (R[i] < R[j])
       R1[k++] = R[i++];
     else
       R1[k++] = R[j++];
-  while (i < m)
+  while (i <= m)
     R1[k++] = R[i++];
-  while (j < t)
+  while (j <= t)
     R1[k++] = R[j++];
 }
 
@@ -38,11 +38,12 @@ void MSort(int R[], int R1[], int s, int t)
 int main()
 {
   int i;
-  int R[5] = {1, 0, 2, 5, 3};
+  int R[5] = {1, 0, 2, 1, 5};
   int R1[5];
-  MSort(R, R1, 0, 4);
-  for (i = 0; i < 5; i++)
-    printf("%d ", R[i]);
+  //MSort(R, R1, 1, 4);
+  Merge(R, R1,1, 2, 5);
+  for (i = 1; i < 5; i++)
+    printf("%d ", R1[i]);
   printf("\n");
   return 0;
 }
