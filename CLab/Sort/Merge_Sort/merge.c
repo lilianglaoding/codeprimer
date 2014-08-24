@@ -40,8 +40,8 @@ int main()
   int i;
   int R[5] = {1, 0, 2, 1, 5};
   int R1[5];
-  //MSort(R, R1, 1, 4);
-  Merge(R, R1,1, 2, 5);
+  MSort(R, R1, 1, 4);
+  //Merge(R, R1,1, 2, 5);
   for (i = 1; i < 5; i++)
     printf("%d ", R1[i]);
   printf("\n");
