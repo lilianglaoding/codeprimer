@@ -32,13 +32,17 @@ void MSort(int R[], int R1[], int s, int t)
 
 void MergeSort(int R, int n)
 {
-  Msort(R, 0, n - 1);
+  Msort(R, R1, 0, n - 1);
 }
 
 int main()
 {
+  int i;
   int R[5] = {1, 0, 2, 5, 3};
   int R1[5];
-  
+  MSort(R, R1, 0, 4);
+  for (i = 0; i < 5; i++)
+    printf("%d ", R[i]);
+  printf("\n");
   return 0;
 }
