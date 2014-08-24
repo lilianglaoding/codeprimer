@@ -49,6 +49,7 @@ void MergeSort(int R[], int n)
 
 void Msort(int R[], int R1[], int s, int t)
 {
+  int m;
   if (s == t)
     R1[s] = R[s];
   else
