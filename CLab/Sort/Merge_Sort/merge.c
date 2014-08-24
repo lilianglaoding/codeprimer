@@ -30,10 +30,10 @@ void MSort(int R[], int R1[], int s, int t)
   }
 }
 
-void MergeSort(int R, int n)
+/*void MergeSort(int R, int n)
 {
   Msort(R, R1, 0, n - 1);
-}
+  }*/
 
 int main()
 {
