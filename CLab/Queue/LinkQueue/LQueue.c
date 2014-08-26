@@ -50,7 +50,7 @@ void Destroy_Queue(LQueue *q)
   {
     ptr = p;
     p = p->next;
-    free(p);
+    free(ptr);
   }
   free(q);
 }
