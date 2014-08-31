@@ -1,0 +1,6 @@
+class Vehicle
+{
+ public:
+  virtual double weight() const = 0;
+  virtual void start() = 0;
+}
