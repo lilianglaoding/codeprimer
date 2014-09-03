@@ -1,6 +1,0 @@
-typedef int LoserTree[k];
-
-typedef struct
-{
-  KeyType key;
-} ExNode, External[k];
