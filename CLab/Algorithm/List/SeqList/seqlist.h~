@@ -1,0 +1,5 @@
+typedef struct
+{
+  datatype data;
+  int last;
+} SeqList;
