@@ -92,6 +92,19 @@ LinkList Locate_LinkList(LinkList L, int i)
   LinkList p = L->next;
   while (j < i && p != NULL)
   {
-    
+    p = p->next;
+    j++;
   }
+  if (j < i)
+    return NULL;
+  else
+    return p;
+}
+
+LinkList Insert_LinkList(LinkList L, int loc, datatype x)
+{
+  if (L == NULL)
+    return NULL;
+  int j = 1;
+  
 }
