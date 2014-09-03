@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-#define MAXSIZE 6
-
-int compare(int *a, int *b, int m, int n)
-{
-  
-}

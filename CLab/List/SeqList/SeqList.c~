@@ -1,9 +1,0 @@
-#include <stdio.h>
-#include <stdlib.h>
-
-#incldue "SeqList.h"
-
-SeqList *Init_SeqList()
-{
-  
-}
