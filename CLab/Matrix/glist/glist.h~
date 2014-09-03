@@ -1,1 +1,0 @@
-typedef enum {ATOM, LIST} Elemtag;

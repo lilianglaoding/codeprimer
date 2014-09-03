@@ -1,9 +1,0 @@
-#ifndef SPMATRIX_H
-#define SPMATRIX_H
-
-typedef struct
-{
-  
-}
-
-#endif
