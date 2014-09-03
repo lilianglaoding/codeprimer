@@ -1,9 +1,0 @@
-#ifndef LQUEUE_H
-#define LQUEUE_H
-
-typedef struct
-{
-  
-}
-
-#endif
