@@ -1,0 +1,5 @@
+#include <stdio.h>
+
+#include "maze.h"
+
+//find a shortest way in maze

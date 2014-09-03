@@ -1,0 +1,8 @@
+typedef int datatype;
+
+typedef struct
+{
+  datatype data;
+  int next;
+} NodeType;
+

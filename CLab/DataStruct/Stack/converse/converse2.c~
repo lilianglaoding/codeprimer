@@ -1,0 +1,6 @@
+#include <stdio.h>
+
+int converse(int N, int r)
+{
+  
+}
