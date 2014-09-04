@@ -157,6 +157,22 @@ void Print_LinkList(LinkList L)
   printf("\n");
 }
 
+void Reverse_LinkList(LinkList L)
+{
+  if (L == NULL)
+    return ;
+  LinkList p = L->next;
+  LinkList q;
+  L->next = NULL;
+  while (p)
+  {
+    q = p;
+    q->next = L->next;
+    L->next = q;
+    p = p->next;
+  }
+}
+
 void Destroy_LinkList(LinkList L)
 {
   LinkList p = L;
@@ -175,6 +191,8 @@ int main()
   LinkList L;
   L = Init_LinkList();
   Create_LinkList(L);
+  Print_LinkList(L);
+  Reverse_LinkList(L);
   Print_LinkList(L);
   Destroy_LinkList(L);
   return 1;
