@@ -167,9 +167,9 @@ void Reverse_LinkList(LinkList L)
   while (p)
   {
     q = p;
+    p = p->next;
     q->next = L->next;
     L->next = q;
-    p = p->next;
   }
 }
 
