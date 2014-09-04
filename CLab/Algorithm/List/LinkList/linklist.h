@@ -7,6 +7,6 @@ typedef struct node
 {
   datatype data;
   struct node *next;
-} LNode, LinkList;
+} LNode, *LinkList;
 
 #endif
