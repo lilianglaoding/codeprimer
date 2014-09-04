@@ -125,11 +125,12 @@ int Delete_LinkList(LinkList L, int loc, datatype *x)
 {
   if (L == NULL)
     return 0;
-  LinkList p = L;
+  LinkList p;
   LinkList q;
   int j;
-  for (j = 1; j < loc - 1; j++)
-    p = p->next;
+  p = Locate_LinkList(L, loc - 1);
+  if (p == NULL)
+    return 0;
   q = p->next;
   p->next = q->next;
   free(q);
@@ -189,10 +190,13 @@ void Destroy_LinkList(LinkList L)
 int main()
 {
   LinkList L;
+  datatype x;
   L = Init_LinkList();
   Create_LinkList(L);
   Print_LinkList(L);
   Reverse_LinkList(L);
+  Print_LinkList(L);
+  Delete_LinkList(L, 3, &x);
   Print_LinkList(L);
   Destroy_LinkList(L);
   return 1;
