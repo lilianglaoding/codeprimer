@@ -146,6 +146,14 @@ LinkList Search_LinkList(LinkList L, datatype x)
   return p;    
 }
 
+void Print_LinkList(LinkList L)
+{
+  LinkList p = L->next;
+  while (p)
+    printf("%d ", p->data);
+  printf("\n");
+}
+
 void Destory_LinkList(LinkList L)
 {
   LinkList p = L;
@@ -157,4 +165,14 @@ void Destory_LinkList(LinkList L)
     free(q);
   }
   return ;
+}
+
+int main()
+{
+  LinkList L;
+  L = Init_LinkList();
+  Create_LinkList(L);
+  Print_LinkList(L);
+  Destroy_LinkList(L);
+  return 1;
 }
