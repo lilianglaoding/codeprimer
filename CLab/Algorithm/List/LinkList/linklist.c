@@ -145,3 +145,16 @@ LinkList Search_LinkList(LinkList L, datatype x)
     p = p->next;
   return p;    
 }
+
+void Destory_LinkList(LinkList L)
+{
+  LinkList p = L;
+  LinkList q;
+  while (p)
+  {
+    q = p;
+    q = q->next;
+    free(q);
+  }
+  return ;
+}
