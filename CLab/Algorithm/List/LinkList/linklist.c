@@ -101,10 +101,47 @@ LinkList Locate_LinkList(LinkList L, int i)
     return p;
 }
 
-LinkList Insert_LinkList(LinkList L, int loc, datatype x)
+// 0----insert failure
+// 1----insert success
+int Insert_LinkList(LinkList L, int loc, datatype x)
+{
+  if (L == NULL)
+    return 0;
+  LinkList p = L;
+  int j;
+  for (j = 1; j < loc - 1; j++)
+    p = p->next;
+  LinkList s;
+  s = (LNOde *)malloc(sizeof(LNode));
+  if (s == NULL)
+    return 0;
+  s->data = x;
+  s->next = p->next;
+  p->next = s;
+  return 1;
+}
+
+int Delete_LinkList(LinkList L, int loc, datatype *x)
+{
+  if (L == NULL)
+    return 0;
+  LinkList p = L;
+  LinkList q;
+  int j;
+  for (j = 1; j < loc - 1; j++)
+    p = p->next;
+  q = p->next;
+  p->next = q->next;
+  free(q);
+  return 1;
+}
+
+LinkList Search_LinkList(LinkList L, datatype x)
 {
   if (L == NULL)
     return NULL;
-  int j = 1;
-  
+  LinkList p = L->next;
+  while (p != NULL && p->data != x)
+    p = p->next;
+  return p;    
 }
