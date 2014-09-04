@@ -112,7 +112,7 @@ int Insert_LinkList(LinkList L, int loc, datatype x)
   for (j = 1; j < loc - 1; j++)
     p = p->next;
   LinkList s;
-  s = (LNOde *)malloc(sizeof(LNode));
+  s = (LNode *)malloc(sizeof(LNode));
   if (s == NULL)
     return 0;
   s->data = x;
@@ -150,18 +150,21 @@ void Print_LinkList(LinkList L)
 {
   LinkList p = L->next;
   while (p)
+  {
     printf("%d ", p->data);
+    p = p->next;
+  }
   printf("\n");
 }
 
-void Destory_LinkList(LinkList L)
+void Destroy_LinkList(LinkList L)
 {
   LinkList p = L;
   LinkList q;
   while (p)
   {
     q = p;
-    q = q->next;
+    p = p->next;
     free(q);
   }
   return ;
