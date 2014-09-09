@@ -3,3 +3,12 @@
 
 #include "linkstack.h"
 
+LinkStack *Init_Stack()
+{
+  return NULL;
+}
+
+LinkList *Pop_LinkList(LinkList *s)
+{
+  
+}
