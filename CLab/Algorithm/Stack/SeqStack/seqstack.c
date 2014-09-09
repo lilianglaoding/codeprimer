@@ -8,7 +8,7 @@ SeqStack *Init_Stack()
   SeqStack *s;
   s = (SeqStack *)malloc(sizeof(SeqStack));
   if (s == NULL)
-    return;
+    return NULL;
   s->top = -1;
   return s;
 }
@@ -51,8 +51,9 @@ void Destroy_Stack(SeqStack *s)
 
 void Print_Stack(SeqStack *s)
 {
-  while (s->top != -1)
-    printf("%d ", s->data[s->top--]);
+  int temp = s->top;
+  while (temp != -1)
+    printf("%d ", s->data[temp--]);
   printf("\n");
 }
 
@@ -63,6 +64,8 @@ int main()
   datatype x;
   for (int i = 0; i < 6; i++)
     Push_Stack(s, i);
+  Print_Stack(s);
+  Pop_Stack(s);
   Print_Stack(s);
   return 0;
 }
