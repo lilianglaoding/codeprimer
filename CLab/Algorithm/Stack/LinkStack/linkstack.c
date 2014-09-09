@@ -54,5 +54,11 @@ void Print_Stack(LinkStack *top)
   if (top == NULL)
     return;
   LinkStack *p = top;
-  
+  while (p)
+  {
+    printf("%d ", p->data);
+    p = p->next;
+  }
+  printf("\n");
 }
+
