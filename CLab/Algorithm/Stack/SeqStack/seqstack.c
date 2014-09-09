@@ -48,3 +48,21 @@ void Destroy_Stack(SeqStack *s)
     return ;
   free(s);
 }
+
+void Print_Stack(SeqStack *s)
+{
+  while (s->top != -1)
+    printf("%d ", s->data[s->top--]);
+  printf("\n");
+}
+
+int main()
+{
+  SeqStack *s;
+  s = Init_Stack();
+  datatype x;
+  for (int i = 0; i < 6; i++)
+    Push_Stack(s, i);
+  Print_Stack(s);
+  return 0;
+}
