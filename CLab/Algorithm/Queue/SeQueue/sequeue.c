@@ -7,7 +7,7 @@ SeQueue *Init_Queue()
 {
   SeQueue *q = (SeQueue *)malloc(sizeof(SeQueue));
   if (q == NULL)
-    return ;
+    return NULL;
   q->num = 0;
   q->front = q->rear = -1;
   return q;
@@ -41,7 +41,7 @@ datatype Top_Queue(SeQueue *q)
 {
   if (Empty_Queue(q))
     return 0;
-  return q->data[q->top];
+  return q->data[q->front];
 }
 
 void Destroy_Queue(SeQueue *q)
@@ -55,8 +55,8 @@ void Destroy_Queue(SeQueue *q)
 
 void Print_Queue(SeQueue *q)
 {
-  int temp = q->front;
-  while (temp != rear)
+  int temp = ++q->front;
+  while (temp != q->rear)
     printf("%d ", q->data[temp++]);
   printf("\n");
 }
