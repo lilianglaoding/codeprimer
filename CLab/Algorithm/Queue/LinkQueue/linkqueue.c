@@ -7,7 +7,7 @@ LQueue *Init_Queue()
 {
   LQueue *q;
   QNode *p;
-  q = (LQueue *)malloc(sizeof(LNode));
+  q = (LQueue *)malloc(sizeof(LQueue));
   p = (QNode *)malloc(sizeof(QNode));
   q->front = q->rear = p;
   p->next = NULL;
@@ -48,8 +48,8 @@ int Pop_Queue(LQueue *q)
     return 0;
   QNode *p;
   p = q->front->next;
-  q->front = p->next;
-  if (p == rear)
+  q->front->next = p->next;
+  if (p == q->rear)
     q->rear = q->front;
   free(p);
   return 1;
@@ -66,7 +66,7 @@ void Print_Queue(LQueue *q)
   printf("\n");
 }
 
-void Destory_Queue(LQueue *q)
+void Destroy_Queue(LQueue *q)
 {
   QNode *p, *s;
   p = q->front;
@@ -87,5 +87,8 @@ int main()
   for (int i = 0; i < 6; i++)
     Push_Queue(q, i);
   Print_Queue(q);
+  Pop_Queue(q);
+  Print_Queue(q);
+  Destroy_Queue(q);
   return 0;
 }
