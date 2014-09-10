@@ -5,5 +5,6 @@ typedef int datatype;
 typedef struct
 {
   datatype data[MAXSIZE];
+  int num;
   int front, rear;
 } SeQueue;
