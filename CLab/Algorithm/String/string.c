@@ -3,6 +3,8 @@
 
 #include "string.h"
 
+#define MAXSIZE 256
+
 int String_Length(char *str)
 {
   if (str == NULL)
@@ -52,10 +54,23 @@ char *String_Concat(char *str1, char *str2)
   return str1;
 }
 
+int String_Sub(char *t, char *s, int i, int len)
+{
+  if (t == NULL || s == NULL)
+    return 0;
+  int length = String_Length(s);
+  if (len < length - i + 1)
+    return 0;
+  return 1;
+  
+}
+
 int main()
 {
-  char str1[10] = "hello";
-  char str2[10] = "hello";
+  char str1[MAXSIZE] = "hello";
+  char str2[MAXSIZE] = "hello";
+  char str3[MAXSIZE];
+  printf("str3: %s\n", str3);
   printf("%s, %s\n", str1, str2);
   printf("%d\n", String_Length(str1));
   //printf("%s\n", String_Concat(str1, str2));
