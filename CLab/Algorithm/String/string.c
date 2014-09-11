@@ -27,9 +27,7 @@ int String_Compare(char *str1, char *str2)
   {    
     str1++;
     str2++;
-    printf("ret: %d ", ret);
   }
-  printf("\n----%d\n-----", ret);
   if (ret < 0)
     return -1;
   else if (ret > 0)
@@ -59,10 +57,13 @@ int String_Sub(char *t, char *s, int i, int len)
   if (t == NULL || s == NULL)
     return 0;
   int length = String_Length(s);
-  if (len < length - i + 1)
+  if (i < 0 || i > length || len > length - i + 1)
     return 0;
+  int j = 0;
+  for (j = 0; j < len; j++)
+    t[j] = s[i + j];
+  t[j] = '\0';
   return 1;
-  
 }
 
 int main()
@@ -70,6 +71,7 @@ int main()
   char str1[MAXSIZE] = "hello";
   char str2[MAXSIZE] = "hello";
   char str3[MAXSIZE];
+  String_Sub(str3, str1, 0, 2);
   printf("str3: %s\n", str3);
   printf("%s, %s\n", str1, str2);
   printf("%d\n", String_Length(str1));
