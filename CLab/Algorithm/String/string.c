@@ -21,7 +21,7 @@ int String_Compare(char *str1, char *str2)
   if (str1 == NULL || str2 == NULL)
     return 0;
   int ret = 0;
-  while (!(ret = (*str1) - (*str2)) && *str1 != '\0')
+  while (!(ret = (*str1) - (*str2)) && (*str1) != '\0')
   {    
     str1++;
     str2++;
@@ -54,10 +54,11 @@ char *String_Concat(char *str1, char *str2)
 
 int main()
 {
-  char str1[20] = "hello";
+  char str1[10] = "hello";
   char str2[10] = "hello";
+  printf("%s, %s\n", str1, str2);
   printf("%d\n", String_Length(str1));
-  printf("%s\n", String_Concat(str1, str2));
+  //printf("%s\n", String_Concat(str1, str2));
   printf("%d\n", String_Compare(str1, str2));
   return 0;
 }
