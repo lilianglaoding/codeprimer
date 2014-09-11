@@ -82,7 +82,21 @@ int String_Index(char *str, char *sub)
   int sub_len = String_Length(sub);
   if (str_len < sub_len)
     return -1;
-  
+  int i = 0, j = 0;
+  while (i < strlen && j < sub_len)
+  {
+    if (str[i] == str[j])
+    {
+      i++;
+      j++;
+    }
+    else
+      i = i - j + 2;
+  }
+  if (j == sub_len)
+    return (i - sublen);
+  else
+    return -1;
 }
 
 int main()
