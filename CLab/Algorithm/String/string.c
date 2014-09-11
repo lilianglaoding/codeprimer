@@ -52,18 +52,37 @@ char *String_Concat(char *str1, char *str2)
   return str1;
 }
 
-int String_Sub(char *t, char *s, int i, int len)
+int String_Sub(char *dst, char *src, int i, int len)
 {
-  if (t == NULL || s == NULL)
+  if (dst == NULL || src == NULL)
     return 0;
-  int length = String_Length(s);
+  int length = String_Length(src);
   if (i < 0 || i > length || len > length - i + 1)
     return 0;
   int j = 0;
   for (j = 0; j < len; j++)
-    t[j] = s[i + j];
-  t[j] = '\0';
+    dst[j] = src[i + j];
+  dst[j] = '\0';
   return 1;
+}
+
+int String_Copy(char *dst, char *src)
+{
+  if (dst == NULL || src == NULL)
+    return 0;
+  while (*src != '\0')
+    *dst++ = *src++;
+  *dst = '\0';
+  return 1;
+}
+
+int String_Index(char *str, char *sub)
+{
+  int str_len = String_Length(str);
+  int sub_len = String_Length(sub);
+  if (str_len < sub_len)
+    return -1;
+  
 }
 
 int main()
