@@ -17,10 +17,15 @@ int String_Length(char *str)
 int String_Compare(char *str1, char *str2)
 {
   int ret = 0;
-  while (*str1 != '\0' && (ret = *str1 - *str2) == 0)
+  while (!(ret = *str1 - *str2) && *str != '\0')
   {    
     str1++;
     str2++;
   }
-  return ret;
+  if (ret < 0)
+    return -1;
+  else if (ret > 0)
+    return 1;
+  else
+    return 0
 }
