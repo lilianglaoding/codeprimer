@@ -83,7 +83,7 @@ int String_Index(char *str, char *sub)
   if (str_len < sub_len)
     return -1;
   int i = 0, j = 0;
-  while (i < strlen && j < sub_len)
+  while (i < str_len && j < sub_len)
   {
     if (str[i] == str[j])
     {
@@ -94,21 +94,22 @@ int String_Index(char *str, char *sub)
       i = i - j + 2;
   }
   if (j == sub_len)
-    return (i - sublen);
+    return (i - sub_len);
   else
     return -1;
 }
 
 int main()
 {
-  char str1[MAXSIZE] = "hello";
+  char str1[MAXSIZE] = "ihello";
   char str2[MAXSIZE] = "hello";
   char str3[MAXSIZE];
   String_Sub(str3, str1, 0, 2);
   printf("str3: %s\n", str3);
   printf("%s, %s\n", str1, str2);
-  printf("%d\n", String_Length(str1));
-  //printf("%s\n", String_Concat(str1, str2));
-  printf("%d\n", String_Compare(str1, str2));
+  printf("strlength: %d\n", String_Length(str1));
+  printf("strcat: %s\n", String_Concat(str1, str2));
+  //printf("%d\n", String_Compare(str1, str2));
+  printf("strindex: %d\n", String_Index(str1, str2));
   return 0;
 }
