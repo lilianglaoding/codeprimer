@@ -123,6 +123,18 @@ void PostOrder_BiTree(BiTree bt)
   Visit_BiTree(bt);
 }
 
+BiTree Search_BiTree(BiTree bt, datatype x)
+{
+  BiTree p;
+  if (bt == NULL)
+    return NULL;
+  else if (bt->data == x)
+  {  
+    Search_BiTree(bt->lchild);
+    Search_BiTree(bt->rchild);
+  } 
+}
+
 int main()
 {
   BiTree bt = NULL;
