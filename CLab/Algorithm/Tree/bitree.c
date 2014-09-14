@@ -3,3 +3,7 @@
 
 #include "bitree.h"
 
+BiTee Init_BiTree()
+{
+  
+}
