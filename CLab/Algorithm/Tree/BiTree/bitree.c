@@ -3,6 +3,8 @@
 
 #include "bitree.h"
 
+#define FLAG 65535
+
 BiTree Init_BiTree()
 {
   BiTree p;
@@ -14,16 +16,23 @@ BiTree Init_BiTree()
   return p;
 }
 
-BiTree Create_BiTree(datatype x, BiTree lbt, BiTree rbt)
+void Create_BiTree(BiTree *bt)
 {
-  BiTree p;
-  p = (BiTNode *)malloc(sizeof(BiTNode));
-  if (p == NULL)
-    return NULL;
-  p->lchild = lbt;
-  p->rchild = rbt;
-  p->data = x;
-  return p;
+  datatype x;
+  scanf("%d", &x);
+  printf("FLAG: %d", FLAG);
+  while (x != FLAG)
+  {
+    *bt = (BiTNode *)malloc(sizeof(BiTNode));
+    if (*bt == NULL)
+      return ;
+    (*bt)->data = x;
+    (*bt)->lchild = NULL;
+    (*bt)->rchild = NULL;
+    Create_BiTree(&((*bt)->lchild));
+    Create_BiTree(&((*bt)->rchild));
+  }
+  return ;
 }
 
 BiTree InsertL_BiTree(BiTree bt, datatype x, BiTree parent)
@@ -117,5 +126,8 @@ void PostOrder_BiTree(BiTree bt)
 
 int main()
 {
+  BiTree bt = NULL;
+  Create_BiTree(&bt);
+  Destroy_BiTree(bt);
   return 0;
 }
