@@ -3,7 +3,7 @@
 
 #include "bitree.h"
 
-#define FLAG 65535
+#define FLAG 10000
 
 BiTree Init_BiTree()
 {
@@ -20,15 +20,14 @@ void Create_BiTree(BiTree *bt)
 {
   datatype x;
   scanf("%d", &x);
-  printf("FLAG: %d", FLAG);
-  while (x != FLAG)
+  if (x == FLAG)
+    *bt = NULL;
+  else
   {
     *bt = (BiTNode *)malloc(sizeof(BiTNode));
     if (*bt == NULL)
       return ;
     (*bt)->data = x;
-    (*bt)->lchild = NULL;
-    (*bt)->rchild = NULL;
     Create_BiTree(&((*bt)->lchild));
     Create_BiTree(&((*bt)->rchild));
   }
@@ -128,6 +127,9 @@ int main()
 {
   BiTree bt = NULL;
   Create_BiTree(&bt);
+  printf("----------------Visit Bitree:------------\n");
+  PreOrder_BiTree(bt);
+  printf("\n");
   Destroy_BiTree(bt);
   return 0;
 }
