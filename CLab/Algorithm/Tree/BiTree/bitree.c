@@ -240,6 +240,8 @@ int main()
   printf("\n");
   LevelOrder_BiTree(bt);
   printf("\n");
+  NRPreOrder_BiTree(bt);
+  printf("\n");
   int count = CountLeaf1_BiTree(bt);
   printf("%d leaf int the tree.\n", count);
   p = Search1_BiTree(bt, 7);
