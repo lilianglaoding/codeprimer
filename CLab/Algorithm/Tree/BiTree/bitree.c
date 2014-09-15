@@ -167,6 +167,7 @@ void NRPreOrder_BiTree(BiTree bt)
       {
 	p = Stack[top--];
 	p = p->rchild;
+	//Visit_BiTree(p);
       }
     }
   }
