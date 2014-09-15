@@ -3,6 +3,7 @@
 
 #include "bitree.h"
 
+#define MAXSIZE 255
 #define FLAG 10000
 
 BiTree Init_BiTree()
@@ -123,9 +124,23 @@ void PostOrder_BiTree(BiTree bt)
   Visit_BiTree(bt);
 }
 
-void LeverOrder_BiTree(BiTree bt)
+void LevelOrder_BiTree(BiTree bt)
 {
-  
+  if (bt == NULL)
+    return ;
+  BiTree p;
+  BiTree Queue[MAXSIZE];
+  int front = -1, rear = 0;
+  Queue[rear] = bt;
+  while (front != rear)
+  {
+    p = Queue[++front];
+    Visit_BiTree(p);
+    if (p->lchild)
+      Queue[++rear] = p->lchild;
+    if (p->rchild)
+      Queue[++rear] = p->rchild;
+  }
 }
 
 BiTree Search_BiTree(BiTree bt, datatype x)
@@ -193,6 +208,8 @@ int main()
   Create_BiTree(&bt);
   printf("----------------Visit Bitree:------------\n");
   PreOrder_BiTree(bt);
+  printf("\n");
+  LevelOrder_BiTree(bt);
   printf("\n");
   int count = CountLeaf1_BiTree(bt);
   printf("%d leaf int the tree.\n", count);
