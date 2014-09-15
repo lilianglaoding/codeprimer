@@ -126,15 +126,34 @@ void PostOrder_BiTree(BiTree bt)
 BiTree Search_BiTree(BiTree bt, datatype x)
 {
   BiTree p;
-  if (bt == NULL)
-    return NULL;
-  else if (bt->data == x)
-    return bt;
-  else
-  {  
-    p = Search_BiTree(bt->lchild);
-    p = Search_BiTree(bt->rchild);
+  if (bt)
+  {
+    if (bt->data == x)
+      return bt;
+    else
+    {
+      if (bt->lchild)
+	p = Search_BiTree(bt->lchild, x);
+      if (p)
+	return p;
+      if (bt->rchild)
+	p = Search_BiTree(bt->rchild, x);
+      if(p)
+	return p;
+    }
   }
+  else
+    return NULL;
+}
+
+int CountLeaf1_BiTree(BiTree bt)
+{
+  int count = 0;
+  if (bt == NULL)
+    return 0;
+  if (bt->lchild == NULL && bt->rchild == NULL)
+    return 1;
+  return (CountLeaf1_BiTree(bt->lchild) + CountLeaf2_BiTree(bt->rchild));
 }
 
 int main()
