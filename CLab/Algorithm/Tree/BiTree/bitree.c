@@ -129,10 +129,12 @@ BiTree Search_BiTree(BiTree bt, datatype x)
   if (bt == NULL)
     return NULL;
   else if (bt->data == x)
+    return bt;
+  else
   {  
-    Search_BiTree(bt->lchild);
-    Search_BiTree(bt->rchild);
-  } 
+    p = Search_BiTree(bt->lchild);
+    p = Search_BiTree(bt->rchild);
+  }
 }
 
 int main()
