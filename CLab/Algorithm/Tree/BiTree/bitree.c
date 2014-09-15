@@ -143,6 +143,11 @@ void LevelOrder_BiTree(BiTree bt)
   }
 }
 
+void NRPreOrder_BiTree(BiTree bt)
+{
+  
+}
+
 BiTree Search_BiTree(BiTree bt, datatype x)
 {
   BiTree p;
