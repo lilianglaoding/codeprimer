@@ -123,6 +123,11 @@ void PostOrder_BiTree(BiTree bt)
   Visit_BiTree(bt);
 }
 
+void LeverOrder_BiTree(BiTree bt)
+{
+  
+}
+
 BiTree Search_BiTree(BiTree bt, datatype x)
 {
   BiTree p;
@@ -133,17 +138,42 @@ BiTree Search_BiTree(BiTree bt, datatype x)
     else
     {
       if (bt->lchild)
+      {
 	p = Search_BiTree(bt->lchild, x);
+	if (p)
+	  return p;
+      }
+      if (bt->rchild)
+      {
+	p = Search_BiTree(bt->rchild, x);
+	if(p)
+	  return p;
+      }
+    }
+  }
+  return NULL;
+}
+
+BiTree Search1_BiTree(BiTree bt, datatype x)
+{
+  BiTree p;
+  if (bt == NULL)
+    return NULL;
+  else
+  {
+    if (bt->data == x)
+      return bt;
+    else
+    {
+      p = Search1_BiTree(bt->lchild, x);
       if (p)
 	return p;
-      if (bt->rchild)
-	p = Search_BiTree(bt->rchild, x);
-      if(p)
+      p = Search1_BiTree(bt->rchild, x);
+      if (p)
 	return p;
     }
   }
-  else
-    return NULL;
+  return NULL;
 }
 
 int CountLeaf1_BiTree(BiTree bt)
@@ -153,16 +183,22 @@ int CountLeaf1_BiTree(BiTree bt)
     return 0;
   if (bt->lchild == NULL && bt->rchild == NULL)
     return 1;
-  return (CountLeaf1_BiTree(bt->lchild) + CountLeaf2_BiTree(bt->rchild));
+  return (CountLeaf1_BiTree(bt->lchild) + CountLeaf1_BiTree(bt->rchild));
 }
 
 int main()
 {
   BiTree bt = NULL;
+  BiTree p;
   Create_BiTree(&bt);
   printf("----------------Visit Bitree:------------\n");
   PreOrder_BiTree(bt);
   printf("\n");
+  int count = CountLeaf1_BiTree(bt);
+  printf("%d leaf int the tree.\n", count);
+  p = Search1_BiTree(bt, 7);
+  if (p)
+    printf("data found: %d\n", p->data);
   Destroy_BiTree(bt);
   return 0;
 }
