@@ -145,7 +145,31 @@ void LevelOrder_BiTree(BiTree bt)
 
 void NRPreOrder_BiTree(BiTree bt)
 {
-  
+  if (bt == NULL)
+    return ;
+  BiTree Stack[MAXSIZE];
+  int top = -1;
+  BiTree p;
+  Stack[++top] = bt;
+  while (top != -1)
+  {
+    p = Stack[top--];
+    Visit_BiTree(p);
+    while (p)
+    {
+      if (p->lchild != NULL)
+      {
+	Visit_BiTree(p->lchild);
+	Stack[++top] = p->lchild;
+	p = p->lchild;
+      }
+      else
+      {
+	p = Stack[top--];
+	p = p->rchild;
+      }
+    }
+  }
 }
 
 BiTree Search_BiTree(BiTree bt, datatype x)
