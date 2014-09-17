@@ -171,6 +171,35 @@ void NRPreOrder_BiTree(BiTree bt)
   }
 }
 
+void NRInOrder_BiTree(BiTree bt)
+{
+  if (bt == NULL)
+    return ;
+  BiTree Stack[MAXSIZE];
+  int top = 0;
+  BiTree p;
+  p = bt;
+  while (!(p == NULL && top == 0))
+  {
+    while (p != NULL)
+    {
+      //Visit_BiTree(p);
+      Stack[top] = p;
+      top++;
+      p = p->lchild;
+    }
+    if (top < 0)
+      return ;
+    else
+    {
+      top--;
+      p = Stack[top];
+      Visit_BiTree(p);
+      p = p->rchild;
+    }
+  }
+}
+
 BiTree Search_BiTree(BiTree bt, datatype x)
 {
   BiTree p;
@@ -240,6 +269,8 @@ int main()
   LevelOrder_BiTree(bt);
   printf("\nNROrder:\n");
   NRPreOrder_BiTree(bt);
+  printf("\nNRInorder:\n");
+  NRInOrder_BiTree(bt);
   printf("\n");
   int count = CountLeaf1_BiTree(bt);
   printf("%d leaf int the tree.\n", count);
