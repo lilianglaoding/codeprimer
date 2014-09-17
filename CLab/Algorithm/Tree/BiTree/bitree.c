@@ -155,7 +155,7 @@ void NRPreOrder_BiTree(BiTree bt)
   {
     p = Stack[top--];
     Visit_BiTree(p);
-    while (p)
+    while (p != NULL & top != -1)
     {
       if (p->lchild != NULL)
       {
