@@ -150,21 +150,22 @@ void NRPreOrder_BiTree(BiTree bt)
   BiTree Stack[MAXSIZE];
   int top = 0;
   BiTree p;
-  //Stack[++top] = bt;
   p = bt;
-  while (!(p == NULL && top != 0))
+  while (!(p == NULL && top == 0))
   {
     while (p != NULL)
     {
       Visit_BiTree(p);
-      Stack[top++] = p;
+      Stack[top] = p;
+      top++;
       p = p->lchild;
     }
-    if (top <= 0)
+    if (top < 0)
       return ;
     else
     {
-      p = Stack[--top];
+      top--;
+      p = Stack[top];
       p = p->rchild;
     }
   }
