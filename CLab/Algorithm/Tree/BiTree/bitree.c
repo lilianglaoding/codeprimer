@@ -151,12 +151,14 @@ void NRPreOrder_BiTree(BiTree bt)
   int top = -1;
   BiTree p;
   Stack[++top] = bt;
+  p = bt;
   while (top != -1)
   {
     p = Stack[top--];
     Visit_BiTree(p);
-    while (p != NULL & top != -1)
+    while (p != NULL && top != -1)
     {
+      //Visit_BiTree(p);
       if (p->lchild != NULL)
       {
 	Visit_BiTree(p->lchild);
@@ -170,7 +172,7 @@ void NRPreOrder_BiTree(BiTree bt)
 	//Visit_BiTree(p);
       }
     }
-  }
+    //}
 }
 
 BiTree Search_BiTree(BiTree bt, datatype x)
@@ -236,9 +238,9 @@ int main()
   BiTree bt = NULL;
   BiTree p;
   Create_BiTree(&bt);
-  printf("----------------Visit Bitree:------------\n");
+  printf("----------------Visit Bitree:------------\nPreOrder:\n");
   PreOrder_BiTree(bt);
-  printf("\n");
+  printf("\nLevelOrder:\n");
   LevelOrder_BiTree(bt);
   printf("\n");
   NRPreOrder_BiTree(bt);
