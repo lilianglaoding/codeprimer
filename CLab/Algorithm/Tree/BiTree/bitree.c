@@ -153,15 +153,15 @@ void NRPreOrder_BiTree(BiTree bt)
   p = bt;
   while (!(p == NULL && top == 0))
   {
-    while (p != NULL)
+    if (p != NULL)
     {
       Visit_BiTree(p);
       Stack[top] = p;
       top++;
       p = p->lchild;
     }
-    if (top < 0)
-      return ;
+    //if (top < 0)
+    //return ;
     else
     {
       top--;
@@ -181,15 +181,15 @@ void NRInOrder_BiTree(BiTree bt)
   p = bt;
   while (!(p == NULL && top == 0))
   {
-    while (p != NULL)
+    if (p != NULL)
     {
       //Visit_BiTree(p);
       Stack[top] = p;
       top++;
       p = p->lchild;
     }
-    if (top < 0)
-      return ;
+    //if (top < 0)
+      // return ;
     else
     {
       top--;
@@ -211,31 +211,29 @@ void NRPostOrder_BiTree(BiTree bt)
   p = bt;
   while (!(p == NULL && top == 0))
   {
-    while (p != NULL)
+    if (p != NULL)
     {
       Stack[top].link = p;
       Stack[top].flag = 1;
       top++;
       p = p->lchild;
     }
-    //if (top < 0)
-    //return ;
-    //else
+    else
     {
       top--;
       p = Stack[top].link;
       flag = Stack[top].flag;
-      //top--;
       if (flag == 1)
       {
-	top++;
+	//top++;
 	Stack[top].link = p;
 	Stack[top].flag = 2;
+	top++;
 	p = p->rchild;
       }
       else
       {
-	Visit_BiTree(bt);
+	Visit_BiTree(p);
 	p = NULL;
       }
     }
