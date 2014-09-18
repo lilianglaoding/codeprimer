@@ -292,6 +292,19 @@ int CountLeaf1_BiTree(BiTree bt)
   return (CountLeaf1_BiTree(bt->lchild) + CountLeaf1_BiTree(bt->rchild));
 }
 
+void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree bt)
+{
+  if (bt == NULL)
+    return NULL;
+  else
+    PreInod(preod, inod, n, &bt);
+}
+
+void PreInod(datatype preod[], datatype inod[], int n, BiTree &t)
+{
+  
+}
+
 int main()
 {
   BiTree bt = NULL;
