@@ -297,12 +297,15 @@ void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree bt)
   if (bt == NULL)
     return NULL;
   else
-    PreInod(preod, inod, n, &bt);
+    PreInod(preod, inod, 1, n, 1, n, &bt);
 }
 
-void PreInod(datatype preod[], datatype inod[], int n, BiTree &t)
+void PreInod(datatype preod[], datatype inod[], int i, int k, int k, int h, BiTree *t)
 {
-  
+  int m;
+  (*t) = (BiTNode *)malloc(sizeof(BiTNode));
+  (*t)->data = preod[i];
+  m = k;
 }
 
 int main()
