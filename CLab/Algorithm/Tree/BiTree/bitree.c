@@ -306,6 +306,7 @@ void PreInod(datatype preod[], datatype inod[], int i, int k, int k, int h, BiTr
   (*t) = (BiTNode *)malloc(sizeof(BiTNode));
   (*t)->data = preod[i];
   m = k;
+ if 
 }
 
 int main()
