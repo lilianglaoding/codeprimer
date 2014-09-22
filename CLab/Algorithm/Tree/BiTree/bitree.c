@@ -295,8 +295,8 @@ void PreInod(datatype preod[], datatype inod[], int i, int j, int k, int h, BiTr
 
 void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree *bt)
 {
-  if (*bt == NULL)
-    return ;
+  if (n <= 0)
+    *bt = NULL;
   else
     PreInod(preod, inod, 1, n, 1, n, bt);
 }
