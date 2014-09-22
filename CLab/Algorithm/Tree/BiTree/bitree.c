@@ -291,29 +291,39 @@ int CountLeaf1_BiTree(BiTree bt)
     return 1;
   return (CountLeaf1_BiTree(bt->lchild) + CountLeaf1_BiTree(bt->rchild));
 }
+void PreInod(datatype preod[], datatype inod[], int i, int j, int k, int h, BiTree *t);
 
 void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree *bt)
 {
   if (*bt == NULL)
-    return NULL;
+    return ;
   else
     PreInod(preod, inod, 1, n, 1, n, bt);
 }
 
-void PreInod(datatype preod[], datatype inod[], int i, int k, int k, int h, BiTree *t)
+void PreInod(datatype preod[], datatype inod[], int i, int j, int k, int h, BiTree *t)
 {
   int m;
   (*t) = (BiTNode *)malloc(sizeof(BiTNode));
   (*t)->data = preod[i];
   m = k;
-  
+  while (inod[m] != preod[i])
+    m++;
+  if (m == k)
+    (*t)->lchild = NULL;
+  else
+    PreInod(preod, inod, i + 1, i + m - k, k, m - 1, &((*t)->lchild));
+  if (m == h)
+    (*t)->rchild = NULL;
+  else
+    PreInod(preod, inod, i + m -k + 1, j, m + 1, h, &((*t)->rchild));
 }
 
 int main()
 {
   BiTree bt = NULL;
   BiTree p;
-  Create_BiTree(&bt);
+  /*Create_BiTree(&bt);
   printf("----------------Visit Bitree:------------\nPreOrder:\n");
   PreOrder_BiTree(bt);
   printf("\nLevelOrder:\n");
@@ -330,6 +340,12 @@ int main()
   p = Search1_BiTree(bt, 7);
   if (p)
     printf("data found: %d\n", p->data);
+    Destroy_BiTree(bt);*/
+  datatype preod[7] = {1, 2, 4, 5, 3, 6, 7};
+  datatype inod[7] = {4, 2, 5, 1, 6, 3, 7};
+  Rebuild_BiTree(preod, inod, 7, &bt);
+  PreOrder_BiTree(bt);
+  printf("\n");
   Destroy_BiTree(bt);
   return 0;
 }
