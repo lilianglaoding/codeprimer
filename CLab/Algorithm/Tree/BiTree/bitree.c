@@ -292,12 +292,12 @@ int CountLeaf1_BiTree(BiTree bt)
   return (CountLeaf1_BiTree(bt->lchild) + CountLeaf1_BiTree(bt->rchild));
 }
 
-void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree bt)
+void Rebuild_BiTree(datatype preod[], datatype inod[], int n, BiTree *bt)
 {
-  if (bt == NULL)
+  if (*bt == NULL)
     return NULL;
   else
-    PreInod(preod, inod, 1, n, 1, n, &bt);
+    PreInod(preod, inod, 1, n, 1, n, bt);
 }
 
 void PreInod(datatype preod[], datatype inod[], int i, int k, int k, int h, BiTree *t)
@@ -306,7 +306,7 @@ void PreInod(datatype preod[], datatype inod[], int i, int k, int k, int h, BiTr
   (*t) = (BiTNode *)malloc(sizeof(BiTNode));
   (*t)->data = preod[i];
   m = k;
-
+  
 }
 
 int main()
