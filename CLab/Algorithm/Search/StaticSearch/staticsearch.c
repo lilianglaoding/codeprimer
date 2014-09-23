@@ -9,7 +9,7 @@ int Seq_Search(S_TBL *s, datatype x)
   int i = 0;
   while (s->data[i] != x && i < s->length)
     i++;
-  if (i == length)
+  if (i == s->length)
     return -1;
   else
     return i;
@@ -20,12 +20,17 @@ int Binary_Search(S_TBL *s, datatype x)
 {
   int low = 0, high = s->length - 1;
   int mid;
-  
+  return 1;
 }
 
 int main()
 {
+  int i;
   S_TBL *s;
   s = (S_TBL *)malloc(sizeof(S_TBL));
-  s->length = MAXSIZE - 1;
+  s->length = MAXSIZE;
+  for (i = 0; i < s->length; i++)
+    s->data[i] = i;
+  printf("%d\n", Seq_Search(s, 222));
+  return 0;
 }
