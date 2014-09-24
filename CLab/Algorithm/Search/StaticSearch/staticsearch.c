@@ -20,7 +20,8 @@ int Binary_Search(S_TBL *s, datatype x)
 {
   int low = 0, high = s->length - 1;
   int mid;
-  while (low < high)
+  int flag = -1;
+  while (low <= high)
   {
     mid = (low + high) / 2;
     if (s->data[mid] < x)
@@ -28,12 +29,12 @@ int Binary_Search(S_TBL *s, datatype x)
     else if (s->data[mid] > x)
       high = mid - 1;
     else
+    {
+      flag = mid;
       break;
+    }
   }
-  if (s->data[mid] = x)
-    return mid;
-  else
-    return -1;
+  return flag;
 }
 
 int main()
