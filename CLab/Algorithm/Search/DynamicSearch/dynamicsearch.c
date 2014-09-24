@@ -57,20 +57,21 @@ int Insert_Node(NodeType **t, datatype kx)
 {
   NodeType *s, *p, *q;
   int flag = 0;
-  int signal;
-  signal = Search(*t, &p, &q, kx);
-  if (signal != 1)
+  if (BiTree_Search(t, &p, &q, kx))
   {
     s = (NodeType *)malloc(sizeof(NodeType));
     s->data = x;
     s->lchild = NULL;
     s->rchild = NULL;
     flag = 1;
-    if (*p)
+    if (!*p)
       *t = s;
     else
     {
-      
+      if (kx < p->data)
+	p->lchild = s;
+      else
+	p->rchild = s;
     }
   }
   return flag;
