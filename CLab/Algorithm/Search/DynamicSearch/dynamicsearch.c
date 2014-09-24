@@ -9,9 +9,8 @@
 int BiTree_Search(NodeType *t, NodeType **p, NodeType **q, datatype kx)
 {
   int flag = 0;
-  *p = t;
-  *q = *p;
-  while (*q != NULL)
+  *q = t;
+  while ((*q) != NULL)
   {
     if ((*q)->data < kx)
     {
@@ -31,3 +30,26 @@ int BiTree_Search(NodeType *t, NodeType **p, NodeType **q, datatype kx)
   }
   return flag;
 }
+
+int BiTree_Search1(NodeType *t, NodeType **p, NodeType **q, datatype kx)
+{
+  *q = t;
+  while ((*q) != NULL && (*q)->data != kx)
+  {
+    if ((*q)->data < kx)
+    {
+      *p = *q;
+      *q = (*q)->rchild;
+    }
+    else
+    {
+      *p = *q;
+      *q = (*q)->lchild;
+    }
+  }
+  if ((*q)->data == kx)
+    return 1;
+  else
+    return 0;
+}
+
