@@ -78,9 +78,37 @@ int Insert_Node(NodeType **t, datatype kx)
   return flag;
 }
 
+void Destroy_BiTree(NodeType *t)
+{
+  if (t == NULL)
+    return ;
+  Destroy_BiTree(t->lchild);
+  Destroy_BiTree(t->rchild);
+  free(t);
+  return ;
+}
+
+int Delete_Node(NodeType *t, datatype kx)
+{
+  return 0;
+}
+
 int main()
 {
   NodeType *t = NULL;
+  NodeType *p, *q;
+  datatype kx;
   Insert_Node(&t, 63);
+  for (int i = 0; i < 11; i++)
+  {
+    scanf("%d", &kx);
+    Insert_Node(&t, kx);
+  }
+  BiTree_Search(t, &p, &q, 64);
+  if (q != NULL)
+    printf("data %d found!\n", q->data);
+  else
+    printf("data not found!\n");
+  Destroy_BiTree(t);
   return 0;
 }
