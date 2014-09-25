@@ -77,3 +77,10 @@ int Insert_Node(NodeType **t, datatype kx)
   }
   return flag;
 }
+
+int main()
+{
+  NodeType *t = NULL;
+  Insert_Node(&t, 63);
+  return 0;
+}
