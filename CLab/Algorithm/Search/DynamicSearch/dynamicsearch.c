@@ -90,6 +90,9 @@ void Destroy_BiTree(NodeType *t)
 
 int Delete_Node(NodeType *t, datatype kx)
 {
+  NodeType *p, *q;
+  if (!BiTree_Search(t, &p, &q, kx))
+    return 0;
   return 0;
 }
 
