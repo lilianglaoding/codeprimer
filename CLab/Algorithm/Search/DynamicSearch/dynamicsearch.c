@@ -90,7 +90,7 @@ void Destroy_BiTree(NodeType *t)
 
 int Delete_Node(NodeType *t, datatype kx)
 {
-  NodeType *p, *q;
+  NodeType *p, *q, *ptemp;
   int flag;
   if (!BiTree_Search(t, &p, &q, kx))
     return 0;
@@ -119,14 +119,21 @@ int Delete_Node(NodeType *t, datatype kx)
     if (flag == 0)
       p->lchild = q->lchild;
     else
-      p->rchild = q->rchild;
+      p->rchild = q->lchild;
     free(q);
   }
   else
   {
-    
+    ptemp = q->rchild;
+    while (ptemp->lchild != NULL)
+      ptemp = ptemp->lchild;
+    ptemp->lchild = q->lchild;
+    if (flag == 0)
+      p->lchild = q->rchild;
+    else
+      p->rchild = q->rchild;
   }
-  return 0;
+  return 1;
 }
 
 int main()
