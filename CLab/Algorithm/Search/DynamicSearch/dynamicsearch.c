@@ -99,11 +99,33 @@ int Delete_Node(NodeType *t, datatype kx)
   else
     flag = 1;
   if (q->lchild == NULL && q->rchild == NULL)
+  {
     if (flag == 0)
       p->lchild = NULL;
     else
       p->rchild == NULL;
-  else if ()
+    free(q);
+  }
+  else if (q->lchild == NULL && q->rchild != NULL)
+  {
+    if (flag == 0)
+      p->lchild = q->rchild;
+    else
+      p->rchild = q->rchild;
+    free(q);
+  }
+  else if (q->lchild != NULL && q->rchild == NULL)
+  {
+    if (flag == 0)
+      p->lchild = q->lchild;
+    else
+      p->rchild = q->rchild;
+    free(q);
+  }
+  else
+  {
+    
+  }
   return 0;
 }
 
