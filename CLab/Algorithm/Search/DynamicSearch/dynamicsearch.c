@@ -152,6 +152,7 @@ int main()
     printf("data %d found!\n", q->data);
   else
     printf("data not found!\n");
+  Delete_Node(t, 5);
   Destroy_BiTree(t);
   return 0;
 }
