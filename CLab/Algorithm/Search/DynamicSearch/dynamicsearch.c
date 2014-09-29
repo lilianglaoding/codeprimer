@@ -157,10 +157,20 @@ int Delete_Node(NodeType *t, datatype kx)
 int Delete_Node1(NodeType *t, datatype kx)
 {
   int flag = 0;
-  NodeType *p, *q, **temp;
+  NodeType *p, *q, **temp, *s;
   if (BiTree_Search(t, &p, &q, kx))
   {
     flag = 1;
+    if (p == q)
+    {
+      s = q->rchild;
+      while (s->lchild)
+	s = s->lchild;
+      s->lchild = q->lchild;
+      t = q->rchild;
+    }
+    else
+      {
     temp = &(p->lchild);
     if (p->rchild == q)  
       temp = &(p->rchild);
@@ -172,9 +182,13 @@ int Delete_Node1(NodeType *t, datatype kx)
       *temp = q->lchild;
     else
     {
-      
+      s = q->rchild;
+      while (s->lchild)
+	s = s->lchild;
+      s->lchild = q->lchild;
+      *temp = q->rchild;
     }
-  }
+      }}
   return flag;
 }
 
