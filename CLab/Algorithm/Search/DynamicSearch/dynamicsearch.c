@@ -154,26 +154,21 @@ int Delete_Node(NodeType *t, datatype kx)
   return 1;
 }
 
-int Delete_Node1(NodeType *t, datatype kx)
+int Delete_Node1(NodeType **t, datatype kx)
 {
   int flag = 0;
   NodeType *p, *q, **temp, *s;
-  if (BiTree_Search(t, &p, &q, kx))
+  if (BiTree_Search(*t, &p, &q, kx))
   {
     flag = 1;
     if (p == q)
-    {
-      s = q->rchild;
-      while (s->lchild)
-	s = s->lchild;
-      s->lchild = q->lchild;
-      t = q->rchild;
-    }
+      temp = t;
     else
-      {
-    temp = &(p->lchild);
-    if (p->rchild == q)  
-      temp = &(p->rchild);
+    {
+      temp = &(p->lchild);
+      if (p->rchild == q)  
+	temp = &(p->rchild);
+    }
     if (q->lchild == NULL && q->rchild == NULL)
       *temp = NULL;
     else if (q->lchild == NULL && q->rchild != NULL)
@@ -188,7 +183,7 @@ int Delete_Node1(NodeType *t, datatype kx)
       s->lchild = q->lchild;
       *temp = q->rchild;
     }
-      }}
+  }
   return flag;
 }
 
@@ -212,7 +207,7 @@ int main()
     printf("data %d found!\n", q->data);
   else
     printf("data not found!\n");
-  printf("%d\n", Delete_Node(t, 64));
+  printf("%d\n", Delete_Node1(&t, 64));
   In_Order(t);
   printf("\n");
   Destroy_BiTree(t);
