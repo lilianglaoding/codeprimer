@@ -31,6 +31,15 @@ int BiTree_Search(NodeType *t, NodeType **p, NodeType **q, datatype kx)
   return flag;
 }
 
+void Pre_Order(NodeType *t)
+{
+  if (t == NULL)
+    return ;
+  printf("%d ", t->data);
+  Pre_Order(t->lchild);
+  Pre_Order(t->rchild);
+}
+
 void In_Order(NodeType *t)
 {
   if (t == NULL)
@@ -150,12 +159,14 @@ int main()
   NodeType *t = NULL;
   NodeType *p, *q;
   datatype kx;
-  Insert_Node(&t, 63);
+  //Insert_Node(&t, 63);
   for (int i = 0; i < 11; i++)
   {
     scanf("%d", &kx);
     Insert_Node(&t, kx);
   }
+  Pre_Order(t);
+  printf("\n");
   In_Order(t);
   printf("\n");
   BiTree_Search(t, &p, &q, 64);
@@ -163,7 +174,7 @@ int main()
     printf("data %d found!\n", q->data);
   else
     printf("data not found!\n");
-  printf("%d\n", Delete_Node(t, 40));
+  printf("%d\n", Delete_Node(t, 64));
   In_Order(t);
   printf("\n");
   Destroy_BiTree(t);
