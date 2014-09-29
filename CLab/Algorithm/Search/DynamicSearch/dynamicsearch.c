@@ -154,6 +154,16 @@ int Delete_Node(NodeType *t, datatype kx)
   return 1;
 }
 
+int Delete_Node1(NodeType *t, datatype kx)
+{
+  int flag = 0;
+  NodeType *p, *q, **temp;
+  if (BiTree_Search(t, &p, &q, kx))
+    {
+    }
+  return flag;
+}
+
 int main()
 {
   NodeType *t = NULL;
