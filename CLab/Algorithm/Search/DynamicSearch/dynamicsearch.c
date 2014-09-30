@@ -150,6 +150,7 @@ int Delete_Node(NodeType *t, datatype kx)
       p->lchild = q->rchild;
     else
       p->rchild = q->rchild;
+    free(q);
   }
   return 1;
 }
@@ -183,6 +184,7 @@ int Delete_Node1(NodeType **t, datatype kx)
       s->lchild = q->lchild;
       *temp = q->rchild;
     }
+    free(q);
   }
   return flag;
 }
