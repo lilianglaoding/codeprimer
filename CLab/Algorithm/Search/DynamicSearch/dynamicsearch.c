@@ -189,6 +189,11 @@ int Delete_Node1(NodeType **t, datatype kx)
   return flag;
 }
 
+void AVL_Tree()
+{
+  
+}
+
 int main()
 {
   NodeType *t = NULL;
