@@ -25,3 +25,7 @@ void L_Rotate(NodeType **p)
     *p = lp;
 }
 
+void Left_Balance(NodeType **p)
+{
+    
+}
