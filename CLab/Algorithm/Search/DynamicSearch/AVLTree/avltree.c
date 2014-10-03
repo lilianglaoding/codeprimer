@@ -16,3 +16,12 @@ void R_Rotate(NodeType **p)
     *p = lp;
 }
 
+void L_Rotate(NodeType **p)
+{
+    NodeType *lp;
+    lp = (*p)->rchild;
+    (*p)->rchild = lp->lchild;
+    lp->lchild = *p;
+    *p = lp;
+}
+
