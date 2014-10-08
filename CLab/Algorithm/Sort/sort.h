@@ -1,3 +1,1 @@
 typedef int datatype;
-
-typedef struct
