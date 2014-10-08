@@ -62,6 +62,32 @@ void D_InsertSort2(datatype *arr, int n)
     }
 }
 
+void Bi_InsertSort(datatype *arr, int n)
+{
+    int i, j;
+    int low, high, mid;
+    datatype tmp;
+    for (i = 1; i < n; i++)
+    {
+	if (arr[i] < arr[i - 1])
+	{
+	    tmp = arr[i];
+	    low = 0, high = i - 1;
+	    while (low <= high)
+	    {
+		mid = (low + high) / 2;
+		if (arr[mid] < arr[i])
+		    low = mid + 1;
+		else
+		    high = mid - 1;
+	    }
+	    for (j = i - 1; j >= high + 1; j--)
+		arr[j + 1] = arr[j];
+	    arr[j + 1] = tmp;
+	}
+    }
+}
+
 void Arr_Print(datatype *arr, int n)
 {
     int i = 0;
@@ -75,7 +101,7 @@ int main()
     datatype arr[8] = {7, 6, 5, 4, 3, 2, 1, 0};
     printf("\n---------before sorted---------\n");
     Arr_Print(arr, 8);
-    D_InsertSort2(arr, 8);
+    Bi_InsertSort(arr, 8);
     printf("\n---------after sorted----------\n");
     Arr_Print(arr, 8);
     return 0;
