@@ -42,6 +42,26 @@ void D_InsertSort1(datatype *arr, int n)
     }
 }
 
+void D_InsertSort2(datatype *arr, int n)
+{
+    int i, j;
+    int tmp;
+    for (i = 1; i < n; i++)
+    {
+	if (arr[i] < arr[i - 1])
+	{
+	    tmp = arr[i];
+	    j = i - 1;
+	    while (j >= 0 && arr[j] > tmp)
+	    {
+		arr[j + 1] = arr[j];
+		j--;
+	    }
+	    arr[j + 1] = tmp;
+	}
+    }
+}
+
 void Arr_Print(datatype *arr, int n)
 {
     int i = 0;
@@ -55,7 +75,7 @@ int main()
     datatype arr[8] = {7, 6, 5, 4, 3, 2, 1, 0};
     printf("\n---------before sorted---------\n");
     Arr_Print(arr, 8);
-    D_InsertSort1(arr, 8);
+    D_InsertSort2(arr, 8);
     printf("\n---------after sorted----------\n");
     Arr_Print(arr, 8);
     return 0;
