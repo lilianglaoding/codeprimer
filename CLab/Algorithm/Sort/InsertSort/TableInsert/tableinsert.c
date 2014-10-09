@@ -47,7 +47,7 @@ int main()
 	seqarr[i].next = i + 1;
     }
     seqarr[MAXSIZE - 1].next = 0;
-    Seq_InsertSort(seqarr, MAXSIZE);
+    //Seq_InsertSort(seqarr, MAXSIZE);
     Print(seqarr);
     return 0;
 }
