@@ -1,7 +1,13 @@
 typedef int datatype;
 
-typedef struct node
+typedef struct seqnode
 {
     datatype data;
     int next;
-} NodeType;
+} SeqNodeType;
+
+typedef struct linknode
+{
+    datatype data;
+    struct linknode *next;
+} LinkNodeType;
