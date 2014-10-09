@@ -6,8 +6,8 @@ typedef struct seqnode
     int next;
 } SeqNodeType;
 
-typedef struct linknode
+typedef struct listnode
 {
     datatype data;
     struct linknode *next;
-} LinkNodeType;
+} ListNodeType;
