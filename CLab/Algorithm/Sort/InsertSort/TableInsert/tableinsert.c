@@ -79,6 +79,17 @@ void List_Print(ListNodeType *head)
     printf("\n");
 }
 
+void Destroy_List(ListNodeType *head)
+{
+    ListNodeType *p = head;
+    while (p != NULL)
+    {
+	head = head->next;
+	free(p);
+	p = head;
+    }
+}
+
 int main()
 {
     int i;
@@ -101,5 +112,6 @@ int main()
     List_InsertSort(head);
     printf("---------------list after sorted---------------------\n");
     List_Print(head);
+    Destroy_List(head);
     return 0;
 }
