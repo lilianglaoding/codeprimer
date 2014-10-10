@@ -40,7 +40,10 @@ void Print(datatype *arr, int n)
 int main()
 {
     datatype arr[9] = {8, 7, 6, 5, 4, 3, 2, 1, 0};
+    printf("---------------before sorted----------------\n");
+    Print(arr, 9);
     Bubble_Sort(arr, 9);
+    printf("---------------after sorted-----------------\n");
     Print(arr, 9);
     return 0;
 }
