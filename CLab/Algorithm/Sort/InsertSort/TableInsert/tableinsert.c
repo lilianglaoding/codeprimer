@@ -25,6 +25,23 @@ void Seq_InsertSort(SeqNodeType *arr, int n)
     }
 }
 
+ListNodeType *Create_List()
+{
+    int x = 0;
+    ListNodeType *s;
+    ListNodeType *head = (ListNodeType *)malloc(sizeof(ListNodeType));
+    head->next = NULL;
+    while (x != 9)
+    {
+	s = (ListNodeType *)malloc(sizeof(ListNodeType));
+	s->data = x;
+	s->next = head->next;
+	head->next = s;
+	x = x + 1;
+    }
+    return head;
+}
+
 void List_InsertSort(ListNodeType *arr)
 {
     
@@ -38,16 +55,30 @@ void Seq_Print(SeqNodeType *arr)
     printf("\n");
 }
 
+void List_Print(ListNodeType *head)
+{
+    ListNodeType *p = head->next;
+    while (p != NULL)
+    {
+	printf("%d ", p->data);
+	p = p->next;
+    }
+    printf("\n");
+}
+
 int main()
 {
     int i;
     SeqNodeType seqarr[MAXSIZE];
+    ListNodeType *head;
     for (i = 0; i < MAXSIZE; i++)
     {
 	seqarr[i].data = MAXSIZE - i - 1;
 	seqarr[i].next = i + 1;
     }
     seqarr[MAXSIZE - 1].next = 0;
+    head = Create_List();
+    List_Print(head);
     printf("---------------before sorted-------------------\n");
     Seq_Print(seqarr);
     printf("---------------after sorted--------------------\n");
