@@ -9,5 +9,5 @@ typedef struct seqnode
 typedef struct listnode
 {
     datatype data;
-    struct linknode *next;
+    struct listnode *next;
 } ListNodeType;

@@ -42,9 +42,22 @@ ListNodeType *Create_List()
     return head;
 }
 
-void List_InsertSort(ListNodeType *arr)
+void List_InsertSort(ListNodeType *head)
 {
-    
+    ListNodeType *p = head;
+    ListNodeType *q = p->next->next;
+    ListNodeType *tmpptr;
+    p->next->next = NULL;
+    while (q != NULL)
+    {
+	tmpptr = q->next;
+	p = head;
+	while (p->next != NULL && p->next->data < q->data)
+	    p = p->next;
+	q->next = p->next;
+	p->next = q;
+	q = tmpptr;
+    }
 }
 
 void Seq_Print(SeqNodeType *arr)
@@ -78,11 +91,15 @@ int main()
     }
     seqarr[MAXSIZE - 1].next = 0;
     head = Create_List();
-    List_Print(head);
-    printf("---------------before sorted-------------------\n");
+    printf("---------------array before sorted-------------------\n");
     Seq_Print(seqarr);
-    printf("---------------after sorted--------------------\n");
+    printf("---------------array after sorted--------------------\n");
     Seq_InsertSort(seqarr, MAXSIZE);
     Seq_Print(seqarr);
+    printf("---------------list before sorted--------------------\n");
+    List_Print(head);
+    List_InsertSort(head);
+    printf("---------------list after sorted---------------------\n");
+    List_Print(head);
     return 0;
 }
