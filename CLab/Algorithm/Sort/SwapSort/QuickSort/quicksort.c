@@ -32,9 +32,9 @@ void Quick_Sort(datatype *arr, int s, int t)
 {
     if (s < t)
     {
-	int m = (s + t) / 2;
-	Partion(arr, s, m - 1);
-	Partion(arr, m + 1, t);
+	int m = Partion(arr, s, t);
+	Quick_Sort(arr, s, m - 1);
+	Quick_Sort(arr, m + 1, t);
     }
     
 }
@@ -49,7 +49,7 @@ void Print(datatype *arr, int n)
 
 int main()
 {
-    datatype arr[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    datatype arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
     Print(arr, 10);
     Quick_Sort(arr, 0, 9);
     Print(arr, 10);
