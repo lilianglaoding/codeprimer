@@ -39,7 +39,19 @@ void Quick_Sort(datatype *arr, int s, int t)
     
 }
 
+void Print(datatype *arr, int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+	printf("%d ", arr[i]);
+    printf("\n");
+}
+
 int main()
 {
+    datatype arr[10] = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
+    Print(arr, 10);
+    Quick_Sort(arr, 0, 9);
+    Print(arr, 10);
     return 0;
 }
