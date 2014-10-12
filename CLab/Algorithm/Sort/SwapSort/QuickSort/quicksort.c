@@ -30,7 +30,7 @@ int Partion(datatype *arr, int low, int high)
 
 void Quick_Sort(datatype *arr, int s, int t)
 {
-    
+    int m = (s + t) / 2;
 }
 
 int main()
