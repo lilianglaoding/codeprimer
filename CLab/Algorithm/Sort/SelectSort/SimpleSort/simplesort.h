@@ -1,1 +1,1 @@
-typedef datatype int;
+typedef int datatype;

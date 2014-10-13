@@ -5,7 +5,17 @@
 
 void Simple_Sort(datatype *arr, int n)
 {
-    
+    int i, j, k;
+    datatype min;
+    for (i = 0; i < n - 1; i++)
+    {
+	min = arr[i];
+	j = i + 1;
+	while (j < n && arr[j] > min)
+	    j++;
+	arr[i] = arr[j];
+	arr[j] = min;
+    }
 }
 
 void Print(datatype *arr, int n)
