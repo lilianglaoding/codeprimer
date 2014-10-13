@@ -6,15 +6,20 @@
 void Simple_Sort(datatype *arr, int n)
 {
     int i, j, k;
-    datatype min;
+    datatype min, temp;;
     for (i = 0; i < n - 1; i++)
     {
 	min = arr[i];
 	j = i + 1;
-	while (j < n && arr[j] > min)
+	while (j < n && arr[j] <= min)
+	{
+	    min = arr[j];
+	    k = j;
 	    j++;
-	arr[i] = arr[j];
-	arr[j] = min;
+	}
+	temp = arr[i];
+	arr[i] = arr[k];
+	arr[k] = temp;
     }
 }
 
