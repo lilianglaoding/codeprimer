@@ -18,9 +18,12 @@ void Simple_Sort(datatype *arr, int n)
 	    k = j;
 	    j++;
 	}
-	temp = arr[i];
-	arr[i] = arr[k];
-	arr[k] = temp;
+	if (k != i)
+	{
+	    temp = arr[i];
+	    arr[i] = arr[k];
+	    arr[k] = temp;
+	}
     }
 }
 
