@@ -11,7 +11,8 @@
 
 void Heap_Adjust(datatype *arr, int s, int t)
 {
-    
+    int i, j, k;
+    for (i = 0; i)
 }
 
 void Heap_Sort(datatype *data, int n)
