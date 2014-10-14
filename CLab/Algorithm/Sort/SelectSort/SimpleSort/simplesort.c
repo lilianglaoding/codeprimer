@@ -10,6 +10,7 @@ void Simple_Sort(datatype *arr, int n)
     for (i = 0; i < n - 1; i++)
     {
 	min = arr[i];
+	k = i;
 	j = i + 1;
 	while (j < n && arr[j] <= min)
 	{
@@ -34,10 +35,11 @@ void Print(datatype *arr, int n)
 int main()
 {
     datatype arr[10] = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
+    datatype arr1[10] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
     printf("----------------before sorted-------------------\n");
-    Print(arr, 10);
-    Simple_Sort(arr, 10);
+    Print(arr1, 10);
+    Simple_Sort(arr1, 10);
     printf("----------------after sorted--------------------\n");
-    Print(arr, 10);
+    Print(arr1, 10);
     return 0;
 }
