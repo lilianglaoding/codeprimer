@@ -3,12 +3,15 @@
 
 #include "heapsort.h"
 
-void Heap_Sort()
+void Heap_Adjust(datatype *arr, int s, int t)
 {
     
 }
 
+
+
 int main()
 {
+    
     return 0;
 }
