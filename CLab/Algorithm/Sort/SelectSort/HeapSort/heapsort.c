@@ -17,27 +17,45 @@ void Heap_Adjust(datatype *arr, int s, int t)
     temp = arr[s];
     for (j = 2 * i + 1; j <= t; j = 2 * j)
     {
+	if (arr[j + 1] > arr[j])
+	    arr[i] = arr[j + 1];
+	if (temp >= arr[j])
+	    break;
 	arr[i] = arr[j];
 	i = j;
-	if (arr[j + 1] > arr[j])
-	{
-	    arr[i] = arr[j + 1];
-	    i = j + 1;
-	}
-	if (temp >= arr[i])
-	    break;
     }
     arr[i] = temp;
 }
 
-void Heap_Sort(datatype *data, int n)
+void Heap_Sort(datatype *arr, int n)
 {
     int i;
-    for ()
+    datatype temp;
+    for (i = n / 2; i > 0; i--)
+	Heap_Adjust(arr, i, n);
+    for (i = n; i > 1; i--)
+    {
+	temp = arr[1];
+	arr[1] = arr[i];
+	arr[i] = temp;
+	Heap_Adjust(arr, 1, i - 1);
+    }
+	
+}
+
+void Print(datatype *arr, int n)
+{
+    int i;
+    for (i = 0; i < n; i++)
+	printf("%d ", arr[i]);
+    printf("\n");
 }
 
 int main()
 {
-    
+    datatype arr[8] = {16, 24, 53, 47, 36, 85, 30, 91};
+    printf("-----------------after sorted----------------\n");
+    Heap_Sort(arr, 8);
+    Print(arr, 8);
     return 0;
 }
