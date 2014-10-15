@@ -9,6 +9,8 @@
  k[i] >= {k[2i], k[2i+1]}
 **************************************/
 
+void Print(datatype *arr, int n);
+
 void Heap_Adjust(datatype *arr, int s, int t)
 {
     int i, j, k;
@@ -31,8 +33,9 @@ void Heap_Sort(datatype *arr, int n)
 {
     int i;
     datatype temp;
-    for (i = (n - 1) / 2; i >= 0; i--)
+    for (i = n / 2 - 1; i >= 0; i--)
 	Heap_Adjust(arr, i, n - 1);
+    Print(arr, n);
     //sort for small to big, find the biggest and put it in arr[i]
     for (i = n - 1; i >= 0; i--)
     {
@@ -56,9 +59,6 @@ void Print(datatype *arr, int n)
 int main()
 {
     datatype arr[8] = {16, 24, 53, 47, 36, 85, 30, 91};
-    datatype arr1[8] = {16, 47, 85, 24, 36, 53, 30, 91};
-    Heap_Adjust(arr1, 0, 7);
-    Print(arr1, 8);
     printf("-----------------before sorted---------------\n");
     Print(arr, 8);
     printf("-----------------after sorted----------------\n");
