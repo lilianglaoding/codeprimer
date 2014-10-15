@@ -31,9 +31,9 @@ void Heap_Sort(datatype *arr, int n)
 {
     int i;
     datatype temp;
-    for (i = n / 2; i > 0; i--)
+    for (i = n / 2; i >= 0; i--)
 	Heap_Adjust(arr, i, n);
-    for (i = n; i > 1; i--)
+    for (i = n; i >= 1; i--)
     {
 	temp = arr[1];
 	arr[1] = arr[i];
