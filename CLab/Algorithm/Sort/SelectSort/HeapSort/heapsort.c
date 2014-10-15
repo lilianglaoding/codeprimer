@@ -56,6 +56,9 @@ void Print(datatype *arr, int n)
 int main()
 {
     datatype arr[8] = {16, 24, 53, 47, 36, 85, 30, 91};
+    datatype arr1[8] = {16, 47, 85, 24, 36, 53, 30, 91};
+    Heap_Adjust(arr1, 0, 7);
+    Print(arr1, 8);
     printf("-----------------before sorted---------------\n");
     Print(arr, 8);
     printf("-----------------after sorted----------------\n");
