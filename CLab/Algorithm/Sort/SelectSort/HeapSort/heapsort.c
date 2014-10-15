@@ -12,12 +12,28 @@
 void Heap_Adjust(datatype *arr, int s, int t)
 {
     int i, j, k;
-    for (i = 0; i)
+    datatype temp;
+    i = s;
+    temp = arr[s];
+    for (j = 2 * i + 1; j <= t; j = 2 * j)
+    {
+	arr[i] = arr[j];
+	i = j;
+	if (arr[j + 1] > arr[j])
+	{
+	    arr[i] = arr[j + 1];
+	    i = j + 1;
+	}
+	if (temp >= arr[i])
+	    break;
+    }
+    arr[i] = temp;
 }
 
 void Heap_Sort(datatype *data, int n)
 {
-    
+    int i;
+    for ()
 }
 
 int main()
