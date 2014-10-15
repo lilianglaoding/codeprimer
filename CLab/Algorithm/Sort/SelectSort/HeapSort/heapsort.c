@@ -31,10 +31,12 @@ void Heap_Sort(datatype *arr, int n)
 {
     int i;
     datatype temp;
-    for (i = n / 2; i >= 0; i--)
+    for (i = (n - 1) / 2; i >= 0; i--)
 	Heap_Adjust(arr, i, n - 1);
+    //sort for small to big, find the biggest and put it in arr[i]
     for (i = n - 1; i >= 0; i--)
     {
+	printf("the %d times: arr[0] is %d\n", i, arr[0]);
 	temp = arr[0];
 	arr[0] = arr[i];
 	arr[i] = temp;
