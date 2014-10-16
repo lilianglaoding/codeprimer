@@ -13,5 +13,6 @@ void Print(datatype *arr, int n)
 
 void BiMergeSort(datatype *src, datatype *dst, int m, int s, int t)
 {
+    int i, j;
     
 }
