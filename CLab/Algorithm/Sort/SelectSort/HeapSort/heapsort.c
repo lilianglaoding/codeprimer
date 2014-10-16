@@ -23,9 +23,10 @@ void Heap_Adjust(datatype *arr, int s, int t)
     datatype temp;
     i = s;
     temp = arr[s];
-    for (j = 2 * i + 1; j < t; j = 2 * j + 1)
+    for (j = 2 * i + 1; j <= t; j = 2 * j + 1)
     {
-	if (arr[j + 1] > arr[j])
+	k = t;
+	if (j < k && arr[j + 1] > arr[j])
 	    j = j + 1;
 	if (temp >= arr[j])
 	    break;
@@ -41,6 +42,7 @@ void Heap_Sort(datatype *arr, int n)
     datatype temp;
     for (i = (n - 1) / 2; i >= 0; i--)
 	Heap_Adjust(arr, i, n - 1);
+
     //sort for small to big, find the biggest and put it in arr[i]
     for (i = n - 1; i >= 0; i--)
     {
