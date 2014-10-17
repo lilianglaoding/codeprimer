@@ -23,9 +23,9 @@ void Heap_Adjust(datatype *arr, int s, int t)
     datatype temp;
     i = s;
     temp = arr[s];
+    k = t;
     for (j = 2 * i + 1; j <= t; j = 2 * j + 1)
     {
-	k = t;
 	if (j < k && arr[j + 1] > arr[j])
 	    j = j + 1;
 	if (temp >= arr[j])
@@ -58,9 +58,9 @@ int main()
     datatype arr[8] = {16, 24, 53, 47, 36, 85, 30, 91};
     datatype arr1[8] = {8, 7, 6, 5, 4, 3, 2, 1};
     printf("-----------------before sorted---------------\n");
-    Print(arr1, 8);
+    Print(arr, 8);
     printf("-----------------after sorted----------------\n");
-    Heap_Sort(arr1, 8);
-    Print(arr1, 8);
+    Heap_Sort(arr, 8);
+    Print(arr, 8);
     return 0;
 }
