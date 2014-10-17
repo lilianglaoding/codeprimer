@@ -30,6 +30,16 @@ void BiMergeSort(datatype *src, datatype *dst, int m, int s, int t)
 	dst[k++] = src[j++];
 }
 
+void MergePass(datatype *src, datatype *dst, int s, int t, int len)
+{
+    
+}
+
+void MergeSort(datatype *src, datatype *dst, int s, int t, int len)
+{
+    
+}
+
 int main()
 {
     datatype src[8] = {1, 2, 3, 4, 2, 3, 4, 5};
