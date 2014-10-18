@@ -35,7 +35,10 @@ void MergePass(datatype *src, datatype *dst, int s, int t, int len)
     int i, j;
     for (i = s; i + 2 * len - 1 <= t; i = i + 2 * len)
     {
-	
+	j = i + len;
+	while (arr[j] < arr[i])
+	    arr[j++] = arr[i++];
+	while (i)
     }
 }
 
