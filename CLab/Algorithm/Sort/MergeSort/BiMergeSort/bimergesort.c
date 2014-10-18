@@ -12,7 +12,7 @@ void Print(datatype *arr, int n)
 }
 
 //src[m, s] src[s+1, t]
-void BiMergeSort(datatype *src, datatype *dst, int m, int s, int t)
+void Merge(datatype *src, datatype *dst, int m, int s, int t)
 {
     int i, j, k;
     i = m, j = s + 1, k = 0;
@@ -36,9 +36,7 @@ void MergePass(datatype *src, datatype *dst, int s, int t, int len)
     for (i = s; i + 2 * len - 1 <= t; i = i + 2 * len)
     {
 	j = i + len;
-	while (arr[j] < arr[i])
-	    arr[j++] = arr[i++];
-	while (i)
+	Merge(src, dst)
     }
 }
 
@@ -53,7 +51,7 @@ int main()
     datatype dst[8] = {0};
     printf("---------------before sorted-----------------\n");
     Print(src, 8);
-    BiMergeSort(src, dst, 0, 3, 7);
+    Merge(src, dst, 0, 3, 7);
     printf("---------------after sorted------------------\n");
     Print(dst, 8);
     return 0;
