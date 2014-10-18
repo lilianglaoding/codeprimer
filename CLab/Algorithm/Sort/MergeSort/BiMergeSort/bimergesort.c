@@ -32,17 +32,15 @@ void Merge(datatype *src, datatype *dst, int m, int s, int t)
 
 void MergePass(datatype *src, datatype *dst, int s, int t, int len)
 {
-    int i, j;
+    int i;
     for (i = s; i + 2 * len - 1 <= t; i = i + 2 * len)
     {
-	j = i + len;
 	Merge(src, dst, i, i + len - 1, i + 2 * len);
     }
     if (i + len <= t)
 	dst[i++] = src[i++];
     else
 	Merge(src, dst, i, i + len - 1, t);
-	
 }
 
 void MergeSort(datatype *src, datatype *dst, int s, int t)
@@ -58,12 +56,12 @@ void MergeSort(datatype *src, datatype *dst, int s, int t)
 
 int main()
 {
-    datatype src[8] = {1, 2, 3, 4, 2, 3, 4, 5};
+    datatype src[8] = {3, 1, 3, 2, 4, 6, 9, 8};
     datatype dst[8] = {0};
     printf("---------------before sorted-----------------\n");
     Print(src, 8);
-    Merge(src, dst, 0, 3, 7);
+    MergeSort(src, dst, 0, 7);
     printf("---------------after sorted------------------\n");
-    Print(dst, 8);
+    Print(src, 8);
     return 0;
 }
