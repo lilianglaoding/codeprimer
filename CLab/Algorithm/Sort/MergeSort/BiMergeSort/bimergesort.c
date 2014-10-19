@@ -56,11 +56,16 @@ void MergeSort(datatype *src, datatype *dst, int s, int t)
 
 void MSort(datatype *src, datatype *dst, int s, int t)
 {
-    int m;
-    m = (t - s + 1) / 2;
-    Merge(src, dst, s, m, t);
-    Merge(src, dst, );
-    
+    if (s == t)
+	dst[s] = src[s];
+    else
+    {
+	int m;
+	m = (s + t) / 2;
+	MSort(src, dst, s, m);
+	MSort(src, dst, m + 1, t);
+	Merge(dst, src, s, m, t);
+    }
 }
 
 int main()
@@ -69,7 +74,7 @@ int main()
     datatype dst[8] = {0};
     printf("---------------before sorted-----------------\n");
     Print(src, 8);
-    MergeSort(src, dst, 0, 7);
+    MSort(src, dst, 0, 7);
     printf("---------------after sorted------------------\n");
     Print(src, 8);
     return 0;
