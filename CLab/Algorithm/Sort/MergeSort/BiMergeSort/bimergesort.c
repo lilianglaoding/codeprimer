@@ -54,9 +54,12 @@ void MergeSort(datatype *src, datatype *dst, int s, int t)
     }
 }
 
-void MSort(datatype *arr, int s, int t)
+void MSort(datatype *src, datatype *dst, int s, int t)
 {
-    int i, j;
+    int m;
+    m = (t - s + 1) / 2;
+    Merge(src, dst, s, m, t);
+    Merge(src, dst, );
     
 }
 
