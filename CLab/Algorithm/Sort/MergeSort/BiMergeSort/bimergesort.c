@@ -62,7 +62,6 @@ void MSort(datatype *src, datatype *dst, int s, int t)
     {
 	int m;
 	m = (s + t) / 2;
-	printf("m: %d\n", m);
 	MSort(src, dst, s, m);
 	MSort(src, dst, m + 1, t);
 	Merge(dst, src, s, m, t);
