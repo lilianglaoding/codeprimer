@@ -66,6 +66,7 @@ void MSort(datatype *src, datatype *dst, int s, int t)
 	MSort(src, dst, m + 1, t);
 	Merge(dst, src, s, m, t);
     }
+    Print(src, 8);
 }
 
 int main()
