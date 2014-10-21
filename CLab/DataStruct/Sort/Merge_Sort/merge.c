@@ -27,6 +27,7 @@ void MSort(int R[], int R1[], int s, int t)
     MSort(R, R1, s, m);
     MSort(R, R1, m + 1, t);
     Merge(R1, R, s, m, t);
+    Merge(R, R1, s, m, t);
   }
 }
 
