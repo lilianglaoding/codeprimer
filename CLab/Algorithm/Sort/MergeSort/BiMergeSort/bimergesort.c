@@ -76,7 +76,7 @@ void MSort(datatype *src, datatype *dst, int s, int t)
 
 int main()
 {
-    datatype src[8] = {3, 1, 2, 4, 8, 6, 7, 5};
+    datatype src[8] = {8, 7, 6, 5, 4, 3, 2, 1};
     datatype dst[8] = {0};
     printf("---------------before sorted-----------------\n");
     Print(src, 8);
