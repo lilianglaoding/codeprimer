@@ -62,16 +62,21 @@ void MSort(datatype *src, datatype *dst, int s, int t)
     {
 	int m;
 	m = (s + t) / 2;
+	printf("\ns:%d, m:%d, t:%d\n", s, m, t);
 	MSort(src, dst, s, m);
 	MSort(src, dst, m + 1, t);
 	Merge(dst, src, s, m, t);
+	Merge(src, dst, s, m, t);
     }
+    printf("dst:\n");
+    Print(dst, 8);
+    printf("src:\n");
     Print(src, 8);
 }
 
 int main()
 {
-    datatype src[8] = {8, 7, 6, 5, 4, 3, 2, 1};
+    datatype src[8] = {3, 1, 2, 4, 8, 6, 7, 5};
     datatype dst[8] = {0};
     printf("---------------before sorted-----------------\n");
     Print(src, 8);
