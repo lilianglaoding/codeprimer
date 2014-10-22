@@ -62,16 +62,11 @@ void MSort(datatype *src, datatype *dst, int s, int t)
     {
 	int m;
 	m = (s + t) / 2;
-	printf("\ns:%d, m:%d, t:%d\n", s, m, t);
 	MSort(src, dst, s, m);
 	MSort(src, dst, m + 1, t);
 	Merge(dst, src, s, m, t);
-	Merge(src, dst, s, m, t);
+	Merge(src, dst, s, m, t);  // modify the dst array
     }
-    printf("dst:\n");
-    Print(dst, 8);
-    printf("src:\n");
-    Print(src, 8);
 }
 
 int main()
