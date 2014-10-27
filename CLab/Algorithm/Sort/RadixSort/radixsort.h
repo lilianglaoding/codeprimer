@@ -1,4 +1,4 @@
-#define KEYNUM 8
+#define KEYNUM 3
 #define RADIX 10
 #define MAXSPACE 1000
 
@@ -7,7 +7,7 @@ typedef int InfoType;
 typedef struct
 {
     KeyType keys[KEYNUM];
-    InfoType otheritems;
+    //InfoType otheritems;
     int next;
 } NodeType;
 
@@ -17,4 +17,4 @@ typedef struct
     int e;
 } Q_Node;
 
-typedef QNode Queue[RADIX];
+typedef Q_Node Queue[RADIX];
