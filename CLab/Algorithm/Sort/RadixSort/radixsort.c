@@ -53,5 +53,9 @@ void RadixSort(NodeType *R, int n)
 
 int main()
 {
+    NodeType R[10] = {};
+    printf("------------------before sorted--------------------------\n");
+    printf("------------------after sorted---------------------------\n");
+    RadixSort(R, 10);
     return 0;
 }
