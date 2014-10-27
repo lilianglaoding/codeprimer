@@ -3,13 +3,19 @@
 
 #include "radixsort.h"
 
-void RadixSort(datatype *arr)
+void Distribute(NodeType *R, int i, Queue q)
 {
     
 }
 
-void RadixAdjust(datatype *arr)
+void Collect(NodeType *R, int i, Queue q)
 {
+    
+}
+
+void RadixSort(NodeType *R, int n)
+{
+    
 }
 
 int main()
