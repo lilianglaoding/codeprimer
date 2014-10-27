@@ -3,9 +3,9 @@
 
 #include "radixsort.h"
 
-int map(NodeType *R, int i)
+int map(NodeType *R, int p, int i)
 {
-    return R[].keys[m] % 10;
+    return R[p].keys[m] % 10;
 }
 
 void Distribute(NodeType *R, int i, Queue q)
@@ -15,7 +15,7 @@ void Distribute(NodeType *R, int i, Queue q)
 	q[i].f = q[i].e = 0;
     for (p = R[0].next; p; p = R[p].next)    //R[0] restores the head pointer
     {
-	i = map(R, i);
+	i = map(R, p, i);
 	if (!q[i].f)
 	    q[i].f = p;
 	else
