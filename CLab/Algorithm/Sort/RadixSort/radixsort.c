@@ -26,9 +26,12 @@ void Distribute(NodeType *R, int i, Queue q)
     int j, p;
     for (j = 0; j < RADIX; j++)
 	q[j].f = q[j].e = 0;
-    for (p = R[0].next; p; p = R[p].next)    //R[0] restores the head pointer
+    printf("Distribute\n");
+    for (p = R[0].next; p != 0; p = R[p].next)
     {
-	j = R[p].keys[i] % 10;       // map to [0, RADIX - 1]
+	printf("a ");
+	printf("%d", p);
+	j = R[p].keys[i] % 10;
 	if (!q[j].f)
 	    q[j].f = p;
 	else
@@ -50,7 +53,8 @@ void Collect(NodeType *R, int i, Queue q)
     int j, t;
     for (j = 0; !q[j].f; j = succ(q, j));
     R[0].next = q[j].f;
-    t = q[i].e;
+    t = q[j].e;
+    printf("Collect\n");
     while (j < RADIX)
     {
 	for (j = succ(q, j); j < RADIX - 1 && !q[j].f; j = succ(q, j));
