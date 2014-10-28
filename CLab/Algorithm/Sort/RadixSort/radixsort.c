@@ -6,12 +6,16 @@
 void Print(NodeType *R, int n)
 {
     int i, j;
-    j = 0;
-    int sum = 0;
+    int sum;
     for (i = 0; R[i].next != 0; i = R[i].next)
     {
-	while (j < KEYNUM)
+	j = KEYNUM - 1;
+	sum = 0;
+	while (j >= 0)
+	{
 	    sum = sum * 10 + R[R[i].next].keys[j];
+	    j--;
+	}
 	printf("%d ", sum);
     }
     printf("\n");
@@ -66,6 +70,7 @@ void RadixSort(NodeType *R, int n)
     for (i = 0; i < n; i++)
 	R[i].next = i + 1;
     R[i].next = 0;
+    printf("radixsort\n");
     for (i = 0; i < KEYNUM; i++)
     {
 	Distribute(R, i, q);
@@ -73,10 +78,33 @@ void RadixSort(NodeType *R, int n)
     }
 }
 
+int power(int x, int num)
+{
+    if (num == 0)
+	return 1;
+
+    int i = num;
+    int sum = 1;
+    while (i != 0)
+    {
+	sum = sum * x;
+	i--;
+    }
+    return sum;
+}
+
 int main()
 {
-    int i;
-    NodeType R[10] = {0, 278, 109, 63, 930, 589, 184, 505, 269, 8, 83};
+    int i, j;
+    KeyType x;
+    NodeType R[10] = {};
+    NodeType R1[10] = {0, 278, 109, 63, 930, 589, 184, 505, 269, 8, 83};
+    for (i = 0; i < 10; i++)
+    {
+	scanf("%d", &x);
+	for (j = 0; j < KEYNUM; j++)
+	    R[i].keys[j] = (x / power(10, j)) % 10;
+    }
     for (i = 0; i < 9; i++)
 	R[i].next = i + 1;
     R[i].next = 0;
