@@ -37,6 +37,7 @@ void Distribute(NodeType *R, int i, Queue q)
     }
     for (j = 0; j < RADIX; j++)
 	printf("f:%d, e:%d\n", q[j].f, q[j].e);
+    printf("%d\n", R[R[q[8].f].next].keys[0]);
 }
 
 int succ(Queue q, int i)
@@ -105,7 +106,7 @@ int main()
     int i, j;
     KeyType x;
     NodeType R[10] = {};
-    NodeType R1[10] = {0, 278, 109, 63, 930, 589, 184, 505, 269, 8, 83};
+    NodeType R1[10] = {0, 278, 109, 63, 930, 589, 184, 505, 269, 83};
     for (i = 0; i < 10; i++)
     {
 	scanf("%d", &x);
