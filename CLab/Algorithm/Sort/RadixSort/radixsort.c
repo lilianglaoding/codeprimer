@@ -124,5 +124,7 @@ int main()
     printf("------------------after sorted---------------------------\n");
     RadixSort(R, 10);
     Print(R, 10);
+    for (i = 0; i < 10; i++)
+	printf("%d ", R[i].next);
     return 0;
 }
