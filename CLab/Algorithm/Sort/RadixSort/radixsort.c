@@ -37,7 +37,6 @@ void Distribute(NodeType *R, int i, Queue q)
     }
     for (j = 0; j < RADIX; j++)
 	printf("f:%d, e:%d\n", q[j].f, q[j].e);
-    printf("%d\n", R[R[q[8].f].next].keys[0]);
 }
 
 int succ(Queue q, int i)
@@ -52,22 +51,23 @@ int succ(Queue q, int i)
 void Collect(NodeType *R, int i, Queue q)
 {
     printf("Collect start\n");
-    printf("%d", q[0].f);
     int j, t;
     for (j = 0; !q[j].f; j = succ(q, j));
 	//printf("%d ", j);
     R[0].next = q[j].f;
     t = q[j].e;
-    printf("j: %d\n", j);
     while (j < RADIX)
     {
 	for (j = succ(q, j); j < RADIX - 1 && !q[j].f; j = succ(q, j))
+	{
+	    printf("aaaa\n");
 	if (q[j].f)
 	{
 	    R[t].next = q[j].f;
 	    t = q[j].e;
 	}
 	R[t].next = 0;
+	}
     }
 }
 
