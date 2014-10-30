@@ -40,7 +40,7 @@ void Distribute(NodeType *R, int i, Queue q)
 int succ(Queue q, int i)
 {
     int j = i;
-    while (j < RADIX - 2 && !q[j + 1].f)
+    while (!q[j + 1].f)
 	j++;
     return (j + 1);
 }
