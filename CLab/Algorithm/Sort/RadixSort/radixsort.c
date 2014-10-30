@@ -16,7 +16,7 @@ void Print(NodeType *R, int n)
 	    sum = sum * 10 + R[R[i].next].keys[j];
 	    j--;
 	}
-	printf("%d\n", sum);
+	printf("%d ", sum);
     }
     printf("\n");
 }
@@ -37,7 +37,7 @@ void Distribute(NodeType *R, int i, Queue q)
 	q[j].e = p;
     }
     //for (j = 0; j < RADIX; j++)
-//	printf("f:%d, e:%d\n", q[j].f, q[j].e);
+    //printf("%d  f:%d, e:%d\n", j, q[j].f, q[j].e);
 }
 
 int succ(Queue q, int i)
@@ -67,14 +67,14 @@ void Collect(NodeType *R, int i, Queue q)
 	    R[t].next = 0;
 	}
     }
-    Print(R, 10);
+    //Print(R, 10);
 }
 
 void RadixSort(NodeType *R, int n)
 {
     int i;
     Queue q;
-    for (i = 0; i < n; i++)
+    for (i = 0; i < n - 1; i++)
 	R[i].next = i + 1;
     R[i].next = 0;
     printf("Radixsort start\n");
@@ -120,8 +120,9 @@ int main()
     printf("------------------after sorted---------------------------\n");
     RadixSort(R, 10);
     Print(R, 10);
-    for (i = 0; i < 10; i++)
-	printf("%d ", R[i].next);
+    printf("%d %d\n", R[0].next, R[R[0].next].next);
+    for (i = 0; R[i].next != 0; i = R[i].next);
+	//printf("%d ", R[R[i].next].next);
     printf("\n");
     return 0;
 }
