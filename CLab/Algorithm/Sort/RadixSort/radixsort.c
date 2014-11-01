@@ -96,8 +96,7 @@ int main()
 {
     int i, j;
     KeyType x;
-    NodeType R[10] = {};
-    NodeType R1[10] = {0, 278, 109, 63, 930, 589, 184, 505, 269, 83};
+    NodeType R[10] = {0};
     for (i = 0; i < 10; i++)
     {
 	scanf("%d", &x);
