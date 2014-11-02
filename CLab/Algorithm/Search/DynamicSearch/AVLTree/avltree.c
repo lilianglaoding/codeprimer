@@ -39,6 +39,6 @@ void Left_Balance(NodeType **p)
 	(*p)->bf = LH;
 	break;
     case RH:
-	(*p)->bf = RH;
+	
     }
 }
