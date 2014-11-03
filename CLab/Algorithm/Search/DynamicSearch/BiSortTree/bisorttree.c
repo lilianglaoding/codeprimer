@@ -10,7 +10,6 @@ int BiTree_Search(NodeType *t, NodeType **p, NodeType **q, datatype kx)
 {
   int flag = 0;
   *q = t;
-  *p = *q;
   while ((*q) != NULL)
   {
     if ((*q)->data < kx)
