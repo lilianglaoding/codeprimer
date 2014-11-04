@@ -60,3 +60,14 @@ void Left_Balance(NodeType **p)
 	R_Rotate(p);
     }
 }
+
+void Right_Balance(NodeType **p)
+{
+    NodeType *lp, *rd;
+    lp = (*p)->rchild;
+    switch ((*p)->bf)
+    {
+    case LH:
+	
+    }
+}
