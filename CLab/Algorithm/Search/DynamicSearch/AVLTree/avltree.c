@@ -29,7 +29,7 @@ void Left_Balance(NodeType **p)
 {
     NodeType *lp;
     lp = (*p)->lchild;
-    switch (lp->bf)
+    switch ((*p)->bf)
     {
     case LH:
 	(*p)->bf = lp->bf = EH;
