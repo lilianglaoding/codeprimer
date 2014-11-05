@@ -5,8 +5,8 @@
 
 int Search(NodeType *p, datatype kx)
 {
-    int i = 0;
-    while (i < p->keynum && kx < p->key[i])
+    int i = 1;
+    while (i <= p->keynum && kx > p->key[i])
 	i++;
     if (i < p->keynum)
 	return i;
@@ -35,3 +35,4 @@ Result SearchBTree(NodeType *t, datatype kx)
     rs.pt = p;
     return rs;
 }
+
