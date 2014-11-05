@@ -2,8 +2,11 @@
 
 typedef int datatype;
 
+// node (n, A0, K1, A1, K2, ..., Kn, An)
+
 typedef struct node
 {
+    int keynum;
     struct node *parent;
     datatype key[m + 1];
     struct node *nptr[m + 1];
