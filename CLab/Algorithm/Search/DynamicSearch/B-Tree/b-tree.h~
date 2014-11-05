@@ -1,0 +1,5 @@
+#define m 5
+typedef struct node
+{
+    
+}
