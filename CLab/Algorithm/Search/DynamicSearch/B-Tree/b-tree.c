@@ -36,7 +36,7 @@ Result SearchBTree(NodeType *t, datatype kx)
     return rs;
 }
 
-void NewRoot()
+void NewRoot(NodeType **t)
 {
     
 }
