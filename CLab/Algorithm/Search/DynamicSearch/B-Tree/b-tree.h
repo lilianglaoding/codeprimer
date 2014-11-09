@@ -6,7 +6,7 @@ typedef int datatype;
 
 typedef struct node
 {
-    int keynum;
+    int keynum;   //keynum <= m - 1
     struct node *parent;
     datatype key[m];        //key[0] is not used
     struct node *nptr[m];

@@ -5,8 +5,8 @@
 
 int Search(NodeType *p, datatype kx)
 {
-    int i = 1;
-    while (i <= p->keynum && kx > p->key[i])
+    int i = 1;   // key[1] to key[m - 1]
+    while (i <= p->keynum && kx >= p->key[i])
 	i++;
     return i - 1;
 }
