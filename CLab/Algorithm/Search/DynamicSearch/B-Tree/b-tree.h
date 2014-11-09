@@ -8,9 +8,9 @@ typedef struct node
 {
     int keynum;
     struct node *parent;
-    datatype key[m + 1];
-    struct node *nptr[m + 1];
-    datatype *eptr[m + 1];
+    datatype key[m];        //key[0] is not used
+    struct node *nptr[m];
+    datatype *eptr[m];
 } NodeType;
 
 typedef struct
