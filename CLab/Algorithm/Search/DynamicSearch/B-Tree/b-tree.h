@@ -6,11 +6,11 @@ typedef int datatype;
 
 typedef struct node
 {
-    int keynum;   //keynum <= m - 1
+    int keynum;   //m / 2 - 1 <= keynum <= m - 1
     struct node *parent;
-    datatype key[m];        //key[0] is not used
-    struct node *nptr[m];
-    datatype *eptr[m];
+    datatype key[m];        // key[0] is not used
+    struct node *nptr[m];   // children
+    datatype *eptr[m];      // record
 } NodeType;
 
 typedef struct
