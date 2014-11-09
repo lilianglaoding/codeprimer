@@ -52,6 +52,7 @@ void NewRoot(NodeType *t, NodeType *stptr, datatype kx, datatype *xelem)
 int InsertBTree(NodeType **t, ElemType *xelem)
 {
     int i;
+    
 }
 
 NodeType *split(NodeType *p, int s)
@@ -71,7 +72,7 @@ NodeType *split(NodeType *p, int s)
     
     p->keynum = s - 1;
     if (q->nptr[0])
-	for (j = 0; j < q->keynum; j++)
+	for (j = 0; j <= q->keynum; j++)
 	    q->nptr[j]->parent = q;
     return q;
 }
