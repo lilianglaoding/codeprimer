@@ -15,6 +15,11 @@ typedef struct node
 
 typedef struct
 {
+    datatype key;
+} ElemType;
+
+typedef struct
+{
     NodeType *pt;
     int i;
     int tag;    // 1--success, 0--failure

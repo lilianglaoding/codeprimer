@@ -66,9 +66,20 @@ int InsertBTree(NodeType **t, ElemType *xelem)
 		finished = true;
 	    else
 	    {
-		
+		s = (m + 1) / 2;
+		kx = rs.pt->key[s];
+		elemptr = rs.pt->eptr[s];
+		stptr = split(rs.pt, s);
+		rs.pt = rs.pt->parent;
+		if (rs.pt)
+		    rs.i = SearchBTree(rs.pt, kx);
 	    }
 	}
+    }
+    if (!finished)
+    {
+	NewRoot(*t, stptr, kx, elemptr);
+	finished = true;
     }
 }
 
