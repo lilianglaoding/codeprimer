@@ -43,7 +43,6 @@ void NewRoot(NodeType *t, NodeType *stptr, datatype kx, datatype *xelem)
     p->eptr[0] = xelem;
     p->nptr[0] = t;
     p->nptr[1] = stptr;
-    p->parent = NULL;
     t->parent = p;
     stptr->parent = p;
     return p;
