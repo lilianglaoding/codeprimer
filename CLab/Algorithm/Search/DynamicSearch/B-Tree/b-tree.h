@@ -10,13 +10,7 @@ typedef struct node
     struct node *parent;
     datatype key[m];        // key[0] is not used
     struct node *nptr[m];   // children
-    datatype *eptr[m];      // record
 } NodeType;
-
-typedef struct
-{
-    datatype key;
-} ElemType;
 
 typedef struct
 {

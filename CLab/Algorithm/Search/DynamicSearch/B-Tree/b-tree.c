@@ -40,7 +40,6 @@ void NewRoot(NodeType *t, NodeType *stptr, datatype kx, datatype *xelem)
     p->keynum = 1;
     p->parent = NULL;
     p->key[1] = kx;
-    p->eptr[0] = xelem;
     p->nptr[0] = t;
     p->nptr[1] = stptr;
     t->parent = p;
@@ -48,12 +47,11 @@ void NewRoot(NodeType *t, NodeType *stptr, datatype kx, datatype *xelem)
     return p;
 }
 
-int InsertBTree(NodeType **t, ElemType *xelem)
+int InsertBTree(NodeType **t, datatype x)
 {
     int s, finished = false;
     NodeType *stptr;
-    datatype kx = xelem->key;
-    ElemType *elemptr = xelem;
+    datatype kx = x;
     Result *rs;
     rs = SearchBTree(*t, kx);
     if (!rs.tag)
