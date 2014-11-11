@@ -107,3 +107,8 @@ int DeleteBTree(NodeType **t, datatype kx)
 {
     
 }
+
+int main()
+{
+    return 0;
+}
