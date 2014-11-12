@@ -105,7 +105,7 @@ NodeType *split(NodeType *p, int s)
 
 int DeleteBTree(NodeType **t, datatype kx)
 {
-    
+    return 0;
 }
 
 int main()
