@@ -102,13 +102,3 @@ NodeType *split(NodeType *p, int s)
 	    q->nptr[j]->parent = q;
     return q;
 }
-
-int DeleteBTree(NodeType **t, datatype kx)
-{
-    return 0;
-}
-
-int main()
-{
-    return 0;
-}
