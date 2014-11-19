@@ -31,5 +31,46 @@ typedef struct
     int n, e;
 } ALGraph;
 
+typedef int InfoType;
+
+typedef struct ArcBox
+{
+    int tailvex, headvex;
+    struct ArcBox *hlink, *tlink;
+    InfoType info;
+} ArcBox;
+
+typedef struct VexNode
+{
+    VertexType vertex;
+    ArcBox *firstin, *firstout;
+} VexNode;
+
+typedef struct
+{
+    VexNode xlist[MAXVERTEXNUM];
+    int vexnum, arcnum;
+} OLGraph;
 
 
+typedef enum {unvisited, visited} VisitIf;
+
+typedef struct EBox
+{
+    VisitIf mark;
+    int ivex, jvex;
+    struct EBox ilink, jlink;
+    InfoType info;
+} EBox;
+
+typedef struct VexBox
+{
+    VertexType data;
+    EBox firstedge;
+} VexBox;
+
+typedef struct
+{
+    VerBox adjmulist[MAXVERTEXNUM];
+    int vexnum, edgenum;
+} AMLGraph;
