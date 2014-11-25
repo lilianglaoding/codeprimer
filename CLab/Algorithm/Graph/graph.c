@@ -6,7 +6,7 @@ void CreateMGraph(MGraph *G)
 {
     int i, j, k, w;
     char ch;
-    scanf("%c", &ch);
+
 }
 
 int main()
