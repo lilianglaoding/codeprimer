@@ -10,6 +10,11 @@ void CreateMGraph(MGraph *G)
 	scanf("%d", &G->vex[i]);
 }
 
+void DFSAL(ALGraph *G)
+{
+    
+}
+
 int main()
 {
     return 0;
