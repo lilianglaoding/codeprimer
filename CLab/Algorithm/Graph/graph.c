@@ -11,7 +11,8 @@ void DFSTraverseAL(ALGraph *G)
     for (i = 0; i < G->n; i++)
 	visited[i] = 0;
     for (i = 0; i < G->n; i++)
-	DFSAL(G, i);
+	if (!visited[i])
+	    DFSAL(G, i);
 }
 
 void DFSAL(ALGraph *G, int i)
@@ -26,6 +27,24 @@ void DFSAL(ALGraph *G, int i)
 	    DFSAL(G, p->adjvex);
 	p = p->next;
     }
+}
+
+void BFSM(MGraph *G, int k);
+
+void BFSTraverseM(MGraph *G)
+{
+    int visited[G->n];
+    int i;
+    for (i = 0; i < G->n; i++)
+	visit[i] = 0;
+    for (i = 0; i < G->n; i++)
+	if (!visited[i])
+	    BFSM(G, i);
+}
+
+void BFSM(MGraph *G, int k)
+{
+    
 }
 
 int main()
