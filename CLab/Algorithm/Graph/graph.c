@@ -12,7 +12,7 @@ void CreateMGraph(MGraph *G)
 
 void DFSAL(ALGraph *G)
 {
-    
+    int i;
 }
 
 int main()
