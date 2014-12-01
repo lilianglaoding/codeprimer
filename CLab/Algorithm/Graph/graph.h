@@ -8,6 +8,7 @@ typedef struct
     VertexType vexs[MAXVERTEXNUM];
     EdgeType edges[MAXVERTEXNUM][MAXVERTEXNUM];
     int n, e;
+    int visited[n];
 } MGraph;
 
 
@@ -29,6 +30,7 @@ typedef struct
 {
     AdjList adjlist;
     int n, e;
+    int visited[n];
 } ALGraph;
 
 typedef int InfoType;
