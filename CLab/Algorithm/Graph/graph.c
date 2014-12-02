@@ -67,7 +67,18 @@ void BFSM(MGraph *G, int k)
     }
 }
 
+void DFSForest(Graph *G, CSTree *T)
+{
+    int i;
+    for (i = 0; i < G->n; i++)
+	G->visited[i] = 0;
+    
+}
 
+void DFSTree(Graph G, int v, CSTree *T)
+{
+    
+}
 
 int main()
 {
