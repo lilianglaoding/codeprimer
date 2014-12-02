@@ -50,14 +50,12 @@ void BFSM(MGraph *G, int k)
     {
 	i = DeQueue(CirQueue);
 	for (j = 0; j < G->n; j++)
-	{
 	    if (G->edges[i][j] == 1 && !G->visited[j])
 	    {
 		printf("Visit Vertex: V%c", G->vexs[j]);
 		G->visited[j] = p;
 		EnQueue(CirQueue, j);
 	    }
-	}
     }
 }
 
