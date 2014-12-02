@@ -67,6 +67,8 @@ void BFSM(MGraph *G, int k)
     }
 }
 
+
+
 int main()
 {
     return 0;
