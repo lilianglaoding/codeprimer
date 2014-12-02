@@ -76,3 +76,10 @@ typedef struct
     VerBox adjmulist[MAXVERTEXNUM];
     int vexnum, edgenum;
 } AMLGraph;
+
+typedef struct TreeNode
+{
+    datatype data;
+    struct TreeNode *lchild, *rchild;
+    struct TreeNode *nextsibling;
+} *CSTree;
