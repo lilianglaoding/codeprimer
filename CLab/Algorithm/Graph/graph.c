@@ -70,9 +70,24 @@ void BFSM(MGraph *G, int k)
 void DFSForest(Graph *G, CSTree *T)
 {
     int i;
+    CSTree p, q;
+    q = T;
     for (i = 0; i < G->n; i++)
 	G->visited[i] = 0;
-    
+    for (i = 0; i < G->n; i++)
+	if (G->visited[i] != 1)
+	{
+	    p = (CSTree)malloc(sizeof(TreeNode));
+	    p->data = G->vexs[i];
+	    p->lchild = NULL;
+	    p->rchild = NULL;
+	    if (!(*T))
+		(*T) = p;
+	    else
+		q->nextsibling = p;
+	    q = p;
+	    DFSTree(G, i, &p);
+	}
 }
 
 void DFSTree(Graph G, int v, CSTree *T)
