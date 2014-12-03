@@ -92,7 +92,27 @@ void DFSForest(Graph *G, CSTree *T)
 
 void DFSTree(Graph G, int v, CSTree *T)
 {
-    
+    G->visited[v] = 1;
+    first = true;
+    int w;
+    CSTree p;
+    for (w = FirstAdjVex(v); w; w = NextAdjVex(v))
+	if (!visited[w])
+	{
+	    p = (CSTree)malloc(sizeof(TreeNode));
+	    p->data = G->vexs[w];
+	    p->lchild = NULL;
+	    p->nextsibling = NULL;
+	    if (first)
+	    {	
+		*T->lchild = p;
+		first = false;
+	    }
+	    else
+		q->nextsibling = p;
+	    q = p;
+	    DFSTree(G, w, &p);
+	}
 }
 
 int main()
