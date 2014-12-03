@@ -90,7 +90,7 @@ void DFSForest(Graph *G, CSTree *T)
 	}
 }
 
-void DFSTree(Graph G, int v, CSTree *T)
+void DFSTree(Graph *G, int v, CSTree *T)
 {
     G->visited[v] = 1;
     first = true;
