@@ -80,6 +80,6 @@ typedef struct
 typedef struct TreeNode
 {
     datatype data;
-    struct TreeNode *lchild, *rchild;
+    struct TreeNode *lchild;
     struct TreeNode *nextsibling;
 } *CSTree;
