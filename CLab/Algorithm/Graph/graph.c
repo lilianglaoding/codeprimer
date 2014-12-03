@@ -71,7 +71,7 @@ void DFSForest(Graph *G, CSTree *T)
 {
     int i;
     CSTree p, q;
-    q = T;
+    *T = NULL;
     for (i = 0; i < G->n; i++)
 	G->visited[i] = 0;
     for (i = 0; i < G->n; i++)
@@ -80,7 +80,7 @@ void DFSForest(Graph *G, CSTree *T)
 	    p = (CSTree)malloc(sizeof(TreeNode));
 	    p->data = G->vexs[i];
 	    p->lchild = NULL;
-	    p->rchild = NULL;
+	    p->nextsibling = NULL;
 	    if (!(*T))
 		(*T) = p;
 	    else
