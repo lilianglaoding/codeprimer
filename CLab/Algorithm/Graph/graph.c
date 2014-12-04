@@ -115,6 +115,11 @@ void DFSTree(Graph *G, int v, CSTree *T)
 	}
 }
 
+void Prim(datatype gm[][MAXVERTEXNUM], int n, int closevertex[])
+{
+    
+}
+
 int main()
 {
     
