@@ -119,6 +119,7 @@ void Prim(datatype gm[][MAXVERTEXNUM], int n, int closevertex[])
 {
     int lowcost[MAXVERTEXNUM];
     int i, j;
+    int k;
 }
 
 int main()
