@@ -1,4 +1,4 @@
-str = "label:123"
+str = "aaalabel:123"
 
 str =~ /label:([0-9]+)/
 str1 = $&
