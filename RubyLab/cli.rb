@@ -28,7 +28,7 @@ def check_cut_cli(cli_cut, cli_all)
 end
 
 def check_un_cut_cli(cli_no_cut, cli_all)
-  
+  cli_no_cut.each_line {|s| cut_off(cli_all, s)}
 end
 
 puts "=======Now check the cut cli, the error cli is below======\n"
