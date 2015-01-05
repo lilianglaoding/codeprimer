@@ -1,10 +1,15 @@
-cli_all = "test
+cli_tree = "test
 aaa
 bbb
-ccc"
+ccc
+eee
+ddd
+"
 cli_need_cut = "test
 aaa
 bbb
+ccc
+ddd
 "
 cli_no_need_cut = ""
 
@@ -18,4 +23,8 @@ def cut_off(str, substr)
   str.each_line {|s| str_equal(s, substr)}
 end
 
-cli_need_cut.each_line {|s| cut_off(cli_all, s)}
+def check_cut_cli(cli_cut, cli_all)
+  cli_cut.each_line {|s| cut_off(cli_all, s)}
+end
+
+
