@@ -19,6 +19,8 @@ def str_equal(str, substr)
   end
 end
 
+for
+
 def cut_off(str, substr)
   str.each_line {|s| str_equal(s, substr)}
 end
