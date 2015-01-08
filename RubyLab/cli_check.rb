@@ -1,8 +1,9 @@
 file_cli_all = "all"
-file_cli_pruned = "purned"
+file_cli_pruned = "pruned"
 file_cli_support = "support"
 
 file_array = [file_cli_all, file_cli_pruned, file_cli_support]
+#puts file_array
 
 def string_replace(str)
   str.gsub(/<.*?>/, '<1>')
@@ -18,8 +19,9 @@ def file_replace(file)
 end
 
 def file_process(file_arr)
-  for file in [file_arr]
-    file_replace(file.to_s)
+  for file in file_arr
+    file_replace(file)
+    puts file_arr
   end
 end
 
