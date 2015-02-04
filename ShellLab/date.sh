@@ -4,7 +4,7 @@
 for i in `seq 4`
 do
  echo ${i}
- date -s "1 days"
+ #date -s "1 days"
  touch aaa.txt
  git add aaa.txt
  git commit -m "shell"
@@ -13,4 +13,5 @@ do
  git rm aaa.txt
  git commit -m "shell"
  git push origin master
+ date -s "1 days"
 done
