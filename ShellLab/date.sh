@@ -1,7 +1,7 @@
 #!/bin/sh
 #date -s 2014-01-09  2014-01-20
 #for var in 1 2 3 4 5 6 7
-for i in `seq 4`
+for i in `seq 12`
 do
  echo ${i}
  touch aaa.txt
