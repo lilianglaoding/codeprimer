@@ -1,12 +1,11 @@
 #include <stdio.h>
 #include <math.h>
 
-void main()
+int main()
 {
-    int *p;
-    const int i = 10;
-    p = &i;,
-    //p = (int *)&i;
-    *p = *p + 1;
-    printf("i:%d,*p:%d\n",i,*p);
+    int arr[] = {6, 7, 8, 9, 10};
+    short int *p = arr;
+    p++;
+    printf("%d\n", *p);
+    return 0;
 }
