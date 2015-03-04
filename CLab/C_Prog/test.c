@@ -12,10 +12,12 @@ int main()
 #include <stdio.h>
 #include <string.h>
 
-int main()
+ /*int main()
 {
     unsigned int a = 0xFFFFFFF7;
     unsigned char i = (unsigned char)a;
     char *b = (char *)&a;
     printf("%08X, %08X\n", i, *b);
-}
+    }*/
+
+
