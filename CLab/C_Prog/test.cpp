@@ -18,6 +18,21 @@ int main()
 {
     unsigned char a = 0xa5;
     unsigned char b = ~a >> 4 + 1;
-    printf("%d\n", b);
+    printf("%d\n", (729&271));
+    printf("%d\n", ((729^271)>>1));
+    printf("%d\n", (729&271) + ((729^271)>>1));
     return 0;
 }
+/*
+int f(int x, int y)
+{
+    return (x&y)+((x^y)>>1);
+}
+
+int main()
+{
+    int x = 729, y = 271;
+    int a = f(x, y);
+    printf("%d\n", (729&271) + ((729^271)>>1));
+    return 0;
+    }*/
