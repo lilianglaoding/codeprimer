@@ -62,6 +62,18 @@ NodeType *split(NodeType *p, int s)
     
 }
 
+NodeType *NewRoot(NodeType *p, NodeType *q, int kx)
+{
+    NodeType *s;
+    s = (NodeType *)malloc(sizeof(NodeType));
+    s->parent = NULL;
+    s->keynum = 1;
+    s->key[1] = kx;
+    s->nptr[0] = p;
+    s->nptr[1] = q;
+    return s;
+}
+
 int InsertNode(NodeType **t, int x)
 {
     Result rs;
@@ -72,7 +84,7 @@ int InsertNode(NodeType **t, int x)
     rs = SearchNode(*t, kx);
     if (!rs.tag)
     {
-	while (!p)
+	while (!p && !finished)
 	{	    
 	    Insert(rs.p, rs.i);
 	    if (rs.p->keynum <= M)
@@ -80,9 +92,16 @@ int InsertNode(NodeType **t, int x)
 	    else (rs.p->keynum > M)
 	    {
 		s = (M + 1) / 2;
+		kx = rs.p->key[s+1];
 		stptr = split(rs.p, s);
-		
+		rs.p = rs.p->parent;
 	    }
 	}
     }
+    if (!finished)
+    {
+	*t = NewRoot(rs.pt, stptr, kx);
+	finished = 1;
+    }
+    return finished;
 }
