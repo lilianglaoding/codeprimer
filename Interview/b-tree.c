@@ -52,14 +52,40 @@ Result SearchNode(NodeType *t, int kx)
     return rs;
 }
 
-int InsertNode(NodeType *t, int kx)
+int InsertNode(NodeType *p, int i, int kx)
 {
-    
+    int j;
+    for (j = p->keynum; j >= i; j--)
+    {
+	p->key[j + 1] = p->key[j];
+	//p->nptr[j + 1] = p->nptr[j];
+    }
+    p->key[j + 1] = kx;
+    p->keynum++;
+    if (!p->nptr[0])
+	for (j = 0; j <= p->keynum; j++)
+	    p->nptr[j] = NULL;
+    return 1;
 }
 
 NodeType *split(NodeType *p, int s)
 {
-    
+    int i;
+    NodeType *q;
+    q = (NodeType *)malloc(sizeof(NodeType));
+    q->keynum = s;
+    p->keynum = M - s - 1;
+    q->nptr[0] = p->nptr[0];
+    for (i = 1; i <= q->keynum; i++)
+    {
+	q->key[i] = p->key[i];
+	q->nptr[i] = q->nptr[i];
+    }
+    p->nptr[0] = p->nptr[s + 2];
+    for (i = s + 2; i <= M; i++)
+    {
+	p->key[i - s]
+    }
 }
 
 NodeType *NewRoot(NodeType *p, NodeType *q, int kx)
@@ -71,6 +97,8 @@ NodeType *NewRoot(NodeType *p, NodeType *q, int kx)
     s->key[1] = kx;
     s->nptr[0] = p;
     s->nptr[1] = q;
+    p->parent = s;
+    q->parent = s;
     return s;
 }
 
@@ -86,7 +114,7 @@ int InsertNode(NodeType **t, int x)
     {
 	while (!p && !finished)
 	{	    
-	    Insert(rs.p, rs.i);
+	    Insert(rs.p, rs.i, kx);
 	    if (rs.p->keynum <= M)
 		finished = 1;
 	    else (rs.p->keynum > M)
