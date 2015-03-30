@@ -24,13 +24,16 @@ void mulmatrix(NodeType *mul, NodeType *p, NodeType *q)
 	    {
 		sum = sum + p->matrix[i][k] * q->matrix[k][j];
 	    }
-	    p->matrix[i][j] = sum;
+	    mul->matrix[i][j] = sum;
 	}
+    mul->rownum = p->rownum;
+    mul->colnum = q->colnum;
 }
 
 void print(NodeType *p)
 {
     int i, j;
+    printf("-----------------------\n");
     for (i = 0; i < p->rownum; i++)
     {
 	for (j = 0; j < p->colnum; j++)
@@ -50,7 +53,6 @@ int main()
     for (i = 0; i < p->rownum; i++)
 	for (j = 0; j < p->colnum; j++)
 	    p->matrix[i][j] = 1;
-    printf("---------------------\n");
     print(p);
     //NodeType *q = (NodeType *)malloc(sizeof(NodeType));
     q->rownum = 4;
@@ -58,7 +60,8 @@ int main()
     for (i = 0; i < q->rownum; i++)
 	for (j = 0; j < q->colnum; j++)
 	    q->matrix[i][j] = 1;
-    printf("---------------------\n");
     print(q);
-    //return 0;
+    mulmatrix(mul, p, q);
+    print(mul);
+    return 0;
 }
