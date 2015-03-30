@@ -18,7 +18,7 @@ bool is_same(list<int> &list1, list<int> &list2)
 
 int main()
 {
-  list<int> list1(10, 1), list2(5, 1);
+  list<int> list1(10, 1), list2(10, 1);
   bool result = is_same(list1, list2);
   if (result)
     cout << "The two lists are same!" << endl;
