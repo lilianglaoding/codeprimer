@@ -5,7 +5,7 @@ linan   02 20
 hehe    03 24
 "
 #def getname(str1,age)
-if /(([a-zA-Z]+)(\s+)([0-9]+)(\s+)(20)\n).*/ =~ table
+if /(([a-zA-Z]+)(\s+)([0-9]+)(\s+)(20\n)).*/ =~ table
 	str = $&
 	puts str
 	puts "-"*18
