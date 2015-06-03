@@ -56,7 +56,7 @@ void print(NodeType *head)
 void insert(NodeType **head, int x)
 {
     NodeType **curr = head;
-    NodeType *s, *entry = *curr;
+    NodeType *s, *entry = NULL;
     while (*curr != NULL && (*curr)->data <= x)
     {
 	entry = *curr;
@@ -64,6 +64,11 @@ void insert(NodeType **head, int x)
     }
     s = (NodeType *)malloc(sizeof(NodeType));
     s->data = x;
+    if (*curr)
+    {
+	(*curr)->pre->next = s;
+	(*curr)->pre = s;
+    }
     s->pre = entry;
     s->next = *curr;
     *curr = s;
