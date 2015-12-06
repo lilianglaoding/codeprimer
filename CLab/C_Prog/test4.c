@@ -15,5 +15,6 @@ char *GetValueByKey(char *key, keyval *keyvalue, int keynum)
 
 int main()
 {
+  char *a = NULL;
   char *test = GetValueByKey(a, b, c);
 }
