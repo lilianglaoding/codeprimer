@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+struct keyval
+{
+    
+}
+
 char *GetValueByKey(char *key, keyval *keyvalue, int keynum)
 {
     for (int i = 0; i < 5; i++)
