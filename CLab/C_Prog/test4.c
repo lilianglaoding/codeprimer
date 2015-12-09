@@ -17,4 +17,5 @@ int main()
 {
   char *a = NULL;
   char *test = GetValueByKey(a, b, c);
+  return 0;
 }
