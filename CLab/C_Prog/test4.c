@@ -3,7 +3,7 @@
 
 struct keyval
 {
-    
+    char eky;
 }
 
 char *GetValueByKey(char *key, keyval *keyvalue, int keynum)
