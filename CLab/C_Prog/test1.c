@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define SUB(x, y) x - y
 #define ACCESS_BEFORE(element, offset, value) *SUB(&element, offset) = value
@@ -10,6 +11,8 @@ int main()
     ACCESS_BEFORE(array[5], 4, 6);   // *&array[5] - 4 = 6
     for (i = 0; i < 10; i++)
 	printf("%d ", array[i]);
+    printf(array);
+    printf("\n");
     printf("\n");
     return 0;
 }

@@ -6,5 +6,6 @@ int main()
     int c = a - b;
     c = unsigned(c) >> (sizeof(int) * 8 - 1);
     printf("%d\n", c);
+    printf("%d",a);
     return 0;
 }
