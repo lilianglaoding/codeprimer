@@ -24,6 +24,7 @@ int main()
 {
     stperson st;
     st.age;
+    st.number = 1;
     int a = sum(st);
     return 0;
 }

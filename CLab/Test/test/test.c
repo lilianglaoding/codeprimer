@@ -11,23 +11,6 @@ int main()
 {
     int a = 0;
     LinkList list;
+    list->next = NULL;
     printf("Hello, world!\n");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

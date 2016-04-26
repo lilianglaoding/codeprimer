@@ -3,7 +3,7 @@
 
 #include "quicksort.h"
 
-:int Partion(datatype *arr, int low, int high)
+int Partion(datatype *arr, int low, int high)
 {
     datatype temp;
     temp = arr[low];
@@ -14,7 +14,7 @@
 	if (low < high)
 	{
 	    arr[low] = arr[high];
-	    low++;
+p	    low++;
 	}
 	while (low < high && temp > arr[low])
 	    low++;
