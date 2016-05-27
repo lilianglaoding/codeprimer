@@ -67,14 +67,6 @@ void PreOrder(BiTreeNode *t)
     PreOrder(t->rchild);
 }
 
-void NRPreOrder(BiTreeNode *t)
-{
-    if (t == NULL)
-        return ;
-    BiTreeNode *stack[MAXSIZE];
-    top = -1;
-}
-
 void InOrder(BiTreeNode *t)
 {
     if (t == NULL)
@@ -126,6 +118,51 @@ void LevelVisit(BiTreeNode *t)
     }
 }
 
+void PreOrderInsert(BiTree *t)
+{
+    int x;
+    scanf("%d", &x);
+    if (x == 0)
+    {
+        *t = NULL;
+    }
+    else
+    {
+        *t = (BiTreeNode *)malloc(sizeof(BiTreeNode));
+        (*t)->data = x;
+        PreOrderInsert(&((*t)->lchild));
+        PreOrderInsert(&((*t)->rchild));
+    }
+}
+
+void NRPreOrder(BiTreeNode *t)
+{
+    BiTreeNode *p = NULL;
+    BiTreeNode *stack[MAXSIZE];
+    int top = -1;
+
+    p = t;
+    while (!(p == NULL && top == -1))
+    {
+        while (p)
+        {
+            printf("%d ", p->data);
+            top++;
+            stack[top] = p;
+            p = p->lchild;
+        }
+
+        if (top == -1)
+            return ;
+        else
+        {
+            p = stack[top];
+            top--;
+            p = p->rchild;
+        }
+    }
+}
+
 int main()
 {
     BiTreeNode *t = NULL;
@@ -137,6 +174,8 @@ int main()
         InsertRchild(t, i);
     }
     PreOrder(t);
+    printf("\n");
+    NRPreOrder(t);
     printf("\n");
     LevelVisit(t);
     printf("\n");
