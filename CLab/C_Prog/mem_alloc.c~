@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+#define MEM_BLK_SIZE 100
+
+void *InitMemPool(size_t user__pool_size)
+{
+    
+}
+
+void DestroyMemPool(void)
+{
+    
+}
+
+void *MemAlloc(size_t user_blk_size)
+{
+    
+}
+
+int MemFree(void *mem_addr)
+{
+    
+}
