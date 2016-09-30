@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/RubyLab.iml" filepath="$PROJECT_DIR$/.idea/RubyLab.iml" />
       <module fileurl="file://$USER_HOME$/RubymineProjects/basic/.idea/basic.iml" filepath="$USER_HOME$/RubymineProjects/basic/.idea/basic.iml" />
+      <module fileurl="file://$USER_HOME$/RubymineProjects/rails_layout/.idea/rails_layout.iml" filepath="$USER_HOME$/RubymineProjects/rails_layout/.idea/rails_layout.iml" />
     </modules>
   </component>
 </project>
