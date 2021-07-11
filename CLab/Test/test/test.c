@@ -13,4 +13,5 @@ int main()
     LinkList list;
     list->next = NULL;
     printf("Hello, world!\n");
+    return 0;
 }
