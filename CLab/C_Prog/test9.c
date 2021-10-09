@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXSIZE 20
+#define MAXSIZE 30
 
 typedef struct student
 {
