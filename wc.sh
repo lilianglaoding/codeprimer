@@ -2,6 +2,7 @@
 
 #/user/bin/sh
 
+
 cat /dev/null > info         #清空info
 
 types=("*.asm" "*.s" "*.c" "*.cpp" "*.h" "*.cs" "*.java")   #所有要统计的文件类型
